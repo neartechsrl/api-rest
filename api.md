@@ -54,19 +54,36 @@ Respuesta Servidor
     ],
     "talonarios": [
 		{
-			"tipo_comprobante": "PED",
-			"talonario": 6,
-			"desc_talonario": "PEDIDOS"
-		}
+		  "tipo_comprobante": "PED",
+		  "talonario": 6,
+		  "desc_talonario": "PEDIDOS"
+		},
+		{
+		  "tipo_comprobante": "COT",
+		  "talonario": 7,
+		  "desc_talonario": "COTIZACIONES"
+		},
+		{
+		  "tipo_comprobante": "FAC",
+		  "talonario": 500,
+		  "desc_talonario": "FACTURA MANUAL A"
+		}		
     ],
     "condiciones_venta": [
         {
+            "codigo_condicion": 1,
+            "desc_condicion": "CONTADO",
+            "contado": "S"
+        },
+        {
             "codigo_condicion": 3,
-            "desc_condicion": "30/60/90 CON INTERES"
+            "desc_condicion": "30/60/90 CON INTERES",
+            "contado": "N"
         },
         {
             "codigo_condicion": 4,
-            "desc_condicion": "CONTADO 30/60/90"
+            "desc_condicion": "CONTADO 30/60/90",
+            "contado": "N"
         }
     ],
     "listas_precio": [
@@ -354,7 +371,7 @@ Ejemplo: `GET /consulta_comprobantes?codigo_perfil=1&fecha_desde=01/01/2019&fech
 | codigo_perfil		| Código Perfil __REQUERIDO__| 
 | fecha_desde		| Fecha Desde. Formato dd/mm/yyyy __REQUERIDO__| 
 | fecha_hasta		| Fecha Hasta. Formato dd/mm/yyyy __REQUERIDO__| 
-| tipo_comprobante	| Tipo Comprobante PED o COT. __REQUERIDO__| 
+| tipo_comprobante	| Tipo Comprobante PED, COT, FAC. __REQUERIDO__| 
 | texto_cliente		| Búsqueda por código o razón social cliente. *** OPCIONAL ***| 
 
 Respuesta servidor
@@ -404,7 +421,7 @@ Ejemplo: `GET /pdf_comprobante?codigo_perfil=1&tipo_comprobante=PED&talonario=6&
 | Parámetros     | Explicación|
 | -------------- | ---------- |
 | codigo_perfil			| Código Perfil| 
-| tipo_comprobante		| Tipo Comprobante PED o COT| 
+| tipo_comprobante		| Tipo Comprobante PED, COT, FAC| 
 | talonario				| Número Talonario| 
 | numero_comprobante	| Número Comprobante| 
 
@@ -424,7 +441,7 @@ Respuesta servidor
 
 ## Métodos POST
 
-#### POST /pedido ( grabar un pedido ) o POST /cotiza ( grabar cotización )
+#### POST /pedido ( grabar un pedido ) o POST /cotiza ( grabar cotización ) o  POST /comprobante ( grabar comprobante de ventas, FAC por el momento )
 
 ```json
 {
