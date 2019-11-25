@@ -105,7 +105,7 @@ Respuesta Servidor
 
 Recibe todos los artículos
 
-ejemplo: `GET /articulos?codigo_perfil=1&numero_lista=1&q=BARRA)`
+ejemplo: `GET /articulos?codigo_perfil=1&numero_lista=1&q=BARRA`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
@@ -153,7 +153,7 @@ Respuesta Servidor
 
 #### GET /articulo
 
-Ejemplo: `GET /articulo?codigo_perfil=1&numero_lista=1&codigo=BARRA01)`
+Ejemplo: `GET /articulo?codigo_perfil=1&numero_lista=1&codigo=BARRA01`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
@@ -191,7 +191,7 @@ Respuesta Servidor
 
 Información de stock de artículo
 
-Ejemplo: `GET /stock?codigo_perfil=1&codigo=BARRA01)`
+Ejemplo: `GET /stock?codigo_perfil=1&codigo=BARRA01`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
@@ -287,7 +287,7 @@ Respuesta Servidor
 
 Consulta de Clientes
 
-Ejemplo: `GET /clientes?codigo_perfil=1&q=LUCERO)`
+Ejemplo: `GET /clientes?codigo_perfil=1&q=LUCERO`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
@@ -334,7 +334,7 @@ Respuesta Servidor
 
 Consulta de cliente específico
 
-Ejemplo: `GET /cliente?codigo_perfil=1&codigo_cliente=000003)`
+Ejemplo: `GET /cliente?codigo_perfil=1&codigo_cliente=000003`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
@@ -370,7 +370,7 @@ Respuesta Servidor
 
 Consulta de comprobantes
 
-Ejemplo: `GET /consulta_comprobantes?codigo_perfil=1&fecha_desde=01/01/2019&fecha_hasta=30/09/2019&tipo_comprobante=PED)`
+Ejemplo: `GET /consulta_comprobantes?codigo_perfil=1&fecha_desde=01/01/2019&fecha_hasta=30/09/2019&tipo_comprobante=PED`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
@@ -422,7 +422,7 @@ Respuesta servidor
 
 Generar PDF de comprobante 
 
-Ejemplo: `GET /pdf_comprobante?codigo_perfil=1&tipo_comprobante=PED&talonario=6&numero_comprobante= 0000000000342)`
+Ejemplo: `GET /pdf_comprobante?codigo_perfil=1&tipo_comprobante=PED&talonario=6&numero_comprobante= 0000000000342`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
@@ -443,6 +443,106 @@ Respuesta servidor
 	"pdf":"JVBERi0xLjMNCiXi48/TDQoxIDAgb2JqDQ..."
 }
 
+```
+
+#### GET /pedidos_pendientes
+
+Consulta de pedidos pendientes de cliente específico
+
+Ejemplo: `GET /pedidos_pendientes?codigo_perfil=1&codigo_cliente=000003`
+
+| Parámetros     | Explicación|
+| -------------- | ---------- |
+| codigo_perfil	 | Código Perfil __REQUERIDO__| 
+| codigo_cliente | Código Cliente __REQUERIDO__| 
+
+Respuesta Servidor
+
+`HTTP/1.1 200 OK`
+
+```json
+[
+  {
+    "talonario_pedido": 6,
+    "numero_pedido": " 0000000000017",
+    "fecha_pedido": "07/10/2019 00:00"
+  },
+  {
+    "talonario_pedido": 6,
+    "numero_pedido": " 0000000000022",
+    "fecha_pedido": "25/11/2019 00:00"
+  }
+]
+```
+
+#### GET /detalle_pedido_pendiente
+
+Consulta de detallo de pedido pendiente
+
+Ejemplo: `GET /detalle_pedido_pendiente?codigo_perfil=1&talonario=6&numero_comprobante= 0000000000022&numero_lista=1`
+
+| Parámetros     | Explicación|
+| -------------- | ---------- |
+| codigo_perfil	 | Código Perfil __REQUERIDO__| 
+| talonario | Talonario __REQUERIDO__| 
+| numero_comprobante | Número Pedido __REQUERIDO__| 
+| numero_lista | Número Lista de Precio __REQUERIDO__| 
+
+Respuesta Servidor
+
+`HTTP/1.1 200 OK`
+
+```json
+[
+  {
+    "codigo_articulo": "001",
+    "desc_articulo": "VEHI - GENERICO 001VV",
+    "adicional": "10x20x30",
+    "sinonimo": "KRN865",
+    "codigo_barra": "",
+    "unidad_medida_stock": "UNI",
+    "unidad_medida_ventas": "UNI",
+    "equivalencia": 1,
+    "porcentaje_iva": 21,
+    "porcentaje_ii": 0,
+    "numero_lista": 1,
+    "desc_lista": "Mayorista",
+    "incluye_iva": 0,
+    "incluye_ii": 0,
+    "precio": 70,
+    "dum": 0,
+    "unidad_medida_stock_2": "",
+    "equivalencia_stock_2": 0,
+    "talonario_pedido": 6,
+    "numero_pedido": " 0000000000022",
+    "cantidad_pendiente": 4,
+    "renglon": 1
+  },
+  {
+    "codigo_articulo": "BARRA01",
+    "desc_articulo": "BARRA DE HIERRO",
+    "adicional": "Perfil IPN 12 X 12",
+    "sinonimo": "",
+    "codigo_barra": "10203040",
+    "unidad_medida_stock": "KGR",
+    "unidad_medida_ventas": "BAR",
+    "equivalencia": 4.7,
+    "porcentaje_iva": 21,
+    "porcentaje_ii": 0,
+    "numero_lista": 1,
+    "desc_lista": "Mayorista",
+    "incluye_iva": 0,
+    "incluye_ii": 0,
+    "precio": 12.9,
+    "dum": 0,
+    "unidad_medida_stock_2": "",
+    "equivalencia_stock_2": 0,
+    "talonario_pedido": 6,
+    "numero_pedido": " 0000000000022",
+    "cantidad_pendiente": 9.4,
+    "renglon": 2
+  }
+]
 ```
 
 ## Métodos POST
@@ -474,13 +574,16 @@ Respuesta servidor
 			"codigo_articulo": "001",
 			"cantidad": 2,
 			"precio": 70,
-			"descuento": 0.0
+			"descuento": 0.0,
+			"talonario_pedido": 6,
+			"numero_pedido": " 0000000000022",
+			"renglon": 2			
 		},
 		{
 			"codigo_articulo": "002",
 			"cantidad": 3,
 			"precio": 110,
-			"descuento": 0.0
+			"descuento": 0.0					
 		}
 	]
 }
