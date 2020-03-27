@@ -97,7 +97,43 @@ Respuesta Servidor
             "numero_lista": 1,
             "desc_lista": "Mayorista"
         }
-    ]
+    ],
+    "categorias_iva": [
+		{
+			"codigo_categoria_iva": "CF",
+			"desc_categoria_iva": "Consumidor final"
+		},
+		{
+			"codigo_categoria_iva": "RI",
+			"desc_categoria_iva": "Responsable inscripto"
+		}    
+	],
+	"provincias": [
+		{
+			"codigo_provincia": "01",
+			"desc_provincia": "Capital Federal",
+			"codigo_pais": "AR"
+		},
+		{
+			"codigo_provincia": "05",
+			"desc_provincia": "Mendoza",
+			"codigo_pais": "AR"
+		}    
+	],
+	"zonas": [
+		{
+			"codigo_zona": "01",
+			"desc_zona": "Zona Norte"
+		},
+		{
+			"codigo_zona": "02",
+			"desc_zona": "Zona Centro"
+		},
+		{
+			"codigo_zona": "03",
+			"desc_zona": "Zona Sur"
+		}
+	]		
 }
 ```
 
@@ -315,6 +351,7 @@ Respuesta Servidor
 		"domicilio": "Montecaseros 1039",
 		"e_mail": "mlucero@neartech.com.ar",
 		"localidad": "San Rafael",
+		"codigo_postal": "5600",
 		"desc_provincia": "MENDOZA",
 		"notas": "",
 		"telefono_1": "4436103",
@@ -339,7 +376,7 @@ Ejemplo: `GET /cliente?codigo_perfil=1&codigo_cliente=000003`
 | Parámetros     | Explicación|
 | -------------- | ---------- |
 | codigo_perfil	 | Código Perfil __REQUERIDO__| 
-| codigo_cliente | Código Cliente| 
+| codigo_cliente | Código Cliente __REQUERIDO__| 
 
 Respuesta Servidor
 
@@ -352,6 +389,7 @@ Respuesta Servidor
 	"domicilio": "Montecaseros 1039",
 	"e_mail": "mlucero@neartech.com.ar",
 	"localidad": "San Rafael",
+	"codigo_postal": "5600",
 	"desc_provincia": "MENDOZA",
 	"notas": "",
 	"telefono_1": "4436103",
@@ -362,7 +400,13 @@ Respuesta Servidor
 	"codigo_zona": "01",
 	"desc_zona": "Zona Norte",
 	"codigo_pais": "AR",
-	"desc_pais": "ARGENTINA"    
+	"desc_pais": "ARGENTINA",
+	"numero_lista": 1,	
+    "desc_lista": "Mayorista",
+    "codigo_condicion": 3,
+    "desc_condicion": "30/60/90 CON INTERES",
+    "cupo_credito": 1500.00,
+    "saldo_cta_cte": 150.00
 }
 ```
 
@@ -570,22 +614,36 @@ Respuesta Servidor
 	"leyenda_5": "",
 	"total": 568.70,
 	"detalle": [
+			{
+				"codigo_articulo": "001",
+				"cantidad": 2,
+				"precio": 70,
+				"descuento": 0.0,
+				"talonario_pedido": 6,
+				"numero_pedido": " 0000000000022",
+				"renglon": 2			
+			},
+			{
+				"codigo_articulo": "002",
+				"cantidad": 3,
+				"precio": 110,
+				"descuento": 0.0					
+			}
+		],
+	"datos_cliente": 
 		{
-			"codigo_articulo": "001",
-			"cantidad": 2,
-			"precio": 70,
-			"descuento": 0.0,
-			"talonario_pedido": 6,
-			"numero_pedido": " 0000000000022",
-			"renglon": 2			
-		},
-		{
-			"codigo_articulo": "002",
-			"cantidad": 3,
-			"precio": 110,
-			"descuento": 0.0					
+			"nombre_cliente": "Lucero Miguel",
+			"domicilio": "Montecaseros 1039",
+			"codigo_postal": "5600",			
+			"localidad": "San Rafael",	
+			"codigo_provincia": "01",					
+			"tipo_documento": 96,
+			"cuit": "20888999",
+			"codigo_categoria_iva": "RI",
+			"e_mail": "mlucero@neartech.com.ar",			
+			"telefono": "4436103",
+			"codigo_zona": "03"
 		}
-	]
 }
 ```
 
