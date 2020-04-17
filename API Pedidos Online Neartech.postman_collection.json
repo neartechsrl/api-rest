@@ -1,0 +1,893 @@
+{
+	"info": {
+		"_postman_id": "ab8ff027-753d-404b-be6a-1ba849676687",
+		"name": "API Pedidos Online Neartech",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Categoria IVA",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/categoria_iva",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"categoria_iva"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Provincias",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/provincias",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"provincias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Zonas",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/zonas",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"zonas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "12cdb656-0444-4765-8b5d-e59435ea88b6",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"codigo_perfil\",data.codigo_perfil);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/login",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Clientes",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/clientes?codigo_perfil={{codigo_perfil}}&q=LUCERO",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"clientes"
+					],
+					"query": [
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}",
+							"description": "Requerido"
+						},
+						{
+							"key": "q",
+							"value": "LUCERO"
+						},
+						{
+							"key": "sort_by",
+							"value": "alpha-asc",
+							"description": "Valores posibles: code-asc code-desc alpha-asc alpha-desc",
+							"disabled": true
+						},
+						{
+							"key": "binary_img",
+							"value": "0",
+							"description": "0=NO 1=SI devuelve foto artículo jpeg base64",
+							"disabled": true
+						},
+						{
+							"key": "size_img",
+							"value": "128",
+							"description": "Tamaño foto en pixels",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Datos de cliente específico",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/cliente?codigo_perfil={{codigo_perfil}}&codigo_cliente=000003",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"cliente"
+					],
+					"query": [
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}",
+							"description": "Requerido"
+						},
+						{
+							"key": "codigo_cliente",
+							"value": "000003",
+							"description": "Requerido"
+						},
+						{
+							"key": "binary_img",
+							"value": "1",
+							"description": "0=NO 1=SI devuelve foto artículo jpeg base64",
+							"disabled": true
+						},
+						{
+							"key": "size_img",
+							"value": "128",
+							"description": "Tamaño foto en pixels",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Artículos",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/articulos?codigo_perfil={{codigo_perfil}}&numero_lista=1&q=001",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"articulos"
+					],
+					"query": [
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}",
+							"description": "Requerido"
+						},
+						{
+							"key": "numero_lista",
+							"value": "1",
+							"description": "Requerido"
+						},
+						{
+							"key": "q",
+							"value": "001"
+						},
+						{
+							"key": "sort_by",
+							"value": "alpha-asc",
+							"description": "Valores posibles: code-asc code-desc alpha-asc alpha-desc",
+							"disabled": true
+						},
+						{
+							"key": "code",
+							"value": "001",
+							"description": "Código artículo o codigo de barra",
+							"disabled": true
+						},
+						{
+							"key": "binary_img",
+							"value": "1",
+							"description": "0=NO 1=SI devuelve foto artículo jpeg base64",
+							"disabled": true
+						},
+						{
+							"key": "size_img",
+							"value": "128",
+							"description": "Tamaño foto en pixels",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Datos de artículo específico",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/articulo?codigo_perfil={{codigo_perfil}}&numero_lista=1&codigo=001",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"articulo"
+					],
+					"query": [
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}",
+							"description": "Requerido"
+						},
+						{
+							"key": "numero_lista",
+							"value": "1",
+							"description": "Requerido"
+						},
+						{
+							"key": "codigo",
+							"value": "001",
+							"description": "Requerido"
+						},
+						{
+							"key": "binary_img",
+							"value": "1",
+							"description": "0=NO 1=SI devuelve foto artículo jpeg base64",
+							"disabled": true
+						},
+						{
+							"key": "size_img",
+							"value": "128",
+							"description": "Tamaño foto en pixels",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stock de artículo específico",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/stock?codigo_perfil={{codigo_perfil}}&codigo=001",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"stock"
+					],
+					"query": [
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}",
+							"description": "Requerido"
+						},
+						{
+							"key": "codigo",
+							"value": "001",
+							"description": "Requerido"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Foto de artículo específico",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/foto?codigo_perfil={{codigo_perfil}}&codigo=001",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"foto"
+					],
+					"query": [
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}",
+							"description": "Requerido"
+						},
+						{
+							"key": "codigo",
+							"value": "001",
+							"description": "Requerido"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta comprobantes",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/consulta_comprobantes?codigo_perfil={{codigo_perfil}}&fecha_desde=01/01/2020&fecha_hasta=31/12/2020&tipo_comprobante=PED",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"consulta_comprobantes"
+					],
+					"query": [
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}",
+							"description": "Requerido"
+						},
+						{
+							"key": "fecha_desde",
+							"value": "01/01/2020",
+							"description": "Requerido. Formato dd/mm/aaaa "
+						},
+						{
+							"key": "fecha_hasta",
+							"value": "31/12/2020",
+							"description": "Requerido. Formato dd/mm/aaaa "
+						},
+						{
+							"key": "tipo_comprobante",
+							"value": "PED",
+							"description": "Requerido. Posibles valores PED COT FAC REM"
+						},
+						{
+							"key": "texto_cliente",
+							"value": "LUCERO",
+							"description": "Código cliente, razón social o cuit cliente",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PDF comprobante específico",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/pdf_comprobante?codigo_perfil={{codigo_perfil}}&tipo_comprobante=PED&talonario=6&numero_comprobante= 0000000000031",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"pdf_comprobante"
+					],
+					"query": [
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}",
+							"description": "Requerido"
+						},
+						{
+							"key": "tipo_comprobante",
+							"value": "PED",
+							"description": "Requerido. Posibles valores PED COT FAC REM"
+						},
+						{
+							"key": "talonario",
+							"value": "6",
+							"description": "Requerido"
+						},
+						{
+							"key": "numero_comprobante",
+							"value": " 0000000000031",
+							"description": "Requerido"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pedidos pendientes cliente específico",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/pedidos_pendientes?codigo_perfil={{codigo_perfil}}&codigo_cliente=000003",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"pedidos_pendientes"
+					],
+					"query": [
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}",
+							"description": "Requerido"
+						},
+						{
+							"key": "codigo_cliente",
+							"value": "000003",
+							"description": "Requerido"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Detalle pedido pendiente",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/detalle_pedido_pendiente?codigo_perfil={{codigo_perfil}}&talonario=6&numero_comprobante= 0000000000043&numero_lista=2",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"detalle_pedido_pendiente"
+					],
+					"query": [
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}",
+							"description": "Requerido"
+						},
+						{
+							"key": "talonario",
+							"value": "6",
+							"description": "Requerido"
+						},
+						{
+							"key": "numero_comprobante",
+							"value": " 0000000000043",
+							"description": "Requerido"
+						},
+						{
+							"key": "numero_lista",
+							"value": "2",
+							"description": "Requerido"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Grabar Pedido",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=UTF-8",
+						"description": "Requerido",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"codigo_cliente\":\"000003\",\r\n\t\"talonario\":6,\r\n\t\"fecha\":\"17/04/2020\",\r\n\t\"codigo_vendedor\":\"1\",\r\n\t\"codigo_condicion\":2,\r\n\t\"codigo_transporte\":\"01\",\r\n\t\"codigo_deposito\":\"1\",\r\n\t\"numero_lista\":1,\r\n\t\"leyenda_1\":\"\",\r\n\t\"leyenda_2\":\"\",\r\n\t\"leyenda_3\":\"\",\r\n\t\"leyenda_4\":\"\",\r\n\t\"leyenda_5\":\"\",\r\n\t\"total\":84.7,\r\n\t\"detalle\":[\r\n\t\t{\r\n\t\t\t\"codigo_articulo\":\"001\",\r\n\t\t\t\"desc_articulo\":\"VEHI - GENERICO 001VV\",\r\n\t\t\t\"precio\":70,\r\n\t\t\t\"cantidad\":1,\r\n\t\t\t\"descuento\":0\r\n\t\t}\r\n\t]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.1.11:3000/pedido",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"pedido"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Grabar Comprobante",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=UTF-8",
+						"description": "Requerido",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"codigo_cliente\":\"000003\",\r\n\t\"talonario\":500,\r\n\t\"fecha\":\"17/04/2020\",\r\n\t\"codigo_vendedor\":\"1\",\r\n\t\"codigo_condicion\":2,\r\n\t\"codigo_transporte\":\"01\",\r\n\t\"codigo_deposito\":\"1\",\r\n\t\"numero_lista\":1,\r\n\t\"leyenda_1\":\"\",\r\n\t\"leyenda_2\":\"\",\r\n\t\"leyenda_3\":\"\",\r\n\t\"leyenda_4\":\"\",\r\n\t\"leyenda_5\":\"\",\r\n\t\"total\":84.7,\r\n\t\"detalle\":[\r\n\t\t{\r\n\t\t\t\"codigo_articulo\":\"001\",\r\n\t\t\t\"desc_articulo\":\"VEHI - GENERICO 001VV\",\r\n\t\t\t\"precio\":70,\r\n\t\t\t\"cantidad\":1,\r\n\t\t\t\"descuento\":0\r\n\t\t}\r\n\t]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.1.11:3000/comprobante",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"comprobante"
+					]
+				},
+				"description": "Grabar Pedido, Cotización, Remito, Factura o Nota de Crédito\n"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "123456",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "MIGUEL",
+				"type": "string"
+			}
+		]
+	},
+	"protocolProfileBehavior": {}
+}
