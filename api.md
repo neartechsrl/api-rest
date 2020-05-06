@@ -748,3 +748,102 @@ Posibles respuestas servidor
 	]
 }
 ```
+
+#### POST /comanda ( grabar comanda en sistema Tango Resto )
+
+| Secciones | Explicación | Observación |
+| --------- | ----------- | ----------- |
+| pagos		| indica uno o mas metodos de pago | Opcional.  |
+| envio | Indica como se realiza el envio y si lleva costo adicional | Opcional |
+
+| Metodos de Pago | Explicación |
+| --------------- | ----------- |
+| EFECTIVO | Pago en efectivo |
+| TARJETA | Pago con tarjeta. Completar datos de tarjeta. |
+| MPA | Mercado Pago Argentina |
+| PPA | PayPal Argentina |
+
+```json
+{
+	"codigo_perfil":1,
+	"fecha":"29/04/2020",
+	"leyenda_1":"",
+	"leyenda_2":"",
+	"leyenda_3":"",
+	"leyenda_4":"",
+	"leyenda_5":"",
+	"notas": "",
+	"total": 970.0,
+	"id_pedido_origen": 1,
+	"detalle":[
+		{
+			"codigo_articulo":"CHP01",
+			"desc_articulo":"HUEVO PASCUA 110G",
+			"precio": 220.0,
+			"cantidad": 2,
+			"descuento":0
+		},
+				{
+			"codigo_articulo":"DEM05",
+			"desc_articulo":"DOCE EMPANADA CAPRESE",
+			"precio": 530.0,
+			"cantidad": 1,
+			"descuento":0
+		}
+	],
+	"pagos": [
+		{
+			"id": "1234",
+			"metodo": "EFECTIVO",
+			"total": 970.0,
+			"fecha": "",
+			"codigo_autorizacion": "",
+			"numero_transaccion": "",
+			"cuotas": 0,
+			"importe_cuota": 0.0,
+			"codigo_tarjeta": "",
+			"numero_cupon": ""	
+		}
+	],
+	"datos_cliente": 
+		{
+			"nombre": "Miguel Sandro",
+			"apellido": "Lucero",
+			"calle": "Balloffet",
+			"numero": "140",
+			"piso": "1",
+			"departamento": "4",
+			"codigo_postal": "5600",			
+			"localidad": "San Rafael",	
+			"codigo_provincia": "04",					
+			"tipo_documento": 96,
+			"cuit": "20888999",
+			"codigo_categoria_iva": "CF",
+			"e_mail": "mlucero@neartech.com.ar",			
+			"telefono_1": "4436103",
+			"telefono_2": ""
+		},
+	"envio":
+		{
+			"costo": 100.0,
+			"calle": "",
+			"numero": "",
+			"piso": "",
+			"departamento": "",
+			"localidad": "",
+			"codigo_postal": "",
+			"codigo_provincia": "",
+			"telefono_1": "",
+			"telefono_2": "",
+			"entrega_lunes": "S",
+			"entrega_martes": "S",
+			"entrega_miercoles": "S",
+			"entrega_jueves": "S",
+			"entrega_viernes": "S",
+			"entrega_sabado": "N",
+			"entrega_domingo": "N",
+			"entrega_hora": "13:00"
+		}
+}
+```
+
