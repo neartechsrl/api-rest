@@ -180,7 +180,7 @@ ejemplo: `GET /arbol_clasificador?codigo_perfil=1`
 
 Recibe clasificador (Tango Gestión - NO Restó )
 
-ejemplo: `GET /arbol_clasificador?codigo_perfil=1&id_parent=7`
+ejemplo: `GET /clasificador?codigo_perfil=1&id_parent=7`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
@@ -204,6 +204,71 @@ ejemplo: `GET /arbol_clasificador?codigo_perfil=1&id_parent=7`
 ]
 ```
 
+#### GET /arbol_rubros
+
+Recibe árbol rubros completo (Tango Restó)
+
+ejemplo: `GET /arbol_rubros?codigo_perfil=1`
+
+| Parámetros     | Explicación|
+| -------------- | ---------- |
+| codigo_perfil	 | Código de perfil __REQUERIDO__ |
+
+```json
+[
+  {
+    "codigo_rubro": 6,
+    "descripcion_rubro": "BEBIDAS CERVEZAS",
+    "codigo_rubro_padre": -1,
+    "favorito": "S",
+    "child_count": 1
+  },
+  {
+    "codigo_rubro": 18,
+    "descripcion_rubro": "QUILMES",
+    "codigo_rubro_padre": 6,
+    "favorito": "N",
+    "child_count": 0
+  },
+  {
+    "codigo_rubro": 11,
+    "descripcion_rubro": "BEBIDAS FUERTES",
+    "codigo_rubro_padre": -1,
+    "favorito": "N",
+    "child_count": 0
+  },
+  {
+    "codigo_rubro": 12,
+    "descripcion_rubro": "BEBIDAS JUGOS BATIDOS MALTEADA",
+    "codigo_rubro_padre": -1,
+    "favorito": "N",
+    "child_count": 0
+  },
+ ]
+```
+
+#### GET /rubros
+
+Recibe rubros (Tango NO Restó )
+
+ejemplo: `GET /rubros?codigo_perfil=1&codigo_rubro_padre=17`
+
+| Parámetros     | Explicación|
+| -------------- | ---------- |
+| codigo_perfil	 | Código de perfil __REQUERIDO__ |
+| codigo_rubro_padre | Si se omite se devuelve primer nivel de rubros |
+
+```json
+[
+  {
+    "codigo_rubro": 19,
+    "descripcion_rubro": "BIANCHI",
+    "codigo_rubro_padre": 17,
+    "favorito": "N",
+    "child_count": 0
+  }
+]
+```
 #### GET /articulos 
 
 Recibe todos los artículos
@@ -220,7 +285,8 @@ ejemplo: `GET /articulos?codigo_perfil=1&numero_lista=1&q=BARRA`
 | binary_img	 | Indica si las imagenes vienen en formato binario o solo la uri. 1=Si, 0=No -> valor x defecto, se envía la uri. |
 | size_img		 | Tamaño imagen. 128x128 por defecto |
 | code			 | Filtro por código de artículo o código de barra |
-| id_folder 	 | Filtro por id_folder de carpeta clasificador |
+| id_folder 	 | Filtro por id_folder de carpeta clasificador (Solo Tango Gestion) |
+| codigo_rubro 	 | Filtro por rubro (Solo Tango Restó) |
 
 | Criterios de Ordenamiento | Explicación |
 | ------------------------  | ----------- |

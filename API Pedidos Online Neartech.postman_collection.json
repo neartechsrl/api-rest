@@ -314,7 +314,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/articulos?codigo_perfil={{codigo_perfil}}&numero_lista=1&id_folder=19",
+					"raw": "http://192.168.1.11:3000/articulos?codigo_perfil={{codigo_perfil}}&numero_lista=1",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -369,7 +369,14 @@
 						{
 							"key": "id_folder",
 							"value": "19",
-							"description": "ID Clasificador"
+							"description": "ID Clasificador",
+							"disabled": true
+						},
+						{
+							"key": "codigo_rubro",
+							"value": "21",
+							"description": "Codigo Rubro Resto",
+							"disabled": true
 						}
 					]
 				}
@@ -1018,6 +1025,98 @@
 							"key": "codigo_perfil",
 							"value": "{{codigo_perfil}}",
 							"description": "Requerido"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Arbol Rubros Resto",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SUPERVISOR",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/arbol_rubros?codigo_perfil={{codigo_perfil}}",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"arbol_rubros"
+					],
+					"query": [
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}",
+							"description": "Requerido"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Rubros Resto",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SUPERVISOR",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/rubros?codigo_perfil={{codigo_perfil}}&codigo_rubro_padre=17",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"rubros"
+					],
+					"query": [
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}",
+							"description": "Requerido"
+						},
+						{
+							"key": "codigo_rubro_padre",
+							"value": "17"
 						}
 					]
 				}
