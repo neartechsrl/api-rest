@@ -314,7 +314,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/articulos?codigo_perfil={{codigo_perfil}}&numero_lista=1&q=001",
+					"raw": "http://192.168.1.11:3000/articulos?codigo_perfil={{codigo_perfil}}&numero_lista=1&id_folder=19",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -339,7 +339,8 @@
 						},
 						{
 							"key": "q",
-							"value": "001"
+							"value": "001",
+							"disabled": true
 						},
 						{
 							"key": "sort_by",
@@ -364,6 +365,11 @@
 							"value": "128",
 							"description": "Tamaño foto en pixels",
 							"disabled": true
+						},
+						{
+							"key": "id_folder",
+							"value": "19",
+							"description": "ID Clasificador"
 						}
 					]
 				}
@@ -870,6 +876,151 @@
 					]
 				},
 				"description": "Grabar Pedido, Cotización, Remito, Factura o Nota de Crédito\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Grabar Comanda Resto",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SUPERVISOR",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=UTF-8",
+						"description": "Requerido",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"fecha\":\"29/04/2020\",\r\n\t\"leyenda_1\":\"\",\r\n\t\"leyenda_2\":\"\",\r\n\t\"leyenda_3\":\"\",\r\n\t\"leyenda_4\":\"\",\r\n\t\"leyenda_5\":\"\",\r\n\t\"notas\": \"\",\r\n\t\"total\": 970.0,\r\n\t\"id_pedido_origen\": 1,\r\n\t\"detalle\":[\r\n\t\t{\r\n\t\t\t\"codigo_articulo\":\"CHP01\",\r\n\t\t\t\"desc_articulo\":\"HUEVO PASCUA 110G\",\r\n\t\t\t\"precio\": 220.0,\r\n\t\t\t\"cantidad\": 2,\r\n\t\t\t\"descuento\":0\r\n\t\t},\r\n\t\t\t\t{\r\n\t\t\t\"codigo_articulo\":\"DEM05\",\r\n\t\t\t\"desc_articulo\":\"DOCE EMPANADA CAPRESE\",\r\n\t\t\t\"precio\": 530.0,\r\n\t\t\t\"cantidad\": 1,\r\n\t\t\t\"descuento\":0\r\n\t\t}\r\n\t],\r\n\t\"pagos\": [\r\n\t\t{\r\n\t\t\t\"id\": \"1234\",\r\n\t\t\t\"metodo\": \"EFECTIVO/TARJETA/MPA/PPA\",\r\n\t\t\t\"total\": 970.0,\r\n\t\t\t\"fecha\": \"\",\r\n\t\t\t\"codigo_autorizacion\": \"\",\r\n\t\t\t\"numero_transaccion\": \"\",\r\n\t\t\t\"cuotas\": 0,\r\n\t\t\t\"importe_cuota\": 0.0,\r\n\t\t\t\"codigo_tarjeta\": \"\",\r\n\t\t\t\"numero_cupon\": \"\"\t\r\n\t\t}\r\n\t],\r\n\t\"datos_cliente\": \r\n\t\t{\r\n\t\t\t\"nombre\": \"Miguel Sandro\",\r\n\t\t\t\"apellido\": \"Lucero\",\r\n\t\t\t\"calle\": \"Balloffet\",\r\n\t\t\t\"numero\": \"140\",\r\n\t\t\t\"piso\": \"1\",\r\n\t\t\t\"departamento\": \"4\",\r\n\t\t\t\"codigo_postal\": \"5600\",\t\t\t\r\n\t\t\t\"localidad\": \"San Rafael\",\t\r\n\t\t\t\"codigo_provincia\": \"04\",\t\t\t\t\t\r\n\t\t\t\"tipo_documento\": 96,\r\n\t\t\t\"cuit\": \"20888999\",\r\n\t\t\t\"codigo_categoria_iva\": \"CF\",\r\n\t\t\t\"e_mail\": \"mlucero@neartech.com.ar\",\t\t\t\r\n\t\t\t\"telefono_1\": \"4436103\",\r\n\t\t\t\"telefono_2\": \"\"\r\n\t\t},\r\n\t\"envio\":\r\n\t\t{\r\n\t\t\t\"costo\": 100.0,\r\n\t\t\t\"calle\": \"\",\r\n\t\t\t\"numero\": \"\",\r\n\t\t\t\"piso\": \"\",\r\n\t\t\t\"departamento\": \"\",\r\n\t\t\t\"localidad\": \"\",\r\n\t\t\t\"codigo_postal\": \"\",\r\n\t\t\t\"codigo_provincia\": \"\",\r\n\t\t\t\"telefono_1\": \"\",\r\n\t\t\t\"telefono_2\": \"\",\r\n\t\t\t\"entrega_lunes\": \"S\",\r\n\t\t\t\"entrega_martes\": \"S\",\r\n\t\t\t\"entrega_miercoles\": \"S\",\r\n\t\t\t\"entrega_jueves\": \"S\",\r\n\t\t\t\"entrega_viernes\": \"S\",\r\n\t\t\t\"entrega_sabado\": \"N\",\r\n\t\t\t\"entrega_domingo\": \"N\",\r\n\t\t\t\"entrega_hora\": \"13:00\"\r\n\t\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.1.11:3000/comanda",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"comanda"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Clasificador",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/clasificador?codigo_perfil={{codigo_perfil}}&id_parent=7",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"clasificador"
+					],
+					"query": [
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}",
+							"description": "Requerido"
+						},
+						{
+							"key": "id_parent",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Arbol Clasificador",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/arbol_clasificador?codigo_perfil={{codigo_perfil}}",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"arbol_clasificador"
+					],
+					"query": [
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}",
+							"description": "Requerido"
+						}
+					]
+				}
 			},
 			"response": []
 		}

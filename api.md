@@ -137,6 +137,73 @@ Respuesta Servidor
 }
 ```
 
+#### GET /arbol_clasificador
+
+Recibe árbol clasificador completo (Tango Gestión - NO Restó )
+
+ejemplo: `GET /arbol_clasificador?codigo_perfil=1`
+
+| Parámetros     | Explicación|
+| -------------- | ---------- |
+| codigo_perfil	 | Código de perfil __REQUERIDO__ |
+
+```json
+[
+  {
+    "id_folder": "20",
+    "descripcion": "Artículos con trazabilidad",
+    "id_parent": "1",
+    "child_count": 0
+  },
+  {
+    "id_folder": "7",
+    "descripcion": "Origen",
+    "id_parent": "1",
+    "child_count": 2
+  },
+  {
+    "id_folder": "9",
+    "descripcion": "Extranjero",
+    "id_parent": "7",
+    "child_count": 0
+  },
+  {
+    "id_folder": "8",
+    "descripcion": "Nacional",
+    "id_parent": "7",
+    "child_count": 2
+  }
+ ]
+```
+
+#### GET /clasificador
+
+Recibe clasificador (Tango Gestión - NO Restó )
+
+ejemplo: `GET /arbol_clasificador?codigo_perfil=1&id_parent=7`
+
+| Parámetros     | Explicación|
+| -------------- | ---------- |
+| codigo_perfil	 | Código de perfil __REQUERIDO__ |
+| id_parent	 | Si se omite se devuelve primer nivel del clasificador |
+
+```json
+[
+  {
+    "id_folder": "9",
+    "descripcion": "Extranjero",
+    "id_parent": "7",
+    "child_count": 0
+  },
+  {
+    "id_folder": "8",
+    "descripcion": "Nacional",
+    "id_parent": "7",
+    "child_count": 2
+  }
+]
+```
+
 #### GET /articulos 
 
 Recibe todos los artículos
@@ -145,7 +212,7 @@ ejemplo: `GET /articulos?codigo_perfil=1&numero_lista=1&q=BARRA`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
-| codigo_perfil	 | Código de perfil a consultar __REQUERIDO__ |
+| codigo_perfil	 | Código de perfil __REQUERIDO__ |
 | numero_lista	 | Número de Lista de Precio __REQUERIDO__ |
 | sort_by		 | Ordenar artículos por un criterio en particular. |
 | page 			 | Páginas a consultar ( 100 registros por página ) |
@@ -153,6 +220,7 @@ ejemplo: `GET /articulos?codigo_perfil=1&numero_lista=1&q=BARRA`
 | binary_img	 | Indica si las imagenes vienen en formato binario o solo la uri. 1=Si, 0=No -> valor x defecto, se envía la uri. |
 | size_img		 | Tamaño imagen. 128x128 por defecto |
 | code			 | Filtro por código de artículo o código de barra |
+| id_folder 	 | Filtro por id_folder de carpeta clasificador |
 
 | Criterios de Ordenamiento | Explicación |
 | ------------------------  | ----------- |
@@ -182,7 +250,11 @@ Respuesta Servidor
 		"desc_lista": "Mayorista",
 		"incluye_iva": 0,
 		"incluye_ii": 0,
-		"precio": 70
+		"precio": 70,
+		"foto": "data:image/jpeg;base64,/9j/4AA.....",
+		"dum": 0,
+		"unidad_medida_stock_2": "",
+		"equivalencia_stock_2": 0
 	},
 ]
 ```
