@@ -285,8 +285,12 @@ ejemplo: `GET /articulos?codigo_perfil=1&numero_lista=1&q=BARRA`
 | binary_img	 | Indica si las imagenes vienen en formato binario o solo la uri. 1=Si, 0=No -> valor x defecto, se envía la uri. |
 | size_img		 | Tamaño imagen. 128x128 por defecto |
 | code			 | Filtro por código de artículo o código de barra |
+| codigo_articulo| Filtro por código de artículo |
 | id_folder 	 | Filtro por id_folder de carpeta clasificador (Solo Tango Gestion) |
 | codigo_rubro 	 | Filtro por rubro (Solo Tango Restó) |
+| codigo_barra 	 | Filtro por código de barra |
+| adicional 	 | Filtro por descripción adicional |
+| sinonimo    	 | Filtro por sinónimo |
 
 | Criterios de Ordenamiento | Explicación |
 | ------------------------  | ----------- |
