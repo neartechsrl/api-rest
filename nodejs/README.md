@@ -1,20 +1,19 @@
 # Neartech SDK para NodeJS
-========================
 
 Esta biblioteca proporciona a los desarrolladores un conjunto simple de funciones para ayudarlo a integrar la API REST de Neartech en un sitio web 
 y comenzar a grabar Pedidos/Comprobantes en Tango.
 
 ## Instalación
 
-Copie el archivo nt_node.js en el directorio de su aplicación node.js. Y agregue la referencia de la siguiente forma.
+Copie el archivo [nt_node.js](https://github.com/neartechsrl/pedidos-rest/blob/master/nodejs/nt_node.js) en el directorio de su aplicación NodeJS. Y agregue la referencia de la siguiente forma.
 
-```
+```javascript
 var nt = require('./nt_node.js');
 ```
 
 ## Ejemplo de uso
 
-```
+```javascript
 // Prueba Modulo Neartech
 var nt = require('./nt_node.js');
 nt.configure('localhost', 3000, 'MIGUEL', '123456');
@@ -87,7 +86,7 @@ nt.pedido(pedido, function(data) {
 
 ## ❤️ Soporte
 
-If you require technical support, please contact our support team at [developers.mercadopago.com](https://developers.mercadopago.com)
+Si usted necesita soporte técnico, por favor contactar con nuestro equipo de soporte por email a <mailto:info@neartech.com.ar>.
 
 ## 🏻 Licencia
 
