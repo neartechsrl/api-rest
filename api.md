@@ -98,6 +98,23 @@ Respuesta Servidor
             "desc_lista": "Mayorista"
         }
     ],
+    "cuentas_fondo": [
+		{
+		  "codigo_cuenta": 2,
+		  "desc_cuenta": "CAJA MOSTRADOR",
+		  "tipo_cuenta": "O"
+		},
+		{
+		  "codigo_cuenta": 7,
+		  "desc_cuenta": "TARJETA XXX",
+		  "tipo_cuenta": "T"
+		},
+		{
+		  "codigo_cuenta": 8,
+		  "desc_cuenta": "TARJETA ZZZ",
+		  "tipo_cuenta": "T"
+		}
+    ],
     "categorias_iva": [
 		{
 			"codigo_categoria_iva": "CF",
@@ -741,9 +758,9 @@ Respuesta Servidor
 ```json
 {
 	"codigo_perfil": 1,
-	"codigo_cliente": "000003",	
+	"codigo_cliente": "000000",	
 	"tipo_comprobante": "FAC",
-	"talonario": 6,
+	"talonario": 500,
 	"fecha": "14/06/2019",
 	"codigo_vendedor": "1",
 	"codigo_condicion": 1,	
@@ -786,11 +803,35 @@ Respuesta Servidor
 			"e_mail": "mlucero@neartech.com.ar",			
 			"telefono": "4436103",
 			"codigo_zona": "03"
+		},
+	"cuentas_fondo": [
+		{
+			"codigo_cuenta": 1,
+			"importe":68.70 
+		},
+		{
+			"codigo_cuenta": 7,
+			"importe":500.0,
+			"datos_tarjeta": [
+				{
+					"lote": "0000",
+					"cupon": 123456,
+					"cuotas": 3,
+					"importe": 500.0,
+					"nombre_cliente": "PEREZ MARIA",
+					"tipo_documento": "DNI",
+					"numero_documento": "123456",
+					"telefono": "",
+					"vencimiento": "062021",
+					"codigo_autorizacion": "6656565"
+				}
+			]
 		}
+	]
 }
 ```
 
-Ejemplo:
+Ejemplo Pedido:
 
 ```shell
 curl -X POST \

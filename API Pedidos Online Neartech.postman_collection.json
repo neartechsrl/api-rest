@@ -377,6 +377,30 @@
 							"value": "21",
 							"description": "Codigo Rubro Resto",
 							"disabled": true
+						},
+						{
+							"key": "codigo_articulo",
+							"value": null,
+							"description": "Código de artículo",
+							"disabled": true
+						},
+						{
+							"key": "codigo_barra",
+							"value": null,
+							"description": "Código de barra",
+							"disabled": true
+						},
+						{
+							"key": "adicional",
+							"value": null,
+							"description": "Descripción adicional",
+							"disabled": true
+						},
+						{
+							"key": "sinonimo",
+							"value": null,
+							"description": "Sinónimo",
+							"disabled": true
 						}
 					]
 				}
@@ -780,166 +804,6 @@
 			"response": []
 		},
 		{
-			"name": "Grabar Pedido",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "123456",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "MIGUEL",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json; charset=UTF-8",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"codigo_cliente\":\"000003\",\r\n\t\"talonario\":6,\r\n\t\"fecha\":\"17/04/2020\",\r\n\t\"codigo_vendedor\":\"1\",\r\n\t\"codigo_condicion\":2,\r\n\t\"codigo_transporte\":\"01\",\r\n\t\"codigo_deposito\":\"1\",\r\n\t\"numero_lista\":1,\r\n\t\"leyenda_1\":\"\",\r\n\t\"leyenda_2\":\"\",\r\n\t\"leyenda_3\":\"\",\r\n\t\"leyenda_4\":\"\",\r\n\t\"leyenda_5\":\"\",\r\n\t\"total\":84.7,\r\n\t\"detalle\":[\r\n\t\t{\r\n\t\t\t\"codigo_articulo\":\"001\",\r\n\t\t\t\"desc_articulo\":\"VEHI - GENERICO 001VV\",\r\n\t\t\t\"precio\":70,\r\n\t\t\t\"cantidad\":1,\r\n\t\t\t\"descuento\":0\r\n\t\t}\r\n\t]\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://192.168.1.11:3000/pedido",
-					"protocol": "http",
-					"host": [
-						"192",
-						"168",
-						"1",
-						"11"
-					],
-					"port": "3000",
-					"path": [
-						"pedido"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Grabar Comprobante",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "123456",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "MIGUEL",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json; charset=UTF-8",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"codigo_cliente\":\"000003\",\r\n\t\"talonario\":500,\r\n\t\"fecha\":\"17/04/2020\",\r\n\t\"codigo_vendedor\":\"1\",\r\n\t\"codigo_condicion\":2,\r\n\t\"codigo_transporte\":\"01\",\r\n\t\"codigo_deposito\":\"1\",\r\n\t\"numero_lista\":1,\r\n\t\"leyenda_1\":\"\",\r\n\t\"leyenda_2\":\"\",\r\n\t\"leyenda_3\":\"\",\r\n\t\"leyenda_4\":\"\",\r\n\t\"leyenda_5\":\"\",\r\n\t\"total\":84.7,\r\n\t\"detalle\":[\r\n\t\t{\r\n\t\t\t\"codigo_articulo\":\"001\",\r\n\t\t\t\"desc_articulo\":\"VEHI - GENERICO 001VV\",\r\n\t\t\t\"precio\":70,\r\n\t\t\t\"cantidad\":1,\r\n\t\t\t\"descuento\":0\r\n\t\t}\r\n\t]\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://192.168.1.11:3000/comprobante",
-					"protocol": "http",
-					"host": [
-						"192",
-						"168",
-						"1",
-						"11"
-					],
-					"port": "3000",
-					"path": [
-						"comprobante"
-					]
-				},
-				"description": "Grabar Pedido, Cotización, Remito, Factura o Nota de Crédito\n"
-			},
-			"response": []
-		},
-		{
-			"name": "Grabar Comanda Resto",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "SUPERVISOR",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json; charset=UTF-8",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"fecha\":\"29/04/2020\",\r\n\t\"leyenda_1\":\"\",\r\n\t\"leyenda_2\":\"\",\r\n\t\"leyenda_3\":\"\",\r\n\t\"leyenda_4\":\"\",\r\n\t\"leyenda_5\":\"\",\r\n\t\"notas\": \"\",\r\n\t\"total\": 970.0,\r\n\t\"id_pedido_origen\": 1,\r\n\t\"detalle\":[\r\n\t\t{\r\n\t\t\t\"codigo_articulo\":\"CHP01\",\r\n\t\t\t\"desc_articulo\":\"HUEVO PASCUA 110G\",\r\n\t\t\t\"precio\": 220.0,\r\n\t\t\t\"cantidad\": 2,\r\n\t\t\t\"descuento\":0\r\n\t\t},\r\n\t\t\t\t{\r\n\t\t\t\"codigo_articulo\":\"DEM05\",\r\n\t\t\t\"desc_articulo\":\"DOCE EMPANADA CAPRESE\",\r\n\t\t\t\"precio\": 530.0,\r\n\t\t\t\"cantidad\": 1,\r\n\t\t\t\"descuento\":0\r\n\t\t}\r\n\t],\r\n\t\"pagos\": [\r\n\t\t{\r\n\t\t\t\"id\": \"1234\",\r\n\t\t\t\"metodo\": \"EFECTIVO/TARJETA/MPA/PPA\",\r\n\t\t\t\"total\": 970.0,\r\n\t\t\t\"fecha\": \"\",\r\n\t\t\t\"codigo_autorizacion\": \"\",\r\n\t\t\t\"numero_transaccion\": \"\",\r\n\t\t\t\"cuotas\": 0,\r\n\t\t\t\"importe_cuota\": 0.0,\r\n\t\t\t\"codigo_tarjeta\": \"\",\r\n\t\t\t\"numero_cupon\": \"\"\t\r\n\t\t}\r\n\t],\r\n\t\"datos_cliente\": \r\n\t\t{\r\n\t\t\t\"nombre\": \"Miguel Sandro\",\r\n\t\t\t\"apellido\": \"Lucero\",\r\n\t\t\t\"calle\": \"Balloffet\",\r\n\t\t\t\"numero\": \"140\",\r\n\t\t\t\"piso\": \"1\",\r\n\t\t\t\"departamento\": \"4\",\r\n\t\t\t\"codigo_postal\": \"5600\",\t\t\t\r\n\t\t\t\"localidad\": \"San Rafael\",\t\r\n\t\t\t\"codigo_provincia\": \"04\",\t\t\t\t\t\r\n\t\t\t\"tipo_documento\": 96,\r\n\t\t\t\"cuit\": \"20888999\",\r\n\t\t\t\"codigo_categoria_iva\": \"CF\",\r\n\t\t\t\"e_mail\": \"mlucero@neartech.com.ar\",\t\t\t\r\n\t\t\t\"telefono_1\": \"4436103\",\r\n\t\t\t\"telefono_2\": \"\"\r\n\t\t},\r\n\t\"envio\":\r\n\t\t{\r\n\t\t\t\"costo\": 100.0,\r\n\t\t\t\"calle\": \"\",\r\n\t\t\t\"numero\": \"\",\r\n\t\t\t\"piso\": \"\",\r\n\t\t\t\"departamento\": \"\",\r\n\t\t\t\"localidad\": \"\",\r\n\t\t\t\"codigo_postal\": \"\",\r\n\t\t\t\"codigo_provincia\": \"\",\r\n\t\t\t\"telefono_1\": \"\",\r\n\t\t\t\"telefono_2\": \"\",\r\n\t\t\t\"entrega_lunes\": \"S\",\r\n\t\t\t\"entrega_martes\": \"S\",\r\n\t\t\t\"entrega_miercoles\": \"S\",\r\n\t\t\t\"entrega_jueves\": \"S\",\r\n\t\t\t\"entrega_viernes\": \"S\",\r\n\t\t\t\"entrega_sabado\": \"N\",\r\n\t\t\t\"entrega_domingo\": \"N\",\r\n\t\t\t\"entrega_hora\": \"13:00\"\r\n\t\t}\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://192.168.1.11:3000/comanda",
-					"protocol": "http",
-					"host": [
-						"192",
-						"168",
-						"1",
-						"11"
-					],
-					"port": "3000",
-					"path": [
-						"comanda"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Clasificador",
 			"request": {
 				"auth": {
@@ -1118,6 +982,166 @@
 							"key": "codigo_rubro_padre",
 							"value": "17"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Grabar Pedido",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=UTF-8",
+						"description": "Requerido",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"codigo_cliente\":\"000003\",\r\n\t\"talonario\":6,\r\n\t\"fecha\":\"17/04/2020\",\r\n\t\"codigo_vendedor\":\"1\",\r\n\t\"codigo_condicion\":2,\r\n\t\"codigo_transporte\":\"01\",\r\n\t\"codigo_deposito\":\"1\",\r\n\t\"numero_lista\":1,\r\n\t\"leyenda_1\":\"\",\r\n\t\"leyenda_2\":\"\",\r\n\t\"leyenda_3\":\"\",\r\n\t\"leyenda_4\":\"\",\r\n\t\"leyenda_5\":\"\",\r\n\t\"total\":84.7,\r\n\t\"detalle\":[\r\n\t\t{\r\n\t\t\t\"codigo_articulo\":\"001\",\r\n\t\t\t\"desc_articulo\":\"VEHI - GENERICO 001VV\",\r\n\t\t\t\"precio\":70,\r\n\t\t\t\"cantidad\":1,\r\n\t\t\t\"descuento\":0\r\n\t\t}\r\n\t]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.1.11:3000/pedido",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"pedido"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Grabar Comprobante",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"description": "Requerido",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json; charset=UTF-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"codigo_cliente\":\"000000\",\r\n\t\"talonario\":500,\r\n\t\"fecha\":\"17/04/2020\",\r\n\t\"codigo_vendedor\":\"1\",\r\n\t\"codigo_condicion\":1,\r\n\t\"codigo_transporte\":\"01\",\r\n\t\"codigo_deposito\":\"1\",\r\n\t\"numero_lista\":1,\r\n\t\"leyenda_1\":\"\",\r\n\t\"leyenda_2\":\"\",\r\n\t\"leyenda_3\":\"\",\r\n\t\"leyenda_4\":\"\",\r\n\t\"leyenda_5\":\"\",\r\n\t\"total\":1210.0,\r\n\t\"detalle\":[\r\n\t\t{\r\n\t\t\t\"codigo_articulo\":\"001\",\r\n\t\t\t\"desc_articulo\":\"VEHI - GENERICO 001VV\",\r\n\t\t\t\"precio\":100.0,\r\n\t\t\t\"cantidad\":10.0,\r\n\t\t\t\"descuento\":0.0\r\n\t\t}\r\n\t],\r\n\t\"datos_cliente\": {\r\n\t\t\"nombre_cliente\": \"PEREZ JUAN\",\r\n\t\t\"domicilio\": \"Mitre 12345\",\r\n\t\t\"localidad\": \"SAN RAFAEL\",\r\n\t\t\"codigo_postal\": \"5600\",\r\n\t\t\"codigo_provincia\": \"07\",\r\n\t\t\"e_mail\": \"\",\r\n\t\t\"tipo_documento\": 96,\r\n\t\t\"cuit\": \"123456\",\r\n\t\t\"codigo_categoria_iva\": \"CF\",\r\n\t\t\"telefono\": \"\"\r\n\t},\r\n\t\"cuentas_fondo\": [\r\n\t\t{\r\n\t\t\t\"codigo_cuenta\": 1,\r\n\t\t\t\"importe\":210.0 \r\n\t\t},\r\n\t\t{\r\n\t\t\t\"codigo_cuenta\": 7,\r\n\t\t\t\"importe\":1000.0,\r\n\t\t\t\"datos_tarjeta\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"lote\": \"0000\",\r\n\t\t\t\t\t\"cupon\": 123456,\r\n\t\t\t\t\t\"cuotas\": 3,\r\n\t\t\t\t\t\"importe\": 1000.0,\r\n\t\t\t\t\t\"nombre_cliente\": \"PEREZ MARIA\",\r\n\t\t\t\t\t\"tipo_documento\": \"DNI\",\r\n\t\t\t\t\t\"numero_documento\": \"123456\",\r\n\t\t\t\t\t\"telefono\": \"\",\r\n\t\t\t\t\t\"vencimiento\": \"062021\",\r\n\t\t\t\t\t\"codigo_autorizacion\": \"6656565\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.1.11:3000/comprobante",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"comprobante"
+					]
+				},
+				"description": "Grabar Pedido, Cotización, Remito, Factura o Nota de Crédito\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Grabar Comanda Resto",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SUPERVISOR",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=UTF-8",
+						"description": "Requerido",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"fecha\":\"29/04/2020\",\r\n\t\"leyenda_1\":\"\",\r\n\t\"leyenda_2\":\"\",\r\n\t\"leyenda_3\":\"\",\r\n\t\"leyenda_4\":\"\",\r\n\t\"leyenda_5\":\"\",\r\n\t\"notas\": \"\",\r\n\t\"total\": 970.0,\r\n\t\"id_pedido_origen\": 1,\r\n\t\"detalle\":[\r\n\t\t{\r\n\t\t\t\"codigo_articulo\":\"CHP01\",\r\n\t\t\t\"desc_articulo\":\"HUEVO PASCUA 110G\",\r\n\t\t\t\"precio\": 220.0,\r\n\t\t\t\"cantidad\": 2,\r\n\t\t\t\"descuento\":0\r\n\t\t},\r\n\t\t\t\t{\r\n\t\t\t\"codigo_articulo\":\"DEM05\",\r\n\t\t\t\"desc_articulo\":\"DOCE EMPANADA CAPRESE\",\r\n\t\t\t\"precio\": 530.0,\r\n\t\t\t\"cantidad\": 1,\r\n\t\t\t\"descuento\":0\r\n\t\t}\r\n\t],\r\n\t\"pagos\": [\r\n\t\t{\r\n\t\t\t\"id\": \"1234\",\r\n\t\t\t\"metodo\": \"EFECTIVO/TARJETA/MPA/PPA\",\r\n\t\t\t\"total\": 970.0,\r\n\t\t\t\"fecha\": \"\",\r\n\t\t\t\"codigo_autorizacion\": \"\",\r\n\t\t\t\"numero_transaccion\": \"\",\r\n\t\t\t\"cuotas\": 0,\r\n\t\t\t\"importe_cuota\": 0.0,\r\n\t\t\t\"codigo_tarjeta\": \"\",\r\n\t\t\t\"numero_cupon\": \"\"\t\r\n\t\t}\r\n\t],\r\n\t\"datos_cliente\": \r\n\t\t{\r\n\t\t\t\"nombre\": \"Miguel Sandro\",\r\n\t\t\t\"apellido\": \"Lucero\",\r\n\t\t\t\"calle\": \"Balloffet\",\r\n\t\t\t\"numero\": \"140\",\r\n\t\t\t\"piso\": \"1\",\r\n\t\t\t\"departamento\": \"4\",\r\n\t\t\t\"codigo_postal\": \"5600\",\t\t\t\r\n\t\t\t\"localidad\": \"San Rafael\",\t\r\n\t\t\t\"codigo_provincia\": \"04\",\t\t\t\t\t\r\n\t\t\t\"tipo_documento\": 96,\r\n\t\t\t\"cuit\": \"20888999\",\r\n\t\t\t\"codigo_categoria_iva\": \"CF\",\r\n\t\t\t\"e_mail\": \"mlucero@neartech.com.ar\",\t\t\t\r\n\t\t\t\"telefono_1\": \"4436103\",\r\n\t\t\t\"telefono_2\": \"\"\r\n\t\t},\r\n\t\"envio\":\r\n\t\t{\r\n\t\t\t\"costo\": 100.0,\r\n\t\t\t\"calle\": \"\",\r\n\t\t\t\"numero\": \"\",\r\n\t\t\t\"piso\": \"\",\r\n\t\t\t\"departamento\": \"\",\r\n\t\t\t\"localidad\": \"\",\r\n\t\t\t\"codigo_postal\": \"\",\r\n\t\t\t\"codigo_provincia\": \"\",\r\n\t\t\t\"telefono_1\": \"\",\r\n\t\t\t\"telefono_2\": \"\",\r\n\t\t\t\"entrega_lunes\": \"S\",\r\n\t\t\t\"entrega_martes\": \"S\",\r\n\t\t\t\"entrega_miercoles\": \"S\",\r\n\t\t\t\"entrega_jueves\": \"S\",\r\n\t\t\t\"entrega_viernes\": \"S\",\r\n\t\t\t\"entrega_sabado\": \"N\",\r\n\t\t\t\"entrega_domingo\": \"N\",\r\n\t\t\t\"entrega_hora\": \"13:00\"\r\n\t\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.1.11:3000/comanda",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"comanda"
 					]
 				}
 			},
