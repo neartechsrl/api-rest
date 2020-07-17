@@ -1030,3 +1030,73 @@ Posibles respuestas servidor
 }
 ```
 
+#### POST /recibo ( grabar recibo ) 
+
+```json
+{
+	"codigo_perfil": 1,
+	"codigo_cliente": "000003",	
+	"talonario": 500,
+	"fecha": "14/06/2019",
+	"codigo_vendedor": "1",
+	"leyenda": "",
+	"concepto": "",
+	"total": 1000.00,
+	"comprobantes": [
+			{
+				"tipo_comprobante": "FAC",
+				"numero_comprobante":"B000010000017",
+				"vencimiento": "10/08/2020",
+				"importe": 1000.00	
+			}
+		],
+	"cuentas_fondo": [
+		{
+			"codigo_cuenta": 1,
+			"importe":100.00 
+		},
+		{
+			"codigo_cuenta": 7,
+			"importe":900.0,
+			"datos_tarjeta": [
+				{
+					"lote": "0000",
+					"cupon": 123456,
+					"cuotas": 3,
+					"importe": 900.0,
+					"nombre_cliente": "PEREZ MARIA",
+					"tipo_documento": "DNI",
+					"numero_documento": "123456",
+					"telefono": "",
+					"vencimiento": "062021",
+					"codigo_autorizacion": "6656565"
+				}
+			]
+		}
+	]
+}
+```
+
+#### POST /cliente ( grabar nuevo cliente ) 
+
+| Campos     | Explicación|
+| -------------- | ---------- |
+| codigo_cliente | Código de cliente. No debe existir en Tango |
+| cuit | Documento/CUIT de cliente. No debe existir en Tango |
+| codigo_provincia | Código de provincia. Consular el método login |
+
+```json
+{
+	"codigo_cliente": "000006",
+	"nombre_cliente": "PEREZ JUAN",
+	"domicilio": "Mitre 12345",
+	"localidad": "SAN RAFAEL",
+	"codigo_postal": "5600",
+	"codigo_provincia": "05",
+	"e_mail": "",
+	"tipo_documento": 96,
+	"cuit": "21888999",
+	"codigo_categoria_iva": "CF",
+	"telefono": ""
+}
+```
