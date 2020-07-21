@@ -773,6 +773,7 @@ Respuesta Servidor
 	"leyenda_4": "",
 	"leyenda_5": "",
 	"total": 568.70,
+	"comprobante_referencia": "",
 	"detalle": [
 			{
 				"codigo_articulo": "001",

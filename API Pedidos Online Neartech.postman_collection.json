@@ -1003,6 +1003,102 @@
 			"response": []
 		},
 		{
+			"name": "TYP comprobante específico",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/typ_comprobante?codigo_perfil={{codigo_perfil}}&tipo_comprobante=PED&talonario=6&numero_comprobante= 0000000000031",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"typ_comprobante"
+					],
+					"query": [
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}",
+							"description": "Requerido"
+						},
+						{
+							"key": "tipo_comprobante",
+							"value": "PED",
+							"description": "Requerido. Posibles valores PED COT FAC REM"
+						},
+						{
+							"key": "talonario",
+							"value": "6",
+							"description": "Requerido"
+						},
+						{
+							"key": "numero_comprobante",
+							"value": " 0000000000031",
+							"description": "Requerido"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Estado Servidor",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/estado_servidor",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"estado_servidor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Grabar Pedido",
 			"request": {
 				"auth": {
@@ -1084,7 +1180,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"codigo_cliente\":\"000000\",\r\n\t\"talonario\":500,\r\n\t\"fecha\":\"17/07/2020\",\r\n\t\"codigo_vendedor\":\"1\",\r\n\t\"codigo_condicion\":1,\r\n\t\"codigo_transporte\":\"01\",\r\n\t\"codigo_deposito\":\"1\",\r\n\t\"numero_lista\":1,\r\n\t\"leyenda_1\":\"\",\r\n\t\"leyenda_2\":\"\",\r\n\t\"leyenda_3\":\"\",\r\n\t\"leyenda_4\":\"\",\r\n\t\"leyenda_5\":\"\",\r\n\t\"total\":1210.0,\r\n\t\"detalle\":[\r\n\t\t{\r\n\t\t\t\"codigo_articulo\":\"001\",\r\n\t\t\t\"descripcion\":\"DESCRIPCION LARGA PARA LINEA NUMERO CERO\",\r\n\t\t\t\"precio\":100.0,\r\n\t\t\t\"cantidad\":10.0,\r\n\t\t\t\"descuento\":0.0\r\n\t\t}\r\n\t],\r\n\t\"datos_cliente\": {\r\n\t\t\"nombre_cliente\": \"PEREZ JUAN\",\r\n\t\t\"domicilio\": \"Mitre 12345\",\r\n\t\t\"localidad\": \"SAN RAFAEL\",\r\n\t\t\"codigo_postal\": \"5600\",\r\n\t\t\"codigo_provincia\": \"07\",\r\n\t\t\"e_mail\": \"\",\r\n\t\t\"tipo_documento\": 96,\r\n\t\t\"cuit\": \"123456\",\r\n\t\t\"codigo_categoria_iva\": \"CF\",\r\n\t\t\"telefono\": \"\"\r\n\t},\r\n\t\"cuentas_fondo\": [\r\n\t\t{\r\n\t\t\t\"codigo_cuenta\": 1,\r\n\t\t\t\"importe\":210.0 \r\n\t\t},\r\n\t\t{\r\n\t\t\t\"codigo_cuenta\": 7,\r\n\t\t\t\"importe\":500.0,\r\n\t\t\t\"datos_tarjeta\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"lote\": \"0000\",\r\n\t\t\t\t\t\"cupon\": 100005,\r\n\t\t\t\t\t\"cuotas\": 3,\r\n\t\t\t\t\t\"importe\": 500.0,\r\n\t\t\t\t\t\"nombre_cliente\": \"PEREZ MARIA\",\r\n\t\t\t\t\t\"tipo_documento\": \"DNI\",\r\n\t\t\t\t\t\"numero_documento\": \"123456\",\r\n\t\t\t\t\t\"telefono\": \"\",\r\n\t\t\t\t\t\"vencimiento\": \"062021\",\r\n\t\t\t\t\t\"codigo_autorizacion\": \"6656565\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"codigo_cuenta\": 3,\r\n\t\t\t\"importe\":500.0,\r\n\t\t\t\"datos_cheque\": {\r\n\t\t\t\t\"numero_cheque\": 102030,\r\n\t\t\t\t\"codigo_banco\": \"044\",\r\n\t\t\t\t\"vencimiento\": \"01/08/2020\",\r\n\t\t\t\t\"codigo_postal\": \"5600\",\r\n\t\t\t\t\"sucursal_banco\": 1,\r\n\t\t\t\t\"nombre_cliente\": \"\",\r\n\t\t\t\t\"cuit\": \"\"\r\n\t\t\t}\r\n\t\t}\r\n\t]\r\n}",
+					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"codigo_cliente\":\"000000\",\r\n\t\"talonario\":500,\r\n\t\"tipo_comprobante\": \"FAC\",\r\n\t\"fecha\":\"20/07/2020\",\r\n\t\"codigo_vendedor\":\"1\",\r\n\t\"codigo_condicion\":1,\r\n\t\"codigo_transporte\":\"01\",\r\n\t\"codigo_deposito\":\"1\",\r\n\t\"numero_lista\":1,\r\n\t\"leyenda_1\":\"\",\r\n\t\"leyenda_2\":\"\",\r\n\t\"leyenda_3\":\"\",\r\n\t\"leyenda_4\":\"\",\r\n\t\"leyenda_5\":\"\",\r\n\t\"total\":1210.0,\r\n\t\"comprobante_referencia\": \"\",\r\n\t\"detalle\":[\r\n\t\t{\r\n\t\t\t\"codigo_articulo\":\"001\",\r\n\t\t\t\"descripcion\":\"DESCRIPCION LARGA PARA LINEA NUMERO CERO\",\r\n\t\t\t\"precio\":100.0,\r\n\t\t\t\"cantidad\":10.0,\r\n\t\t\t\"descuento\":0.0\r\n\t\t}\r\n\t],\r\n\t\"datos_cliente\": {\r\n\t\t\"nombre_cliente\": \"PEREZ JUAN\",\r\n\t\t\"domicilio\": \"Mitre 12345\",\r\n\t\t\"localidad\": \"SAN RAFAEL\",\r\n\t\t\"codigo_postal\": \"5600\",\r\n\t\t\"codigo_provincia\": \"07\",\r\n\t\t\"e_mail\": \"\",\r\n\t\t\"tipo_documento\": 96,\r\n\t\t\"cuit\": \"123456\",\r\n\t\t\"codigo_categoria_iva\": \"CF\",\r\n\t\t\"telefono\": \"\"\r\n\t},\r\n\t\"cuentas_fondo\": [\r\n\t\t{\r\n\t\t\t\"codigo_cuenta\": 1,\r\n\t\t\t\"importe\":210.0 \r\n\t\t},\r\n\t\t{\r\n\t\t\t\"codigo_cuenta\": 7,\r\n\t\t\t\"importe\":500.0,\r\n\t\t\t\"datos_tarjeta\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"lote\": \"0000\",\r\n\t\t\t\t\t\"cupon\": 100005,\r\n\t\t\t\t\t\"cuotas\": 3,\r\n\t\t\t\t\t\"importe\": 500.0,\r\n\t\t\t\t\t\"nombre_cliente\": \"PEREZ MARIA\",\r\n\t\t\t\t\t\"tipo_documento\": \"DNI\",\r\n\t\t\t\t\t\"numero_documento\": \"123456\",\r\n\t\t\t\t\t\"telefono\": \"\",\r\n\t\t\t\t\t\"vencimiento\": \"062021\",\r\n\t\t\t\t\t\"codigo_autorizacion\": \"6656565\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"codigo_cuenta\": 3,\r\n\t\t\t\"importe\":500.0,\r\n\t\t\t\"datos_cheque\": {\r\n\t\t\t\t\"numero_cheque\": 102030,\r\n\t\t\t\t\"codigo_banco\": \"044\",\r\n\t\t\t\t\"vencimiento\": \"01/08/2020\",\r\n\t\t\t\t\"codigo_postal\": \"5600\",\r\n\t\t\t\t\"sucursal_banco\": 1,\r\n\t\t\t\t\"nombre_cliente\": \"\",\r\n\t\t\t\t\"cuit\": \"\"\r\n\t\t\t}\r\n\t\t}\r\n\t]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
