@@ -3,14 +3,11 @@ Pedidos Móviles Preventa - REST API
 
 ## Métodos GET
 
-El encabezado Login-UID es requerido y se obtiene del campo login_uid del método GET /login
-
 ```shell
 curl -X GET \
   http://192.168.1.11:3000/login?nombre_base=Desarrollo_PlusNT \
   -H 'Authorization: Basic TUlHVUVMOjEyMzQ1Ng==' \
-  -H 'Content-Type: application/json; charset=UTF-8' \
-  -H 'Login-UID: {E4CBEE77-5566-4E2F-BB7D-7ED0BFF4F461}'
+  -H 'Content-Type: application/json; charset=UTF-8'
 ```  
 
 #### GET /empresas
@@ -52,7 +49,7 @@ Respuesta Servidor
 
 ```json
 {
-    "login_uid": "{E4CBEE77-5566-4E2F-BB7D-7ED0BFF4F461}",
+    "nombre_base": "Desarrollo_PlusNT",
     "codigo_perfil": 1,
     "desc_perfil": "PREVENTA",
     "codigo_vendedor": "1",
@@ -195,6 +192,7 @@ ejemplo: `GET /arbol_clasificador?codigo_perfil=1`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
 | codigo_perfil	 | Código de perfil __REQUERIDO__ |
 
 ```json
@@ -234,6 +232,7 @@ ejemplo: `GET /clasificador?codigo_perfil=1&id_parent=7`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
 | codigo_perfil	 | Código de perfil __REQUERIDO__ |
 | id_parent	 | Si se omite se devuelve primer nivel del clasificador |
 
@@ -262,6 +261,7 @@ ejemplo: `GET /arbol_rubros?codigo_perfil=1`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
 | codigo_perfil	 | Código de perfil __REQUERIDO__ |
 
 ```json
@@ -305,6 +305,7 @@ ejemplo: `GET /rubros?codigo_perfil=1&codigo_rubro_padre=17`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
 | codigo_perfil	 | Código de perfil __REQUERIDO__ |
 | codigo_rubro_padre | Si se omite se devuelve primer nivel de rubros |
 
@@ -327,6 +328,7 @@ ejemplo: `GET /articulos?codigo_perfil=1&numero_lista=1&q=BARRA`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
 | codigo_perfil	 | Código de perfil __REQUERIDO__ |
 | numero_lista	 | Número de Lista de Precio __REQUERIDO__ |
 | sort_by		 | Ordenar artículos por un criterio en particular. |
@@ -385,6 +387,7 @@ Ejemplo: `GET /articulo?codigo_perfil=1&numero_lista=1&codigo=BARRA01`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
 | codigo_perfil	| Código de perfil a consultar __REQUERIDO__| 
 | numero_lista	| Número de Lista de Precio __REQUERIDO__| 
 | codigo		| Filtro por código de artículo o código de barra. __REQUERIDO__| 
@@ -423,8 +426,9 @@ Ejemplo: `GET /stock?codigo_perfil=1&codigo=BARRA01`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
+| codigo_perfil	| Código de perfil a consultar codigo_perfil __REQUERIDO__| 
 | codigo		| Filtro por código de artículo o código de barra| 
-| codigo_perfil	| Código de perfil a consultar codigo_perfil| 
 
 Respuesta Servidor
 
@@ -456,6 +460,10 @@ Respuesta Servidor
 
 #### GET /categoria_iva
 
+| Parámetros     | Explicación|
+| -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
+
 `HTTP/1.1 200 OK`
 
 ```json
@@ -472,6 +480,10 @@ Respuesta Servidor
 ```
 
 #### GET /provincias
+
+| Parámetros     | Explicación|
+| -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
 
 `HTTP/1.1 200 OK`
 
@@ -491,6 +503,10 @@ Respuesta Servidor
 ```
 
 #### GET /zonas
+
+| Parámetros     | Explicación|
+| -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
 
 `HTTP/1.1 200 OK`
 
@@ -519,9 +535,10 @@ Ejemplo: `GET /clientes?codigo_perfil=1&q=LUCERO`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
+| codigo_perfil	| Código Perfil __REQUERIDO__| 
 | sort_by		| Ordenar clientes por un criterio en particular.| 
 | page 			| Páginas a consultar ( 100 registros por página )| 
-| codigo_perfil	| Código Perfil __REQUERIDO__| 
 | q				| Filtro por nombre __REQUERIDO__| 
 
 | Criterios de Ordenamiento| Explicación|
@@ -567,6 +584,7 @@ Ejemplo: `GET /cliente?codigo_perfil=1&codigo_cliente=000003`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
 | codigo_perfil	 | Código Perfil __REQUERIDO__| 
 | codigo_cliente | Código Cliente __REQUERIDO__| 
 
@@ -610,6 +628,7 @@ Ejemplo: `GET /consulta_comprobantes?codigo_perfil=1&fecha_desde=01/01/2019&fech
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
 | codigo_perfil		| Código Perfil __REQUERIDO__| 
 | fecha_desde		| Fecha Desde. Formato dd/mm/yyyy __REQUERIDO__| 
 | fecha_hasta		| Fecha Hasta. Formato dd/mm/yyyy __REQUERIDO__| 
@@ -662,6 +681,7 @@ Ejemplo: `GET /pdf_comprobante?codigo_perfil=1&tipo_comprobante=PED&talonario=6&
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
 | codigo_perfil			| Código Perfil| 
 | tipo_comprobante		| Tipo Comprobante PED, COT, FAC, CRE, REM| 
 | talonario				| Número Talonario| 
@@ -689,6 +709,7 @@ Ejemplo: `GET /pedidos_pendientes?codigo_perfil=1&codigo_cliente=000003`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
 | codigo_perfil	 | Código Perfil __REQUERIDO__| 
 | codigo_cliente | Código Cliente __REQUERIDO__| 
 
@@ -719,6 +740,7 @@ Ejemplo: `GET /detalle_pedido_pendiente?codigo_perfil=1&talonario=6&numero_compr
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
 | codigo_perfil	 | Código Perfil __REQUERIDO__| 
 | talonario | Talonario __REQUERIDO__| 
 | numero_comprobante | Número Pedido __REQUERIDO__| 
@@ -785,6 +807,10 @@ Respuesta Servidor
 
 #### GET /listas_compra
 
+| Parámetros     | Explicación|
+| -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
+
 Consulta de listas de compras.
 
 Ejemplo: `GET /listas_compra?codigo_perfil=1`
@@ -803,6 +829,10 @@ Ejemplo: `GET /listas_compra?codigo_perfil=1`
 ```
 
 #### GET /condiciones_compra
+
+| Parámetros     | Explicación|
+| -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
 
 Consulta de condiciones de compra.
 
@@ -831,6 +861,10 @@ Ejemplo: `GET /condiciones_compra?codigo_perfil=1`
 
 Consulta de compradores
 
+| Parámetros     | Explicación|
+| -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
+
 Ejemplo: `GET /compradores?codigo_perfil=1`
 
 ```json
@@ -851,6 +885,10 @@ Ejemplo: `GET /compradores?codigo_perfil=1`
 ```
 
 #### GET /talonarios_compra
+
+| Parámetros     | Explicación|
+| -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
 
 Consulta de talonarios de compra
 
@@ -874,6 +912,10 @@ Ejemplo: `GET /talonarios_compra?codigo_perfil=1&tipo=O`
 #### GET /provincias_compra
 
 Consulta de provincias.
+
+| Parámetros     | Explicación|
+| -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
 
 Ejemplo: `GET /provincias_compra?codigo_perfil=1`
 
@@ -986,6 +1028,7 @@ Ejemplo: `GET /provincias_compra?codigo_perfil=1`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
 | codigo_perfil	 | Código Perfil __REQUERIDO__| 
 | codigo_proveedor | Código Proveedor |
 | cuit | CUIT Proveedor |
@@ -1041,6 +1084,7 @@ Consulta proveedor específico
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
 | codigo_perfil	 | Código Perfil __REQUERIDO__| 
 | codigo_proveedor | Código Proveedor __REQUERIDO__| 
 
@@ -1069,6 +1113,10 @@ Ejemplo: `GET /proveedor?codigo_perfil=1&codigo_proveedor=999999`
 #### POST /cotiza ( grabar cotización ) 
 #### POST /comprobante ( grabar comprobante de ventas, FAC, DEB y CRE por el momento, campo numero_comprobante es opcional. ) 
 #### POST /remito ( grabar remito )
+
+| Parámetros     | Explicación|
+| -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
 
 ```json
 {
@@ -1251,6 +1299,10 @@ Posibles respuestas servidor
 
 #### POST /comanda ( grabar comanda en sistema Tango Resto )
 
+| Parámetros     | Explicación|
+| -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
+
 | Secciones | Explicación | Observación |
 | --------- | ----------- | ----------- |
 | pagos		| indica uno o mas metodos de pago | Opcional.  |
@@ -1349,6 +1401,10 @@ Posibles respuestas servidor
 
 #### POST /recibo ( grabar recibo. Campo numero_comprobante es opcional. ) 
 
+| Parámetros     | Explicación|
+| -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
+
 ```json
 {
 	"codigo_perfil": 1,
@@ -1397,6 +1453,10 @@ Posibles respuestas servidor
 
 #### POST /cliente ( grabar nuevo cliente ) 
 
+| Parámetros     | Explicación|
+| -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
+
 | Campos     | Explicación|
 | -------------- | ---------- |
 | codigo_cliente | Código de cliente. No debe existir en Tango |
@@ -1422,6 +1482,10 @@ Posibles respuestas servidor
 ### Módulo Compras. En desarrollo
 
 #### POST /orden_compra ( grabar orden de compra ) 
+
+| Parámetros     | Explicación|
+| -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
 
 ```json
 {
