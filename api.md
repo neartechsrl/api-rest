@@ -3,23 +3,56 @@ Pedidos Móviles Preventa - REST API
 
 ## Métodos GET
 
+El encabezado Login-UID es requerido y se obtiene del campo login_uid del método GET /login
+
+```shell
+curl -X GET \
+  http://192.168.1.11:3000/login?nombre_base=Desarrollo_PlusNT \
+  -H 'Authorization: Basic TUlHVUVMOjEyMzQ1Ng==' \
+  -H 'Content-Type: application/json; charset=UTF-8' \
+  -H 'Login-UID: {E4CBEE77-5566-4E2F-BB7D-7ED0BFF4F461}'
+```  
+
+#### GET /empresas
+
+Respuesta Servidor 
+
+`HTTP/1.1 200 OK`
+
+```json
+[
+    {
+        "nombre_empresa": "Desarrollo 1",
+        "nombre_base": "Desarrollo_1"
+    },
+    {
+        "nombre_empresa": "Desarrollo 2",
+        "nombre_base": "Desarrollo_2"
+    },
+    {
+        "nombre_empresa": "Desarrollo PlusNT",
+        "nombre_base": "Desarrollo_PlusNT"
+    }
+]
+```
+
 #### GET /login
 
 Ejemplo Login
 
-```shell
-curl -X GET \
-  http://192.168.1.11:3000/login \
-  -H 'Authorization: Basic TUlHVUVMOjEyMzQ1Ng==' \
-  -H 'Content-Type: application/json'
-```  
-		
+ejemplo: `GET /login?nombre_base=Desarrollo_PlusNT`
+
+| Parámetros     | Explicación|
+| -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
+
 Respuesta Servidor 
 
 `HTTP/1.1 200 OK`
 
 ```json
 {
+    "login_uid": "{E4CBEE77-5566-4E2F-BB7D-7ED0BFF4F461}",
     "codigo_perfil": 1,
     "desc_perfil": "PREVENTA",
     "codigo_vendedor": "1",
@@ -1034,7 +1067,7 @@ Ejemplo: `GET /proveedor?codigo_perfil=1&codigo_proveedor=999999`
 
 #### POST /pedido ( grabar un pedido ) 
 #### POST /cotiza ( grabar cotización ) 
-#### POST /comprobante ( grabar comprobante de ventas, FAC y CRE por el momento ) 
+#### POST /comprobante ( grabar comprobante de ventas, FAC, DEB y CRE por el momento, campo numero_comprobante es opcional. ) 
 #### POST /remito ( grabar remito )
 
 ```json
@@ -1042,6 +1075,7 @@ Ejemplo: `GET /proveedor?codigo_perfil=1&codigo_proveedor=999999`
 	"codigo_perfil": 1,
 	"codigo_cliente": "000000",	
 	"tipo_comprobante": "FAC",
+	"numero_comprobante": "A0006600000032",
 	"talonario": 500,
 	"fecha": "14/06/2019",
 	"codigo_vendedor": "1",
@@ -1313,13 +1347,14 @@ Posibles respuestas servidor
 }
 ```
 
-#### POST /recibo ( grabar recibo ) 
+#### POST /recibo ( grabar recibo. Campo numero_comprobante es opcional. ) 
 
 ```json
 {
 	"codigo_perfil": 1,
 	"codigo_cliente": "000003",	
 	"talonario": 500,
+	"numero_comprobante": "X0006600000032",
 	"fecha": "14/06/2019",
 	"codigo_vendedor": "1",
 	"leyenda": "",
