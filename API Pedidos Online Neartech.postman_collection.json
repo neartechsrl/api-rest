@@ -64,7 +64,7 @@
 						"exec": [
 							"var data = JSON.parse(responseBody);",
 							"postman.setGlobalVariable(\"codigo_perfil\",data.codigo_perfil);",
-							"postman.setGlobalVariable(\"login_uid\",data.login_uid);"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -89,7 +89,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/login?nombre_base=Desarrollo_PlusNT",
+					"raw": "http://192.168.1.11:3000/login?nombre_base={{nombre_base}}",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -104,65 +104,8 @@
 					"query": [
 						{
 							"key": "nombre_base",
-							"value": "Desarrollo_PlusNT"
+							"value": "{{nombre_base}}"
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Logout",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "12cdb656-0444-4765-8b5d-e59435ea88b6",
-						"exec": [
-							"var data = JSON.parse(responseBody);",
-							"postman.setGlobalVariable(\"codigo_perfil\",data.codigo_perfil);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "MIGUEL",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "123456",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://192.168.1.11:3000/logout",
-					"protocol": "http",
-					"host": [
-						"192",
-						"168",
-						"1",
-						"11"
-					],
-					"port": "3000",
-					"path": [
-						"logout"
 					]
 				}
 			},
@@ -187,16 +130,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/categoria_iva",
+					"raw": "http://192.168.1.11:3000/categoria_iva?nombre_base={{nombre_base}}",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -207,6 +143,12 @@
 					"port": "3000",
 					"path": [
 						"categoria_iva"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						}
 					]
 				}
 			},
@@ -231,16 +173,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/provincias",
+					"raw": "http://192.168.1.11:3000/provincias?nombre_base={{nombre_base}}",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -251,6 +186,12 @@
 					"port": "3000",
 					"path": [
 						"provincias"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						}
 					]
 				}
 			},
@@ -275,16 +216,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/zonas",
+					"raw": "http://192.168.1.11:3000/zonas?nombre_base={{nombre_base}}",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -295,6 +229,12 @@
 					"port": "3000",
 					"path": [
 						"zonas"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						}
 					]
 				}
 			},
@@ -319,16 +259,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/clientes?codigo_perfil={{codigo_perfil}}&q=LUCERO",
+					"raw": "http://192.168.1.11:3000/clientes?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&q=LUCERO",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -342,30 +275,34 @@
 					],
 					"query": [
 						{
-							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}",
+							"key": "nombre_base",
+							"value": "{{nombre_base}}",
 							"description": "Requerido"
 						},
 						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}"
+						},
+						{
 							"key": "q",
-							"value": "LUCERO"
+							"value": "LUCERO",
+							"description": "Valores posibles: code-asc code-desc alpha-asc alpha-desc"
 						},
 						{
 							"key": "sort_by",
 							"value": "alpha-asc",
-							"description": "Valores posibles: code-asc code-desc alpha-asc alpha-desc",
+							"description": "0=NO 1=SI devuelve foto jpeg base64",
 							"disabled": true
 						},
 						{
 							"key": "binary_img",
 							"value": "0",
-							"description": "0=NO 1=SI devuelve foto jpeg base64",
+							"description": "Tamaño foto en pixels",
 							"disabled": true
 						},
 						{
 							"key": "size_img",
 							"value": "128",
-							"description": "Tamaño foto en pixels",
 							"disabled": true
 						},
 						{
@@ -407,16 +344,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/cliente?codigo_perfil={{codigo_perfil}}&codigo_cliente=000003",
+					"raw": "http://192.168.1.11:3000/cliente?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&codigo_cliente=000003",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -430,6 +360,11 @@
 					],
 					"query": [
 						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}",
+							"description": "Requerido"
+						},
+						{
 							"key": "codigo_perfil",
 							"value": "{{codigo_perfil}}",
 							"description": "Requerido"
@@ -437,18 +372,17 @@
 						{
 							"key": "codigo_cliente",
 							"value": "000003",
-							"description": "Requerido"
+							"description": "0=NO 1=SI devuelve foto artículo jpeg base64"
 						},
 						{
 							"key": "binary_img",
 							"value": "1",
-							"description": "0=NO 1=SI devuelve foto artículo jpeg base64",
+							"description": "Tamaño foto en pixels",
 							"disabled": true
 						},
 						{
 							"key": "size_img",
 							"value": "128",
-							"description": "Tamaño foto en pixels",
 							"disabled": true
 						}
 					]
@@ -475,16 +409,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/articulos?codigo_perfil={{codigo_perfil}}&numero_lista=1",
+					"raw": "http://192.168.1.11:3000/articulos?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&numero_lista=1",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -498,78 +425,82 @@
 					],
 					"query": [
 						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}",
+							"description": "Requerido"
+						},
+						{
 							"key": "codigo_perfil",
 							"value": "{{codigo_perfil}}",
 							"description": "Requerido"
 						},
 						{
 							"key": "numero_lista",
-							"value": "1",
-							"description": "Requerido"
+							"value": "1"
 						},
 						{
 							"key": "q",
 							"value": "001",
+							"description": "Valores posibles: code-asc code-desc alpha-asc alpha-desc",
 							"disabled": true
 						},
 						{
 							"key": "sort_by",
 							"value": "alpha-asc",
-							"description": "Valores posibles: code-asc code-desc alpha-asc alpha-desc",
+							"description": "Código artículo o codigo de barra",
 							"disabled": true
 						},
 						{
 							"key": "code",
 							"value": "001",
-							"description": "Código artículo o codigo de barra",
+							"description": "0=NO 1=SI devuelve foto artículo jpeg base64",
 							"disabled": true
 						},
 						{
 							"key": "binary_img",
 							"value": "1",
-							"description": "0=NO 1=SI devuelve foto artículo jpeg base64",
+							"description": "Tamaño foto en pixels",
 							"disabled": true
 						},
 						{
 							"key": "size_img",
 							"value": "128",
-							"description": "Tamaño foto en pixels",
+							"description": "ID Clasificador",
 							"disabled": true
 						},
 						{
 							"key": "id_folder",
 							"value": "19",
-							"description": "ID Clasificador",
+							"description": "Codigo Rubro Resto",
 							"disabled": true
 						},
 						{
 							"key": "codigo_rubro",
 							"value": "21",
-							"description": "Codigo Rubro Resto",
+							"description": "Código de artículo",
 							"disabled": true
 						},
 						{
 							"key": "codigo_articulo",
 							"value": "",
-							"description": "Código de artículo",
+							"description": "Código de barra",
 							"disabled": true
 						},
 						{
 							"key": "codigo_barra",
 							"value": "",
-							"description": "Código de barra",
+							"description": "Descripción adicional",
 							"disabled": true
 						},
 						{
 							"key": "adicional",
 							"value": "",
-							"description": "Descripción adicional",
+							"description": "Sinónimo",
 							"disabled": true
 						},
 						{
 							"key": "sinonimo",
 							"value": "",
-							"description": "Sinónimo",
 							"disabled": true
 						}
 					]
@@ -596,16 +527,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/articulo?codigo_perfil={{codigo_perfil}}&numero_lista=1&codigo=001",
+					"raw": "http://192.168.1.11:3000/articulo?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&numero_lista=1&codigo=001",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -619,6 +543,11 @@
 					],
 					"query": [
 						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}",
+							"description": "Requerido"
+						},
+						{
 							"key": "codigo_perfil",
 							"value": "{{codigo_perfil}}",
 							"description": "Requerido"
@@ -631,18 +560,17 @@
 						{
 							"key": "codigo",
 							"value": "001",
-							"description": "Requerido"
+							"description": "0=NO 1=SI devuelve foto artículo jpeg base64"
 						},
 						{
 							"key": "binary_img",
 							"value": "1",
-							"description": "0=NO 1=SI devuelve foto artículo jpeg base64",
+							"description": "Tamaño foto en pixels",
 							"disabled": true
 						},
 						{
 							"key": "size_img",
 							"value": "128",
-							"description": "Tamaño foto en pixels",
 							"disabled": true
 						}
 					]
@@ -669,16 +597,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/stock?codigo_perfil={{codigo_perfil}}&codigo=001",
+					"raw": "http://192.168.1.11:3000/stock?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&codigo=001",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -692,14 +613,18 @@
 					],
 					"query": [
 						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}",
+							"description": "Requerido"
+						},
+						{
 							"key": "codigo_perfil",
 							"value": "{{codigo_perfil}}",
 							"description": "Requerido"
 						},
 						{
 							"key": "codigo",
-							"value": "001",
-							"description": "Requerido"
+							"value": "001"
 						}
 					]
 				}
@@ -725,16 +650,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/foto?codigo_perfil={{codigo_perfil}}&codigo=001",
+					"raw": "http://192.168.1.11:3000/foto?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&codigo=001",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -748,14 +666,18 @@
 					],
 					"query": [
 						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}",
+							"description": "Requerido"
+						},
+						{
 							"key": "codigo_perfil",
 							"value": "{{codigo_perfil}}",
 							"description": "Requerido"
 						},
 						{
 							"key": "codigo",
-							"value": "001",
-							"description": "Requerido"
+							"value": "001"
 						}
 					]
 				}
@@ -781,16 +703,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/consulta_comprobantes?codigo_perfil={{codigo_perfil}}&fecha_desde=01/01/2020&fecha_hasta=31/12/2020&tipo_comprobante=PED",
+					"raw": "http://192.168.1.11:3000/consulta_comprobantes?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&fecha_desde=01/01/2020&fecha_hasta=31/12/2020&tipo_comprobante=PED",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -804,9 +719,14 @@
 					],
 					"query": [
 						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}",
+							"description": "Requerido"
+						},
+						{
 							"key": "codigo_perfil",
 							"value": "{{codigo_perfil}}",
-							"description": "Requerido"
+							"description": "Requerido. Formato dd/mm/aaaa "
 						},
 						{
 							"key": "fecha_desde",
@@ -816,17 +736,16 @@
 						{
 							"key": "fecha_hasta",
 							"value": "31/12/2020",
-							"description": "Requerido. Formato dd/mm/aaaa "
+							"description": "Requerido. Posibles valores PED COT FAC REM"
 						},
 						{
 							"key": "tipo_comprobante",
 							"value": "PED",
-							"description": "Requerido. Posibles valores PED COT FAC REM"
+							"description": "Código cliente, razón social o cuit cliente"
 						},
 						{
 							"key": "texto_cliente",
 							"value": "LUCERO",
-							"description": "Código cliente, razón social o cuit cliente",
 							"disabled": true
 						}
 					]
@@ -853,16 +772,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/pdf_comprobante?codigo_perfil={{codigo_perfil}}&tipo_comprobante=PED&talonario=6&numero_comprobante= 0000000000031",
+					"raw": "http://192.168.1.11:3000/pdf_comprobante?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&tipo_comprobante=PED&talonario=6&numero_comprobante= 0000000000031",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -876,14 +788,19 @@
 					],
 					"query": [
 						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}",
+							"description": "Requerido"
+						},
+						{
 							"key": "codigo_perfil",
 							"value": "{{codigo_perfil}}",
-							"description": "Requerido"
+							"description": "Requerido. Posibles valores PED COT FAC REM"
 						},
 						{
 							"key": "tipo_comprobante",
 							"value": "PED",
-							"description": "Requerido. Posibles valores PED COT FAC REM"
+							"description": "Requerido"
 						},
 						{
 							"key": "talonario",
@@ -892,8 +809,7 @@
 						},
 						{
 							"key": "numero_comprobante",
-							"value": " 0000000000031",
-							"description": "Requerido"
+							"value": " 0000000000031"
 						}
 					]
 				}
@@ -919,16 +835,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/pedidos_pendientes?codigo_perfil={{codigo_perfil}}&codigo_cliente=000003",
+					"raw": "http://192.168.1.11:3000/pedidos_pendientes?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&codigo_cliente=000003",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -942,14 +851,18 @@
 					],
 					"query": [
 						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}",
+							"description": "Requerido"
+						},
+						{
 							"key": "codigo_perfil",
 							"value": "{{codigo_perfil}}",
 							"description": "Requerido"
 						},
 						{
 							"key": "codigo_cliente",
-							"value": "000003",
-							"description": "Requerido"
+							"value": "000003"
 						}
 					]
 				}
@@ -975,16 +888,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/detalle_pedido_pendiente?codigo_perfil={{codigo_perfil}}&talonario=6&numero_comprobante= 0000000000043&numero_lista=2",
+					"raw": "http://192.168.1.11:3000/detalle_pedido_pendiente?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&talonario=6&numero_comprobante= 0000000000043&numero_lista=2",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -997,6 +903,11 @@
 						"detalle_pedido_pendiente"
 					],
 					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}",
+							"description": "Requerido"
+						},
 						{
 							"key": "codigo_perfil",
 							"value": "{{codigo_perfil}}",
@@ -1014,8 +925,7 @@
 						},
 						{
 							"key": "numero_lista",
-							"value": "2",
-							"description": "Requerido"
+							"value": "2"
 						}
 					]
 				}
@@ -1041,16 +951,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/clasificador?codigo_perfil={{codigo_perfil}}&id_parent=7",
+					"raw": "http://192.168.1.11:3000/clasificador?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&id_parent=7",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -1064,9 +967,13 @@
 					],
 					"query": [
 						{
-							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}",
+							"key": "nombre_base",
+							"value": "{{nombre_base}}",
 							"description": "Requerido"
+						},
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}"
 						},
 						{
 							"key": "id_parent",
@@ -1096,16 +1003,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/arbol_clasificador?codigo_perfil={{codigo_perfil}}",
+					"raw": "http://192.168.1.11:3000/arbol_clasificador?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -1119,9 +1019,13 @@
 					],
 					"query": [
 						{
-							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}",
+							"key": "nombre_base",
+							"value": "{{nombre_base}}",
 							"description": "Requerido"
+						},
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}"
 						}
 					]
 				}
@@ -1147,16 +1051,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/arbol_rubros?codigo_perfil={{codigo_perfil}}",
+					"raw": "http://192.168.1.11:3000/arbol_rubros?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -1170,9 +1067,13 @@
 					],
 					"query": [
 						{
-							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}",
+							"key": "nombre_base",
+							"value": "{{nombre_base}}",
 							"description": "Requerido"
+						},
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}"
 						}
 					]
 				}
@@ -1198,16 +1099,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/rubros?codigo_perfil={{codigo_perfil}}&codigo_rubro_padre=17",
+					"raw": "http://192.168.1.11:3000/rubros?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&codigo_rubro_padre=17",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -1221,9 +1115,13 @@
 					],
 					"query": [
 						{
-							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}",
+							"key": "nombre_base",
+							"value": "{{nombre_base}}",
 							"description": "Requerido"
+						},
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}"
 						},
 						{
 							"key": "codigo_rubro_padre",
@@ -1253,16 +1151,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/typ_comprobante?codigo_perfil={{codigo_perfil}}&tipo_comprobante=PED&talonario=6&numero_comprobante= 0000000000031",
+					"raw": "http://192.168.1.11:3000/typ_comprobante?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&tipo_comprobante=PED&talonario=6&numero_comprobante= 0000000000031",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -1276,14 +1167,19 @@
 					],
 					"query": [
 						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}",
+							"description": "Requerido"
+						},
+						{
 							"key": "codigo_perfil",
 							"value": "{{codigo_perfil}}",
-							"description": "Requerido"
+							"description": "Requerido. Posibles valores PED COT FAC REM"
 						},
 						{
 							"key": "tipo_comprobante",
 							"value": "PED",
-							"description": "Requerido. Posibles valores PED COT FAC REM"
+							"description": "Requerido"
 						},
 						{
 							"key": "talonario",
@@ -1292,8 +1188,7 @@
 						},
 						{
 							"key": "numero_comprobante",
-							"value": " 0000000000031",
-							"description": "Requerido"
+							"value": " 0000000000031"
 						}
 					]
 				}
@@ -1356,16 +1251,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/cuenta_corriente?codigo_perfil={{codigo_perfil}}&codigo_cliente=000003",
+					"raw": "http://192.168.1.11:3000/cuenta_corriente?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&codigo_cliente=000003",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -1379,14 +1267,18 @@
 					],
 					"query": [
 						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}",
+							"description": "Requerido"
+						},
+						{
 							"key": "codigo_perfil",
 							"value": "{{codigo_perfil}}",
 							"description": "Requerido"
 						},
 						{
 							"key": "codigo_cliente",
-							"value": "000003",
-							"description": "Requerido"
+							"value": "000003"
 						}
 					]
 				}
@@ -1425,16 +1317,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/comprobante?codigo_perfil={{codigo_perfil}}&tipo_comprobante=FAC&talonario=500&numero_comprobante=A0006600000001",
+					"raw": "http://192.168.1.11:3000/comprobante?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&tipo_comprobante=FAC&talonario=500&numero_comprobante=A0006600000001",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -1448,9 +1333,13 @@
 					],
 					"query": [
 						{
-							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}",
+							"key": "nombre_base",
+							"value": "{{nombre_base}}",
 							"description": "Requerido"
+						},
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}"
 						},
 						{
 							"key": "tipo_comprobante",
@@ -1501,16 +1390,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/proveedores?codigo_perfil=1",
+					"raw": "http://192.168.1.11:3000/proveedores?nombre_base={{nombre_base}}&codigo_perfil=1",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -1524,32 +1406,36 @@
 					],
 					"query": [
 						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}",
+							"description": "Requerido"
+						},
+						{
 							"key": "codigo_perfil",
 							"value": "1",
-							"description": "Requerido"
+							"description": "Código Proveedor"
 						},
 						{
 							"key": "codigo_proveedor",
 							"value": "999999",
-							"description": "Código Proveedor",
-							"disabled": true
-						},
-						{
-							"key": "cuit",
-							"value": null,
 							"description": "CUIT",
 							"disabled": true
 						},
 						{
-							"key": "nombre_proveedor",
-							"value": null,
+							"key": "cuit",
+							"value": "",
 							"description": "Nombre Proveedor",
+							"disabled": true
+						},
+						{
+							"key": "nombre_proveedor",
+							"value": "",
+							"description": "Valores posibles: code-asc code-desc alpha-asc alpha-desc",
 							"disabled": true
 						},
 						{
 							"key": "sort_by",
 							"value": "alpha-asc",
-							"description": "Valores posibles: code-asc code-desc alpha-asc alpha-desc",
 							"disabled": true
 						}
 					]
@@ -1582,12 +1468,6 @@
 						"value": "application/json; charset=UTF-8",
 						"description": "Requerido",
 						"type": "text"
-					},
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
 					}
 				],
 				"body": {
@@ -1600,7 +1480,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://192.168.1.11:3000/pedido",
+					"raw": "http://192.168.1.11:3000/pedido?nombre_base={{nombre_base}}",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -1611,6 +1491,12 @@
 					"port": "3000",
 					"path": [
 						"pedido"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						}
 					]
 				}
 			},
@@ -1641,12 +1527,6 @@
 						"key": "Content-Type",
 						"type": "text",
 						"value": "application/json; charset=UTF-8"
-					},
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
 					}
 				],
 				"body": {
@@ -1659,7 +1539,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://192.168.1.11:3000/comprobante",
+					"raw": "http://192.168.1.11:3000/comprobante?nombre_base={{nombre_base}}",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -1670,6 +1550,12 @@
 					"port": "3000",
 					"path": [
 						"comprobante"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						}
 					]
 				},
 				"description": "Grabar Pedido, Cotización, Remito, Factura o Nota de Crédito\n"
@@ -1701,12 +1587,6 @@
 						"value": "application/json; charset=UTF-8",
 						"description": "Requerido",
 						"type": "text"
-					},
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
 					}
 				],
 				"body": {
@@ -1719,7 +1599,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://192.168.1.11:3000/comanda",
+					"raw": "http://192.168.1.11:3000/comanda?nombre_base={{nombre_base}}",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -1730,6 +1610,12 @@
 					"port": "3000",
 					"path": [
 						"comanda"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						}
 					]
 				}
 			},
@@ -1760,12 +1646,6 @@
 						"key": "Content-Type",
 						"type": "text",
 						"value": "application/json; charset=UTF-8"
-					},
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
 					}
 				],
 				"body": {
@@ -1778,7 +1658,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://192.168.1.11:3000/recibo",
+					"raw": "http://192.168.1.11:3000/recibo?nombre_base={{nombre_base}}",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -1789,6 +1669,12 @@
 					"port": "3000",
 					"path": [
 						"recibo"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						}
 					]
 				}
 			},
@@ -1819,12 +1705,6 @@
 						"value": "application/json; charset=UTF-8",
 						"description": "Requerido",
 						"type": "text"
-					},
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
 					}
 				],
 				"body": {
@@ -1837,7 +1717,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://192.168.1.11:3000/cliente",
+					"raw": "http://192.168.1.11:3000/cliente?nombre_base={{nombre_base}}",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -1848,6 +1728,12 @@
 					"port": "3000",
 					"path": [
 						"cliente"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						}
 					]
 				}
 			},
@@ -1878,12 +1764,6 @@
 						"value": "application/json; charset=UTF-8",
 						"description": "Requerido",
 						"type": "text"
-					},
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
 					}
 				],
 				"body": {
@@ -1896,7 +1776,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://192.168.1.11:3000/orden_compra",
+					"raw": "http://192.168.1.11:3000/orden_compra?nombre_base={{nombre_base}}",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -1907,6 +1787,12 @@
 					"port": "3000",
 					"path": [
 						"orden_compra"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						}
 					]
 				}
 			},
@@ -1944,16 +1830,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/listas_compra?codigo_perfil={{codigo_perfil}}",
+					"raw": "http://192.168.1.11:3000/listas_compra?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -1967,9 +1846,13 @@
 					],
 					"query": [
 						{
-							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}",
+							"key": "nombre_base",
+							"value": "{{nombre_base}}",
 							"description": "Requerido"
+						},
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}"
 						}
 					]
 				}
@@ -2008,16 +1891,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/condiciones_compra?codigo_perfil={{codigo_perfil}}",
+					"raw": "http://192.168.1.11:3000/condiciones_compra?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -2031,9 +1907,13 @@
 					],
 					"query": [
 						{
-							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}",
+							"key": "nombre_base",
+							"value": "{{nombre_base}}",
 							"description": "Requerido"
+						},
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}"
 						}
 					]
 				}
@@ -2072,16 +1952,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/compradores?codigo_perfil={{codigo_perfil}}",
+					"raw": "http://192.168.1.11:3000/compradores?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -2095,9 +1968,13 @@
 					],
 					"query": [
 						{
-							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}",
+							"key": "nombre_base",
+							"value": "{{nombre_base}}",
 							"description": "Requerido"
+						},
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}"
 						}
 					]
 				}
@@ -2136,16 +2013,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/talonarios_compra?codigo_perfil={{codigo_perfil}}&tipo=O",
+					"raw": "http://192.168.1.11:3000/talonarios_compra?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&tipo=O",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -2159,14 +2029,18 @@
 					],
 					"query": [
 						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}",
+							"description": "Requerido"
+						},
+						{
 							"key": "codigo_perfil",
 							"value": "{{codigo_perfil}}",
 							"description": "Requerido"
 						},
 						{
 							"key": "tipo",
-							"value": "O",
-							"description": "Requerido"
+							"value": "O"
 						}
 					]
 				}
@@ -2205,16 +2079,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/provincias_compra?codigo_perfil={{codigo_perfil}}",
+					"raw": "http://192.168.1.11:3000/provincias_compra?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -2228,9 +2095,13 @@
 					],
 					"query": [
 						{
-							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}",
+							"key": "nombre_base",
+							"value": "{{nombre_base}}",
 							"description": "Requerido"
+						},
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}"
 						}
 					]
 				}
@@ -2269,16 +2140,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/proveedores?codigo_perfil=1",
+					"raw": "http://192.168.1.11:3000/proveedores?nombre_base={{nombre_base}}&codigo_perfil=1",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -2292,32 +2156,36 @@
 					],
 					"query": [
 						{
-							"key": "codigo_perfil",
-							"value": "1",
+							"key": "nombre_base",
+							"value": "{{nombre_base}}",
 							"description": "Requerido"
 						},
 						{
-							"key": "codigo_proveedor",
-							"value": null,
-							"description": "Código Proveedor",
-							"disabled": true
+							"key": "codigo_perfil",
+							"value": "1",
+							"description": "Código Proveedor"
 						},
 						{
-							"key": "cuit",
-							"value": null,
+							"key": "codigo_proveedor",
+							"value": "",
 							"description": "CUIT",
 							"disabled": true
 						},
 						{
-							"key": "nombre_proveedor",
-							"value": null,
+							"key": "cuit",
+							"value": "",
 							"description": "Nombre Proveedor",
+							"disabled": true
+						},
+						{
+							"key": "nombre_proveedor",
+							"value": "",
+							"description": "Valores posibles: code-asc, code-desc, alpha-asc y alpha-desc",
 							"disabled": true
 						},
 						{
 							"key": "sort_by",
 							"value": "code-asc",
-							"description": "Valores posibles: code-asc, code-desc, alpha-asc y alpha-desc",
 							"disabled": true
 						}
 					]
@@ -2357,16 +2225,9 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Login-UID",
-						"value": "{{login_uid}}",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/proveedor?codigo_perfil={{codigo_perfil}}",
+					"raw": "http://192.168.1.11:3000/proveedor?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&codigo_proveedor=301100",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -2380,8 +2241,16 @@
 					],
 					"query": [
 						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						},
+						{
 							"key": "codigo_perfil",
 							"value": "{{codigo_perfil}}"
+						},
+						{
+							"key": "codigo_proveedor",
+							"value": "301100"
 						}
 					]
 				}
@@ -2404,5 +2273,34 @@
 			}
 		]
 	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "db98e7b0-ca1b-4816-a8a3-3aeb3eb5590b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "b8bf0e97-cc5b-433b-b794-1c68122a8df8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "b4b9e604-cf1f-4b36-a568-a4ffa7088ae1",
+			"key": "nombre_base",
+			"value": "Desarrollo_PlusNT"
+		}
+	],
 	"protocolProfileBehavior": {}
 }
