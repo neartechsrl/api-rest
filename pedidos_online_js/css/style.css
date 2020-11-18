@@ -41,9 +41,9 @@
 }
 
 .tarea-enc {
-	height: 220px; 
-	width: 100%; 
-	background: white;
+  height: 100px; 
+  width: 100%; 
+  /* background: Fuchsia; */
   padding: 0px;
   overflow-y: hidden; 
   overflow-x: hidden;
@@ -51,11 +51,11 @@
 
 .tarea-det {
 	width: 100%; 
-	height: calc(100% - 160px); 
+	height: calc(100% - 110px); 
 	padding: 2px; 
 	overflow-y: auto; 
 	overflow-x: hidden; 
-	/* background: Fuchsia;	*/
+	/* background: Red; */
 }
 
 /* layout */
@@ -123,6 +123,18 @@
   border-width: thin;   
   background: white;
   padding: 2px; 
+  overflow: auto;  
+}
+
+#contenido_movil {
+  float: center;
+  width: 100%;
+  height: 100%;
+  border-style: none none none none;
+  border-color: #7C7C7C;
+  border-width: thin;   
+  /* background: Snow; */
+  padding: 5px; 
   overflow: auto;  
 }
 
@@ -203,7 +215,7 @@
 }
 
 .ul-lista li.active {
-	background-color: AntiqueWhite;	
+	background-color: #e0f2f1; /* AntiqueWhite; */	
 }
     
 /* Varios */
@@ -305,6 +317,18 @@
   color: #455a64;
   text-align: center;
   width: 50px;
+}
+
+.text4 {
+  font-size: 14px;
+  font-weight: bold;
+  color: #c30000;
+}
+
+.text5 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #c30000;
 }
 
 .text_prioridad_normal {

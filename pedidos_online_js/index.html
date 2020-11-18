@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">	
 
-<title>Pedidos Online WRV</title>
+<title>Neartech Pedidos Online Web Rest Version</title>
 
 <!-- CSS Propios --> 
 <link rel="stylesheet" type="text/css" href="./css/style.css" />
@@ -30,7 +30,10 @@
 <!-- Script Propios --> 
 <script src="./js/dialog-polyfill.js"></script>
 <script src="./js/md5.js"></script>
+<script src="./config.js"></script>
 <script src="./js/main.js"></script>
+<script src="./tinymce/tinymce.min.js"></script>
+<script src="./js/dialog-polyfill.js"></script>
    
 <link rel="shortcut icon" type="image/png" href="./favicon.png"/>
 
@@ -47,8 +50,13 @@
 <!-- BUSCAR ARTICULO -->
 <dialog id="dlg_articulo"> 
 	<div class="title-profile">Buscar Artículos</div>
+	<br>
+	<label>Opción Búsqueda: </label>				
+	<select id="cbo_opcion_busqueda" style="width:100%" class="form-control input-sm">
+	</select>
+	<br>						
 	<div class="input-group">
-		<input type="text" id="buscar_articulo" placeholder="Ingrese texto a buscar ..." class="form-control" required>	 	
+		<input type="text" id="buscar_articulo" placeholder="Ingrese texto a buscar ..." class="form-control" required autofocus>	 	
 		<span class="input-group-btn">
 			<button id="btnBuscarArticulo" class="btn btn-default" type="button">
 				<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
@@ -58,10 +66,7 @@
 	<div style="width: 850px; overflow-y: auto; overflow-x: hidden; padding: 5px;">
 		<div class="row">
 			<div class="col-md-1 title-cell">Foto</div>
-			<div class="col-md-2 title-cell">Código</div>			
-			<div class="col-md-4 title-cell">Descripción</div>
-			<div class="col-md-3 title-cell">Adicional</div>					
-			<div class="col-md-1 title-cell">Unidad</div>
+			<div class="col-md-6 title-cell">Descripción</div>
 			<div class="col-md-1 title-cell">Precio</div>
 		</div>		
 	</div>	
@@ -69,8 +74,29 @@
 		<ul id="lista_articulos" class="ul-lista" ></ul>
 	</div>
 	<br>
+	<div class="alert alert-success" id="dlg_articulo_msg" >
+		<strong></strong>
+	</div>
+	<br>
+	<label>Cantidad: </label>
+	<input type="text" id="ed_cantidad_busqueda">
 	<button class="btn btn-sm btn-primary" type="button" id="btnAgregar">Agregar</button>
-	<button class="btn btn-sm" type="button" id="btnCerrar">Cancelar</button>
+	<button class="btn btn-sm btn-danger" type="button" id="btnCerrar">Cancelar</button>
+</dialog>
+
+<dialog id="dlg_cantidad"> 
+	<div class="title-profile">Modificar Cantidad</div>
+	<br>
+	<div class="keep-on-line">
+		<div class="etiqueta_tarea">&nbsp;Código:</div><div id="dlg_codigo" style="float: left;"></div><br>
+		<div class="etiqueta_tarea">&nbsp;Descripción:</div><div id="dlg_descripcion" style="float: left;"></div><br>
+	</div>
+	<br>
+	<input type="text" id="ed_cantidad">
+	<br>
+	<br>
+	<button class="btn btn-sm btn-primary" type="button" id="btnGrabarCantidad">Aceptar</button>
+	<button class="btn btn-sm btn-danger" type="button" id="btnCerrarCantidad">Cancelar</button>
 </dialog>
 
 <!-- LOGIN -->	  			
@@ -79,11 +105,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-6 col-md-4 col-md-offset-4">			
-					<div class="info1">				
-						Pedidos Online WRV
+					<div id="titulo_login" class="info1">				
+						Login
 					</div>
 					<br>
-					<div class="account-wall">
+					<div id="pn_login" class="account-wall">
 						<form class="form-signin-OLD" style="max-width: 330px; padding: 15px; margin: 0 auto;">
 							<input id="username" type="text" class="form-control" placeholder="Usuario" value="" required autofocus>						 					 							
 							<br>
@@ -94,9 +120,19 @@
 								</span>
 							</div>						
 							<br>
-							<button class="btn btn-lg btn-primary btn-block" type="button" id="btnLogin">Ingresar</button>							
+							<button class="btn btn-lg btn-primary btn-block" type="button" id="btnEmpresa">Siguiente</button>							
 						</form>
-					</div>				
+					</div>
+					<div id="pn_empresa" class="account-wall">
+						<form class="form-signin-OLD" style="max-width: 330px; padding: 15px; margin: 0 auto;">
+							<label for="cbo_empresa">Seleccionar Empresa</label>
+							<select id="cbo_empresa" class="form-control input-sm">
+							</select>
+							<br>
+							<button class="btn btn-lg btn-primary btn-block" type="button" id="btnLogin">Siguiente</button>
+							<button class="btn btn-sm btn-default btn-block" type="button" id="btnCancelarLogin">Anterior</button>							
+						</form>
+					</div>					
 					<br>		  		
 					<a href="http://www.neartech.com.ar" class="text-center new-account">
 					  <img src="./img/logo_neartech.png" width="32" height="32" />
@@ -147,40 +183,37 @@
 		<div id="contenido">
 			
 			<!-- Botones-->
-			<div class="barra-botones">								
-				<div id="botones_tarea" class="btn-group" role="group">				
+			<div class="barra-botones " style="height: 50px; background-color: #eeeeee; padding: 0px;" >								
+				<div id="botones_tarea" class="btn-group_no" role="group_no" >				
 					<span>&nbsp;&nbsp;</span>
-					<button type="button" class="btn btn-default" id="btnCancelar" data-toggle="tooltip" data-placement="bottom" title="Cancelar">
+					
+					<div class="btn-group" id="btnOpciones">
+						<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+							Opciones
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" id="lista_opciones">
+						</ul>
+					</div>
+					
+					<button type="button" class="btn btn-sm btn-default" id="btnCancelar" data-toggle="tooltip" data-placement="bottom" title="Cancelar">
 						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp;Cancelar
-					</button>								
-					<button type="button" class="btn btn-default" id="btnPedido" data-toggle="tooltip" data-placement="bottom" title="Nuevo Pedido">
-						<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;Pedido
-					</button>
-					<button type="button" class="btn btn-default" id="btnCotiza" data-toggle="tooltip" data-placement="bottom" title="Nueva Cotización">
-						<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;Cotización
-					</button>
-					<button type="button" class="btn btn-default" id="btnFactura" data-toggle="tooltip" data-placement="bottom" title="Nueva Factura">
-						<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;Factura
-					</button>					
-					<button type="button" class="btn btn-default" id="btnRemito" data-toggle="tooltip" data-placement="bottom" title="Nueva Remito">
-						<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;Remito
-					</button>										
-					<button type="button" class="btn btn-default" id="btnConsulta" data-toggle="tooltip" data-placement="bottom" title="Consulta Comprobantes">
+					</button>	
+					<button type="button" class="btn btn-sm btn-info" id="btnConsulta" data-toggle="tooltip" data-placement="bottom" title="Consulta Comprobantes">
 						<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Consultas
 					</button>
-					<button type="button" class="btn btn-default" id="btnArticulo" data-toggle="tooltip" data-placement="bottom" title="Buscar Artículos">
-						<span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;Artículos
+					<button type="button" class="btn btn-sm btn-info" id="btnArticulo" data-toggle="tooltip" data-placement="bottom" title="Agregar Artículos">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Artículos
 					</button>												
-					<button type="button" class="btn btn-default" id="btnGrabar" data-toggle="tooltip" data-placement="bottom" title="Grabar Pedido">
+					<button type="button" class="btn btn-sm btn-success" id="btnGrabar" data-toggle="tooltip" data-placement="bottom" title="Grabar">
 						<span class="glyphicon glyphicon-saved" aria-hidden="true"></span>&nbsp;Grabar
 					</button>
-					<button type="button" class="btn btn-default" id="btnBuscar" data-toggle="tooltip" data-placement="bottom" title="Buscar comprobantes">
+					<button type="button" class="btn btn-sm btn-info" id="btnBuscar" data-toggle="tooltip" data-placement="bottom" title="Buscar comprobantes">
 						<span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;Buscar
 					</button>												
 					<span>&nbsp;&nbsp;</span>
 					<span id="info_comprobante" style="font-family: 'Open Sans', sans-serif; font-size: 24px; font-weight: bold; color: #044869;">TITULO</span>
 				</div>
-				
 			</div>
 			
 			<!-- Clientes -->
@@ -209,58 +242,67 @@
 				</div>				
 			</div>
 			
-			<!-- Pedido -->				
+			<!-- Pedido 250px -->				
 			<div id="div_pedido" class="contenido-tarea">
-				<div class="tarea-enc">
+				<div class="tarea-enc" style="height: auto;">				
+					<br>
 					<div class="keep-on-line">
 						<div class="etiqueta_tarea">&nbsp;Cliente:</div><div id="et_cliente" style="float: left;"></div><br>
-						<div class="etiqueta_tarea">&nbsp;Total:</div><div id="et_total" style="float: left;">0.00</div><br>
 						<div class="etiqueta_tarea">&nbsp;Cantidad:</div><div id="et_cantidad" style="float: left;">0.00</div><br>
+						<div class="etiqueta_tarea">&nbsp;Total:</div><div id="et_total" style="float: left; font-size: 18px; font-weight: bold; color: #c30000;">0.00</div>
 					</div>
 					<br>
+					<br>
 					<div class="row">
-						<div class="col-md-3">	
+						<div class="col-md-3" id="div_fecha">	
 							<label>Fecha</label>				
 							<input id="ed_fecha" type="date" class="form-control input-sm">
 						</div>		
-						<div class="col-md-3">	
+						<div class="col-md-3" id="div_talonario">	
 							<label>Talonario</label>				
 							<select id="cbo_talonario" style="width:100%" class="form-control input-sm"></select>
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-3" id="div_condicion">
 							<label>Condición Venta</label>
 							<select id="cbo_condicion" style="width:100%" class="form-control input-sm"></select>
+						</div>
+						<div class="col-md-3" id="div_transporte">
+							<label>Transporte</label>
+							<select id="cbo_transporte" style="width:100%" class="form-control input-sm"></select>
 						</div>
 					</div>
 					<br>
 					<div class="row">
-						<div class="col-md-3">
-							<label>Transporte</label>
-							<select id="cbo_transporte" style="width:100%" class="form-control input-sm"></select>
-						</div>	
-						<div class="col-md-3">	
+						<div class="col-md-3" id="div_deposito">	
 							<label>Depósito</label>	
 							<select id="cbo_deposito" style="width:100%" class="form-control input-sm"></select>			
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-3" id="div_lista">
 							<label>Lista Precio</label>
 							<select id="cbo_lista" style="width:100%" class="form-control input-sm"></select>
 						</div>
-					</div>	
+						<div class="col-md-3" id="div_vendedor">
+							<label>Vendedor</label>
+							<select id="cbo_vendedor" style="width:100%" class="form-control input-sm"></select>
+						</div>
+						<div class="col-md-3" id="div_impresora">
+							<label>Impresora IP</label>
+							<select id="cbo_impresora" style="width:100%" class="form-control input-sm"></select>
+						</div>
+					</div>
+					<br>	
 				</div>				
 				<div style="width: 100%; overflow-y: hidden; overflow-x: hidden; background: white;">
 					<div class="row">
 						<div class="col-md-1 title-cell">Foto</div>
-						<div class="col-md-1 title-cell">Código</div>			
-						<div class="col-md-3 title-cell">Descripción</div>
-						<div class="col-md-1 title-cell">Unidad</div>
+						<div class="col-md-4 title-cell">Descripción</div>
 						<div class="col-md-1 title-cell">Cantidad</div>
 						<div class="col-md-1 title-cell">Precio</div>
 						<div class="col-md-1 title-cell">Total</div>
 						<div class="col-md-3"></div>
 					</div>		
 				</div>
-				<div style="width: 100%; height: calc(100% - 250px); overflow-y: auto; overflow-x: hidden; background: white;">			
+				<div style="width: 100%; height: calc(100% - 300px); overflow-y: auto; overflow-x: hidden; background: white;">			
 					<ul id="lista_detalle" class="ul-lista"></ul>						
 				</div>		
 			</div>
@@ -280,6 +322,10 @@
 						<div class="col-md-3">	
 							<label>Tipo Comprobante</label>				
 							<select id="cbo_tipo" style="width:100%" class="form-control input-sm"></select>
+						</div>
+						<div class="col-md-3" id="div_impresora">
+							<label>Impresora IP</label>
+							<select id="cbo_impresora_consulta" style="width:100%" class="form-control input-sm"></select>
 						</div>
 					</div>
 					<div class="row">

@@ -2256,6 +2256,124 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Grabar Comprobante Cta. Cte. Manual",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"description": "Requerido",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json; charset=UTF-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"codigo_cliente\":\"000001\",\r\n\t\"talonario\":501,\r\n\t\"tipo_comprobante\": \"FAC\",\r\n    \"numero_comprobante\": \"A0050100000001\",\r\n\t\"fecha\":\"17/11/2020\",\r\n\t\"codigo_vendedor\":\"1\",\r\n\t\"codigo_condicion\":2,\r\n\t\"codigo_transporte\":\"01\",\r\n\t\"codigo_deposito\":\"1\",\r\n\t\"numero_lista\":1,\r\n\t\"leyenda_1\":\"\",\r\n\t\"leyenda_2\":\"\",\r\n\t\"leyenda_3\":\"\",\r\n\t\"leyenda_4\":\"\",\r\n\t\"leyenda_5\":\"\",\r\n\t\"total\":1210.0,\r\n\t\"comprobante_referencia\": \"\",\r\n\t\"detalle\":[\r\n\t\t{\r\n\t\t\t\"codigo_articulo\":\"001\",\r\n\t\t\t\"descripcion\":\"\",\r\n\t\t\t\"precio\":100.0,\r\n\t\t\t\"cantidad\":10.0,\r\n\t\t\t\"descuento\":0.0\r\n\t\t}\r\n\t]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.1.11:3000/comprobante?nombre_base={{nombre_base}}",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"comprobante"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Grabar Recibo Manual",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"description": "Requerido",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json; charset=UTF-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"codigo_cliente\":\"000001\",\r\n\t\"talonario\":103,\r\n    \"numero_comprobante\":\"X0001000000042\",\r\n\t\"fecha\":\"18/11/2020\",\r\n\t\"codigo_vendedor\":\"1\",\r\n\t\"leyenda\":\"\",\r\n\t\"concepto\":\"\",\r\n\t\"total\":100.00,\r\n\t\"comprobantes\":[\r\n\t\t{\r\n\t\t\t\"tipo_comprobante\":\"FAC\",\r\n\t\t\t\"numero_comprobante\":\"A0050100000001\",\r\n\t\t\t\"vencimiento\":\"17/12/2020\",\r\n\t\t\t\"importe\":100.00\r\n\t\t}\r\n\t],\r\n\t\"cuentas_fondo\": [\r\n\t\t{\r\n\t\t\t\"codigo_cuenta\": 1,\r\n\t\t\t\"importe\":100.00\r\n\t\t}\r\n\t]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.1.11:3000/recibo?nombre_base={{nombre_base}}",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"recibo"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"auth": {
@@ -2297,7 +2415,7 @@
 	],
 	"variable": [
 		{
-			"id": "b4b9e604-cf1f-4b36-a568-a4ffa7088ae1",
+			"id": "002b89a2-bcff-4327-814b-8f2fd77b0283",
 			"key": "nombre_base",
 			"value": "Desarrollo_PlusNT"
 		}

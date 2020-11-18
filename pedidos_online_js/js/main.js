@@ -1,16 +1,45 @@
 /*
-  Project Manager - REST API
-  Fecha: 23.01.2019
-  Programado por Miguel S. Lucero - miguel.sandro@gmail.com  
+  
+	Copyright 2020 Neartech SRL
+
+	Por la presente se concede permiso, libre de cargos, a cualquier persona que obtenga una copia de este 
+	software y de los archivos de documentación asociados (el "Software"), a utilizar el Software sin restricción, 
+	incluyendo sin limitación los derechos a usar, copiar, modificar, fusionar, publicar, distribuir, sublicenciar, 
+	y/o vender copias del Software, y a permitir a las personas a las que se les proporcione el Software a hacer lo mismo, 
+	sujeto a las siguientes condiciones:
+
+	El aviso de copyright anterior y este aviso de permiso se incluirán en todas las copias o partes 
+	sustanciales del Software.
+	
+	EL SOFTWARE SE PROPORCIONA "COMO ESTÁ", SIN GARANTÍA DE NINGÚN TIPO, EXPRESA O IMPLÍCITA, 
+	INCLUYENDO PERO NO LIMITADO A GARANTÍAS DE COMERCIALIZACIÓN, IDONEIDAD PARA UN PROPÓSITO 
+	PARTICULAR E INCUMPLIMIENTO. EN NINGÚN CASO LOS AUTORES O PROPIETARIOS DE LOS DERECHOS DE AUTOR 
+	SERÁN RESPONSABLES DE NINGUNA RECLAMACIÓN, DAÑOS U OTRAS RESPONSABILIDADES, YA SEA EN UNA ACCIÓN 
+	DE CONTRATO, AGRAVIO O CUALQUIER OTRO MOTIVO, DERIVADAS DE, FUERA DE O EN CONEXIÓN CON EL SOFTWARE 
+	O SU USO U OTRO TIPO DE ACCIONES EN EL SOFTWARE.
+ 
+	Neartech Pedidos Online - REST API
+	Fecha: 01.10.2020
+	Empresa: Neartech SRL
+	Programado por Miguel S. Lucero - miguel.sandro@gmail.com mlucero@neartech.com.ar
+	  
 */
 
-var debug = 0; // activar TEST
-var version = '20.3.27'; // versión app. miguel@01.07.19
-var url_server = '';
+/* NOTA: Estos datos van en archivo config.js ***
+var debug = 1; // activar TEST
+var url_server = 'http://192.168.1.11:3000';
+var document_title = 'Neartech Pedidos Online';
+*/
+
+var version = '20.11.12';
 var user = '';
 var password = '';
+var nombre_base = ''; 
+var nombre_empresa = ''; 
+
 var dlg_articulo; 
 var dlg_pdf;
+var dlg_cantidad;
 
 var data; // datos
 var perfil = null; // perfil usuario
@@ -21,7 +50,7 @@ var codigo_articulo = ""; // código artículo seleccionado
 var sel_detalle = -1; // indice detalle seleccionado
 var total = 0.0;
 var cantidad = 0.0;
-var tipo_comprobante = ""; // tipo de comprobante PED, COT, FAC
+var tipo_comprobante = ""; // tipo de comprobante PED, COT, FAC, CRE
 var dic_tipo_comp = {
 	"PED": {
 		"titulo": "Pedido",
@@ -35,11 +64,14 @@ var dic_tipo_comp = {
 		"titulo": "Facturación",
 		"url": "/comprobante"
 	},
+	"CRE": {
+		"titulo": "Crédito",
+		"url": "/comprobante"
+	},
 	"REM": {
 		"titulo": "Remito",
 		"url": "/remito"
 	}
-	
 }
 
 // constantes
@@ -129,23 +161,26 @@ function _get(url, funcCallback) {
 	xhr.withCredentials = true;
 	xhr.addEventListener("readystatechange", function () {
 		if (this.readyState === 4) {
+			json_data = null;
+			error = true;
+			try {
+				json_data = JSON.parse(this.responseText);
+				error = false;
+			} catch (error) {
+				console.log(error);
+			}
 			if ( this.status == 200 ) {
-				funcCallback( JSON.parse(this.responseText), false );
+				funcCallback( json_data, error );
 			} else {
-				funcCallback( null, true ); // error
+				funcCallback( json_data, true );
 			}
 		}
 	});
-
-	/*
-	xhr.onload = function () {
-		console.log('DONE: ', xhr.status);
-	};
-	*/
 	
 	xhr.open("GET", url);
 	xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
 	xhr.setRequestHeader("Authorization", auth);
+	// *** B xhr.setRequestHeader("Login-UID", login_uid);
 	xhr.send(data);
 }	
 
@@ -155,38 +190,119 @@ function _post(url, data, funcCallback ) {
 	xhr.withCredentials = true;
 	xhr.addEventListener("readystatechange", function () {
 		if (this.readyState === 4) {
+			json_data = null;
+			error = true;
+			try {
+				json_data = JSON.parse(this.responseText);
+				error = false;
+			} catch (error) {
+				console.log(error);
+			}
 			if ( this.status == 200 || this.status == 201 ) {
-				funcCallback( JSON.parse(this.responseText), false );
+				funcCallback( json_data, error );
 			} else {
-				funcCallback( null, true ); // error
+				funcCallback( json_data, true );
 			}
 		}
 	});
-
-	/*
-	xhr.onload = function () {
-		console.log('DONE: ', xhr.status);
-	};
-	*/
 	
 	xhr.open("POST", url);
 	xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
 	xhr.setRequestHeader("Authorization", auth);
+	// *** B xhr.setRequestHeader("Login-UID", login_uid);
 	xhr.send(data);
 }	
+
+function logout() {
+	sessionStorage.clear();
+	window.location.href = "index.html";			
+	
+	/*
+	var url = url_server + "/logout";
+	_get(url, function(data, error) {
+		sessionStorage.clear();
+		window.location.href = "index.html";					
+	});
+	*/ 
+}
+
+function getEmpresas() {
+	
+	user = document.getElementById('username').value.toUpperCase();
+	password = document.getElementById('password').value;
+	
+	var url = url_server + "/empresas";
+	_get(url, function(data, error) {
+		if ( !error ) {
+			var $select = $('#cbo_empresa');
+    		options = [];
+    		$.each(data, function(i , value) {
+         		options.push('<option value="'+ value.nombre_base +'">'+ value.nombre_empresa +'</option>');
+    		});
+			$select.html(options.join(""));
+			
+			if( data.length == 1 ) {
+				login()
+			} else {
+				$('#pn_login').hide();
+				$('#pn_empresa').show();
+			}
+		
+		} else {
+			alert(data.error);
+		}
+	});	
+}
 
 function login() {
 	user = document.getElementById('username').value.toUpperCase();
 	password = document.getElementById('password').value;
-
-	var url = url_server + "/login";
+	nombre_base = document.getElementById('cbo_empresa').value;
+	nombre_empresa = $("#cbo_empresa option:selected").text(); // miguel@12.11.20
+	
+	var url = url_server + "/login?nombre_base=" + nombre_base;
 	_get(url, function(data, error) {
 		if ( !error ) {
 			perfil = data;
+			// *** B login_uid = perfil.login_uid;
 			
 			refreshUser();
 
+			// Opciones PED FAC etc.
+			var $ul = $("#lista_opciones");
+			$ul.empty();
+			$.each(Object.keys(dic_tipo_comp), function(i , opcion) {
+				$.each(perfil.talonarios, function(i , value) {
+					if ( value.tipo_comprobante == opcion ) {
+						content = '<li onclick="nuevoComprobante(' + "'" + opcion + "'" + ')"><a tabindex="-1" href="#">' + dic_tipo_comp[opcion].titulo + '</a></li>';
+						$ul.append(content);
+						return false;
+					}
+				});	
+			});
+				
 			// llenar combos
+			
+			// opciones de búsqueda
+			var $select = $('#cbo_opcion_busqueda');
+    		options = [];
+			options.push('<option value="q">Búsqueda Libre</option>');
+			options.push('<option value="sinonimo">Sinónimo</option>');
+			options.push('<option value="adicional">Desc. Adicional</option>');
+			options.push('<option value="codigo_articulo">Código Artículo</option>');
+			options.push('<option value="codigo_barra">Código de Barra</option>');
+			$select.html(options.join(""));	
+			
+			// impresoras ip. miguel@24.09.20
+			var $select = $('#cbo_impresora');
+    		options = [];
+    		$.each(perfil.impresoras_ip, function(i , value) {
+         		options.push('<option value="'+ value.id_impresora_ip +'">'+ value.descripcion +'</option>');
+    		});
+			$select.html(options.join(""));	
+			var $select = $('#cbo_impresora_consulta');
+			$select.html(options.join(""));
+			
 			// talonarios
 			var $select = $('#cbo_talonario');
     		options = [];
@@ -219,6 +335,14 @@ function login() {
     		});
 			$select.html(options.join(""));	
 
+			// vendedores
+			var $select = $('#cbo_vendedor');
+    		options = [];
+    		$.each(perfil.vendedores, function(i , value) {
+         		options.push('<option value="'+ value.codigo_vendedor +'">'+ value.nombre_vendedor +'</option>');
+    		});
+			$select.html(options.join(""));
+			
 			// mostrar main
 			$('#login').hide();
 			$('#main').show();		
@@ -226,7 +350,7 @@ function login() {
 			iniciarPantalla();
 			
 		} else {
-			alert("Login Incorrecto. Verifique los datos ingresados");
+			alert(data.error);
 		}
 	});	
 }
@@ -234,15 +358,13 @@ function login() {
 function refreshUser() {
 	sessionStorage.clear();
 	sessionStorage.setItem('usuario', user );
-	sessionStorage.setItem('nombre', user );
-		
-	document.getElementById('user').innerHTML = sessionStorage.getItem('nombre');	
+	sessionStorage.setItem('nombre', user );		
+	document.getElementById('user').innerHTML = sessionStorage.getItem('nombre') + ' [' + nombre_empresa + ']';	
 }
 
 function iniciarPantalla() {
 	
 	sel_cliente = null;
-	codigo_cliente = "";
 	detalle_pedido = [];
 	codigo_articulo = "";
 	sel_detalle = -1;
@@ -259,10 +381,7 @@ function iniciarPantalla() {
 
 	// botones
 	$('#btnCancelar').hide();
-	$('#btnPedido').show();
-	$('#btnCotiza').show();
-	$('#btnFactura').show();
-	$('#btnRemito').show();
+	$('#btnOpciones').show();
 	$('#btnConsulta').show();
 	$('#btnBuscar').hide();
 	$('#btnArticulo').hide();
@@ -279,7 +398,9 @@ function buscarClientes() {
 
 	if ( texto != '' ) {
 		document.getElementById('search_client').value = '';
-		var url = url_server + "/clientes?codigo_perfil=" + perfil.codigo_perfil + "&q=" + texto;
+		var url = url_server + "/clientes?nombre_base=" + perfil.nombre_base 
+			+ "&codigo_perfil=" + perfil.codigo_perfil 
+			+ "&q=" + texto;
 		_get(url, function(data, error) {
 			if( ! error ) {
 				
@@ -314,14 +435,30 @@ function buscarClientes() {
 	}	
 }
 
+function nuevoComprobante(_tipo) {
+	tipo_comprobante = _tipo;
+	pedidoCliente(codigo_cliente);
+}
+
 function onClickSelCliente(_value) {
 	codigo_cliente = _value; // seleccionar cliente
 	activarOpcion("lista_clientes", "codigo_cliente", _value);
 }
 
+function setPerfil(_obj, _div, _value) {
+	document.getElementById(_obj).disabled = ( _value == 'M' );
+	if ( _value == 'O' ) {
+		$('#' + _div ).hide();
+	} else {
+		$('#' + _div ).show();
+	}
+}
+	
 function pedidoCliente(_value) {
 	if( _value != '' ) {
-		var url = url_server + "/cliente?codigo_perfil=" + perfil.codigo_perfil + "&codigo_cliente=" + _value;
+		var url = url_server + "/cliente?nombre_base=" + perfil.nombre_base 
+			+ "&codigo_perfil=" + perfil.codigo_perfil 
+			+ "&codigo_cliente=" + _value;
 		_get(url, function(data, error) {
 			if( !error ) {		
 				sel_cliente = data; // datos cliente seleccionado
@@ -345,11 +482,11 @@ function pedidoCliente(_value) {
 				});
 				$select.html(options.join(""));
 
-				// condición venta. Si es FAC solo cta. cte. miguel@14.11.19
+				// condición venta. Si es FAC/CRE solo cta. cte. miguel@14.11.19
 				var $select = $('#cbo_condicion');
 				options = [];
 				$.each(perfil.condiciones_venta, function(i , value) {
-					if ( ( tipo_comprobante == 'FAC' && value.contado == 'N' ) || tipo_comprobante != 'FAC' ) {
+					if ( ( tipo_comprobante == 'FAC' && value.contado == 'N' ) || ( tipo_comprobante == 'CRE' && value.contado == 'N' ) || ( tipo_comprobante != 'FAC' && tipo_comprobante != 'CRE' ) ) {
 						options.push('<option value="'+ value.codigo_condicion +'">'+ value.desc_condicion +'</option>');
 					}
 				});
@@ -358,18 +495,25 @@ function pedidoCliente(_value) {
 				// titulo tipo comprobante
 				document.getElementById('info_comprobante').innerHTML = dic_tipo_comp[tipo_comprobante].titulo;
 
+				// Editar / Mostrar / Ocultar
+				setPerfil('ed_fecha', 'div_fecha', perfil.edita_fecha);
+				setPerfil('cbo_talonario', 'div_talonario', perfil.edita_talonario);
+				setPerfil('cbo_condicion', 'div_condicion', perfil.edita_condicion_venta);
+				setPerfil('cbo_transporte', 'div_transporte', perfil.edita_transporte);
+				setPerfil('cbo_deposito', 'div_deposito', perfil.edita_deposito);
+				setPerfil('cbo_lista', 'div_lista', perfil.edita_lista_precio);
+				setPerfil('cbo_vendedor', 'div_vendedor', perfil.edita_vendedor);
+				setPerfil('cbo_impresora', 'div_impresora', perfil.edita_impresora_ip);
+				
 				// botones
 				$('#btnCancelar').show();
-				$('#btnPedido').hide();
-				$('#btnCotiza').hide();
-				$('#btnFactura').hide();
-				$('#btnRemito').hide();
+				$('#btnOpciones').hide();
 				$('#btnConsulta').hide();
 				$('#btnBuscar').hide();
 				$('#btnArticulo').show();
 				$('#btnGrabar').show();
 
-				// iniciar pedido/cotiza/factura
+				// iniciar pedido/cotiza/comprobante (FAC/CRE)
 				hideDiv();
 				$('#div_pedido').show();
 			}
@@ -384,7 +528,14 @@ function buscarArticulos() {
 	if ( texto != '' ) {
 		document.getElementById('buscar_articulo').value = '';
 		var numero_lista = document.getElementById('cbo_lista').value;
-		var url = url_server + "/articulos?codigo_perfil=" + perfil.codigo_perfil + "&numero_lista=" + numero_lista + "&q=" + texto + "&binary_img=1" + "&size_img=48";
+		var opcion = document.getElementById('cbo_opcion_busqueda').value;
+		
+		var url = url_server + "/articulos?nombre_base=" + perfil.nombre_base 
+			+ "&codigo_perfil=" + perfil.codigo_perfil 
+			+ "&numero_lista=" + numero_lista 
+			+ "&" + opcion + "=" + texto 
+			+ "&binary_img=1" 
+			+ "&size_img=48";
 		_get(url, function(data, error) {
 			if( ! error ) {
 				
@@ -403,14 +554,17 @@ function buscarArticulos() {
 					var img = "";
 					if ( value.foto != "" ) img = '<img src="' + value.foto + '" height="48" width="48">';
 
-					content = '<li codigo_articulo = "' + value.codigo_articulo + '" onclick="onClickSelArticulo(' + "'" + value.codigo_articulo + "'" + ')"><a href="#">' 
+					content = '<li codigo_articulo = "' + value.codigo_articulo + '" onclick="onClickSelArticulo(' + "'" + value.codigo_articulo + "'" + ')" ondblclick="agregarArticulo(' + "'" + value.codigo_articulo + "'" + ')" ><a href="#">' 
 						+ '<div class="row">'
 						+ '  <div class="col-md-1">' + img + '</div>'
-						+ '  <div class="col-md-2">' + value.codigo_articulo + '</div>'
-						+ '  <div class="col-md-4">' + value.desc_articulo + '</div>'
-						+ '  <div class="col-md-3">' + value.adicional + '</div>'						
-						+ '  <div class="col-md-1">' + value.unidad_medida_ventas + '</div>'
-						+ '  <div class="col-md-1"><span style="float: right;">' + precio_pan.toFixed(2) + '</span></div>'
+						+ '  <div class="col-md-6">'
+						+ '    <span class="text3">Código: ' + value.codigo_articulo + '</span><br>'
+						+ '    <span class="text1">' + value.desc_articulo + '</span><br>' 
+						+ '    <span class="text3">Desc. Adic.: ' + value.adicional + '</span><br>'
+						+ '    <span class="text3">Sinónimo:    ' + value.sinonimo + '</span><br>'
+						+ '    <span class="text3">Unidad Med.: ' + value.unidad_medida_ventas + '</span>'
+						+ '  </div>'
+						+ '  <div class="col-md-1"><span class="text4" style="float: right;">' + precio_pan.toFixed(2) + '</span></div>'
 						+ ' </div>'
 						+ '</a></li>'; 
 					$ul.append(content);
@@ -430,14 +584,33 @@ function onClickSelArticulo(_value) {
 function agregarArticulo(_value) {
 	if( _value != '' ) {
 		var numero_lista = document.getElementById('cbo_lista').value;
-		var url = url_server + "/articulo?codigo_perfil=" + perfil.codigo_perfil + "&numero_lista=" + numero_lista + "&codigo=" + _value + "&binary_img=1" + "&size_img=64";
+		var cantidad = getNum(document.getElementById("ed_cantidad_busqueda").value);
+		if ( cantidad <= 0 ) cantidad = 1.0;
+		
+		var url = url_server + "/articulo?nombre_base=" + perfil.nombre_base 
+			+ "&codigo_perfil=" + perfil.codigo_perfil 
+			+ "&numero_lista=" + numero_lista 
+			+ "&codigo=" + _value 
+			+ "&binary_img=1" + "&size_img=64";
 		_get(url, function(data, error) {
 			if( !error ) {						
-				data["cantidad"] = 1.0;
+				data["cantidad"] = cantidad;
 				data["descuento"] = 0.0;
 				detalle_pedido.push(data);
 				calculo();
 				document.getElementById("buscar_articulo").focus();
+				
+				// Mostrar mensaje
+				document.getElementById("dlg_articulo_msg").innerHTML = '<strong>¡ Se agregó correctamente artículo: ' + data.desc_articulo + ' !</strong>'
+				$("#dlg_articulo_msg").show();
+				
+				var maxTime = 2 * 1000; // n segundos
+				var idVar = setInterval(() => { 
+					// ocultar mensaje
+					$("#dlg_articulo_msg").hide();
+					clearInterval(idVar);
+				}, maxTime);
+	
 			}
 		});		
 	}
@@ -465,48 +638,50 @@ function calculo() {
 		var img = "";
 		if ( value.foto != "" ) img = '<img src="' + value.foto + '" height="64" width="64">';
 
-		content = '<li>' 
+		content = '<li id_detalle = ' + i + ' onclick="onClickSelDetalle(' + i + ')"><a href="#">' 
 			+ '  <div class="row">'
 			+ '    <div class="col-md-1">' + img + '</div>'
-			+ '    <div class="col-md-1">' + value.codigo_articulo + '</div>'
-			+ '    <div class="col-md-3">' + value.desc_articulo + '</div>'
-			+ '    <div class="col-md-1">' + value.unidad_medida_ventas + '</div>'
+			+ '    <div class="col-md-4">'
+			+ '        <span class="text3">Código: ' + value.codigo_articulo + '</span><br>'
+			+ '        <span class="text1">' + value.desc_articulo + '</span><br>' 
+			+ '        <span class="text3">Desc. Adic.: ' + value.adicional + '</span><br>'
+			+ '        <span class="text3">Sinónimo:    ' + value.sinonimo + '</span><br>'
+			+ '        <span class="text3">Unidad Med.: ' + value.unidad_medida_ventas + '</span>'			 
+			+ '    </div>'
 			+ '    <div class="col-md-1"><span style="float: right;">' + value.cantidad.toFixed(2) + '</span></div>'
 			+ '    <div class="col-md-1"><span style="float: right;">' + precio_pan.toFixed(2) + '</span></div>'
-			+ '    <div class="col-md-1"><span style="float: right;">' + (precio_pan * value.cantidad).toFixed(2) + '</span></div>'
-			+ '    <div class="col-md-1">'
-			+ '	       <span class="glyphicon glyphicon-plus" onclick="sumarDetalle(' + i + ')"></span>&nbsp;'
-			+ '	       <span class="glyphicon glyphicon-minus" onclick="restarDetalle(' + i + ')"></span>&nbsp;'
+			+ '    <div class="col-md-1"><span class="text4" style="float: right;">' + (precio_pan * value.cantidad).toFixed(2) + '</span></div>'
+			+ '    <div class="col-md-3">'
+			+ '	       <span class="glyphicon glyphicon-pencil" onclick="editarCantidad(' + i + ')"></span>&nbsp;'
 			+ '	       <span class="glyphicon glyphicon-trash" onclick="borrarDetalle(' + i + ')"></span>&nbsp;'
 			+ '    </div>'
 			+ '  </div>'
-			+ '</li>'; 
+			+ '</a></li>'; 
 		$ul.append(content);
 
 	});	
 	
 	// Mostrar totales
-	document.getElementById('et_cantidad').innerHTML = cantidad.toFixed(2)
-	document.getElementById('et_total').innerHTML = total.toFixed(2)
+	document.getElementById('et_cantidad').innerHTML = cantidad.toFixed(2);
+	document.getElementById('et_total').innerHTML = total.toFixed(2);
 }
 
-function sumarDetalle(_indice) {
-	detalle_pedido[_indice].cantidad += 1;
-	calculo();
+function onClickSelDetalle(_value) {
+	sel_detalle = _value; // seleccionar articulo de detalle
+	activarOpcion("lista_detalle", "id_detalle", _value);
 }
 
-function restarDetalle(_indice) {
-	if ( detalle_pedido[_indice].cantidad > 1 )	detalle_pedido[_indice].cantidad -= 1;
-	calculo();
+function editarCantidad(_indice) {
+	sel_detalle = _indice;
+	document.getElementById('dlg_codigo').innerHTML = detalle_pedido[_indice].codigo_articulo;
+	document.getElementById('dlg_descripcion').innerHTML = detalle_pedido[_indice].desc_articulo;
+	document.getElementById('ed_cantidad').value = detalle_pedido[_indice].cantidad;
+	dlg_cantidad.showModal();
 }
 
 function borrarDetalle(_indice) {
 	detalle_pedido.splice( _indice, 1 );
 	calculo();
-}
-
-function infoDetalle(_indice) {
-	console.log("infoDetalle: " + _indice);
 }
 
 function onClickDetalle(_value) {
@@ -516,27 +691,41 @@ function onClickDetalle(_value) {
 
 function grabarPedido() {
 	if( detalle_pedido.length > 0 ) {
+		
+		var pedido_det = []; // detalle pedido que se envía al servidor. miguel@22.09.20
+				
+		$.each(detalle_pedido, function(i , value) {
+			var data = {
+				codigo_articulo: value.codigo_articulo,
+				cantidad: value.cantidad,
+				precio: value.precio,
+				descuento: value.descuento
+			}			
+			pedido_det.push(data);			
+		});
+		
 		var pedido = {
+			tipo_comprobante: tipo_comprobante,
 			codigo_perfil: perfil.codigo_perfil,
 			codigo_cliente: sel_cliente.codigo_cliente,	
 			talonario: intNum( document.getElementById('cbo_talonario').value ),
 			fecha: getDate( document.getElementById('ed_fecha').value ),
-			codigo_vendedor: perfil.codigo_vendedor,
+			codigo_vendedor: document.getElementById('cbo_vendedor').value, 
 			codigo_condicion: intNum( document.getElementById('cbo_condicion').value ),
 			codigo_transporte: document.getElementById('cbo_transporte').value,
 			codigo_deposito: document.getElementById('cbo_deposito').value,
 			numero_lista: intNum( document.getElementById('cbo_lista').value),
+			id_impresora_ip: intNum( document.getElementById('cbo_impresora').value ),
 			leyenda_1: "",
 			leyenda_2: "",
 			leyenda_3: "",
 			leyenda_4: "",
 			leyenda_5: "",
 			total: total,
-			detalle: detalle_pedido
+			detalle: pedido_det
 		};  	  
 	  	  
-		// var url = url_server + "/pedido";
-		var url = url_server + dic_tipo_comp[tipo_comprobante].url;
+		var url = url_server + dic_tipo_comp[tipo_comprobante].url + "?nombre_base=" + perfil.nombre_base;
 
 		_post(url, JSON.stringify(pedido), function(data, error) {			
 			if( !error ) {
@@ -546,6 +735,8 @@ function grabarPedido() {
 					showPDFBase64(tipo_comprobante, data.pdf)
 				}
 				iniciarPantalla();
+			} else {
+				alert("Error al generar comprobante: " + data.error);
 			}
 		});
 
@@ -557,10 +748,11 @@ function consultaComprobantes() {
 	var fecha_hasta = getDate( document.getElementById('ed_fecha_h').value );
 	var tipo_comprobante = document.getElementById('cbo_tipo').value;
 
-	var url = url_server + "/consulta_comprobantes?codigo_perfil=" + perfil.codigo_perfil 
+	var url = url_server + "/consulta_comprobantes?nombre_base=" + perfil.nombre_base 
+		+ "&codigo_perfil=" + perfil.codigo_perfil 
 		+ "&fecha_desde=" + fecha_desde 
 		+ "&fecha_hasta=" + fecha_hasta 
-		+ "&tipo_comprobante=" + tipo_comprobante;
+		+ "&tipo_comprobante=" + tipo_comprobante;		
 	_get(url, function(data, error) {
 		if( !error ) {						
 			var $ul = $("#lista_consulta");
@@ -574,6 +766,7 @@ function consultaComprobantes() {
 					+ '    <div class="col-md-1"><span style="float: right;">' + value.total.toFixed(2) + '</span></div>'
 					+ '    <div class="col-md-1">'
 					+ '	       <span class="glyphicon glyphicon-open-file" onclick="getPDF(' + "'" + value.tipo_comprobante + "', " + value.talonario  + ", '" + value.numero_comprobante + "'" + ')"></span>&nbsp;'
+					+ '	       <span class="glyphicon glyphicon-print" onclick="imprimirComprobante(' + "'" + value.tipo_comprobante + "', " + value.talonario  + ", '" + value.numero_comprobante + "'" + ')"></span>&nbsp;'
 					+ '    </div>'		
 					+ '  </div>'
 					+ '</li>'; 
@@ -585,7 +778,8 @@ function consultaComprobantes() {
 }
 
 function getPDF( tipo_comprobante, talonario, numero_comprobante ) {
-	var url = url_server + "/pdf_comprobante?codigo_perfil=" + perfil.codigo_perfil 
+	var url = url_server + "/pdf_comprobante?nombre_base=" + perfil.nombre_base 
+		+ "&codigo_perfil=" + perfil.codigo_perfil 
 		+ "&tipo_comprobante=" + tipo_comprobante 
 		+ "&talonario=" + talonario 
 		+ "&numero_comprobante=" + numero_comprobante;
@@ -596,10 +790,24 @@ function getPDF( tipo_comprobante, talonario, numero_comprobante ) {
 			}
 		}
 	});	
-
 }
 
-// ---------------
+function imprimirComprobante( tipo_comprobante, talonario, numero_comprobante ) {
+	var url = url_server + "/typ_comprobante?nombre_base=" + perfil.nombre_base 
+		+ "&codigo_perfil=" + perfil.codigo_perfil 
+		+ "&tipo_comprobante=" + tipo_comprobante 
+		+ "&talonario=" + talonario 
+		+ "&numero_comprobante=" + numero_comprobante
+		+ "&id_impresora_ip=" + document.getElementById('cbo_impresora_consulta').value;
+	_get(url, function(data, error) {
+		if( !error ) {						
+			if ( data.typ != '' ) {
+				console.log(data.typ);
+			}
+		}
+	});	
+}
+
 function hideDiv() {	
 	$('#div_clientes').hide();
 	$('#div_pedido').hide();
@@ -627,18 +835,19 @@ function setPWDStyle() {
 
 // iniciar aplicación
 function init_app() {								
+
+	$('#pn_empresa').hide();
+	$('#pn_login').show();
+	
+	document.title = document_title;				
+	document.getElementById('titulo_login').innerHTML = document_title;
 	
 	if ( debug === 1 ) {
-		url_server = 'http://192.168.1.11:3000'; // test
 		document.getElementById('username').value = "miguel";
 		document.getElementById('password').value = "123456";
-		document.getElementById('search_client').value = 'lucero';
-	} else {
-		url_server = 'http://neartech.dyndns.org:3000'; // SSL
-		document.getElementById('username').innerHTML = "";
-		document.getElementById('password').innerHTML = "";		
-	}
-	
+		document.getElementById('search_client').value = "lucero";
+	};
+			
 	// version 
 	document.getElementById('version_login').innerHTML = "versión " + version;
 	document.getElementById('version_footer').innerHTML = "versión " + version;
@@ -650,6 +859,9 @@ function init_app() {
 	dlg_pdf = document.getElementById("dlg_pdf");
 	dialogPolyfill.registerDialog(dlg_pdf);
 
+	dlg_cantidad = document.getElementById("dlg_cantidad");
+	dialogPolyfill.registerDialog(dlg_cantidad);
+
 	hideDiv();
 	
 	// Login	
@@ -657,58 +869,51 @@ function init_app() {
 		setPWDStyle()
 	}
 	
+	document.getElementById('btnEmpresa').onclick = function() {
+		getEmpresas();
+	}
+	
 	document.getElementById('btnLogin').onclick = function() {
 		login();
 	}
 	
-	// Logout
+	document.getElementById('btnCancelarLogin').onclick = function() {
+		$('#pn_empresa').hide();
+		$('#pn_login').show();
+	}
+	
 	document.getElementById('btnLogout').onclick = function() {
-		sessionStorage.clear();
-		window.location.href = "index.html";			
+		logout(); // miguel@13.10.20
+		// sessionStorage.clear();
+		// window.location.href = "index.html";			
 	};		
-
-	document.getElementById('btnPedido').onclick = function() {
-		tipo_comprobante = "PED";
-		pedidoCliente(codigo_cliente);
-	}	
-
-	document.getElementById('btnCotiza').onclick = function() {
-		tipo_comprobante = "COT";
-		pedidoCliente(codigo_cliente);
-	}	
-
-	document.getElementById('btnFactura').onclick = function() {
-		tipo_comprobante = "FAC";
-		pedidoCliente(codigo_cliente);
-	}	
-
-	document.getElementById('btnRemito').onclick = function() {
-		tipo_comprobante = "REM";
-		pedidoCliente(codigo_cliente);
-	}	
-
+	
 	document.getElementById('btnConsulta').onclick = function() {
 
 		var $select = $('#cbo_tipo');
 		options = [];
-		options.push('<option value="PED">Pedido</option>');
-		options.push('<option value="COT">Cotización</option>');
-		options.push('<option value="FAC">Facturación</option>');
-		options.push('<option value="REM">Remito</option>');
+		// options.push('<option value="FAC">Facturación</option>');
+		// options.push('<option value="REM">Remito</option>');
+		
+		$.each(Object.keys(dic_tipo_comp), function(i , opcion) {
+			$.each(perfil.talonarios, function(i , value) {
+				if ( value.tipo_comprobante == opcion ) {
+					options.push('<option value="'+ opcion +'">'+ dic_tipo_comp[opcion].titulo +'</option>');
+					return false;
+				}
+			});	
+		});
 		$select.html(options.join(""));
-
+			
 		// botones
 		$('#btnCancelar').show();
-		$('#btnPedido').hide();
-		$('#btnCotiza').hide();
-		$('#btnFactura').hide();
-		$('#btnRemito').hide();
+		$('#btnOpciones').hide();
 		$('#btnConsulta').hide();
 		$('#btnBuscar').show();
 		$('#btnArticulo').hide();
 		$('#btnGrabar').hide();
 
-		// iniciar pedido/cotiza/factura
+		// iniciar pedido/cotiza/factura/credito
 		hideDiv();
 		$('#div_consulta').show();
 	}	
@@ -721,16 +926,15 @@ function init_app() {
 		// buscar artículos
 		if( $('#div_pedido').is(":visible") ) {
 			$("#lista_articulos").empty();
-			dlg_articulo.showModal();
+			$("#dlg_articulo_msg").hide();
+			document.getElementById("ed_cantidad_busqueda").value = '1'; // cantidad x defecto
+			document.getElementById("buscar_articulo").focus();
+			dlg_articulo.showModal();			
 		}
 	}	
 
 	document.getElementById('btnAgregar').onclick = function() {
 		agregarArticulo(codigo_articulo);
-	}
-
-	document.getElementById('btnCerrar').onclick = function() {
-		dlg_articulo.close();	
 	}
 
 	document.getElementById('btnGrabar').onclick = function() {
@@ -750,14 +954,51 @@ function init_app() {
 	}
 
 	document.getElementById('btnBuscarArticulo').onclick = function() {
-		buscarArticulos();
+		buscarArticulos();		
 	}
-		
+	
+	document.getElementById('btnCerrar').onclick = function() {
+		dlg_articulo.close();		
+	}
+	
+	document.getElementById('btnGrabarCantidad').onclick = function() {		
+		var cnt = getNum(document.getElementById('ed_cantidad').value);
+		detalle_pedido[sel_detalle].cantidad = cnt;
+		calculo();
+		dlg_cantidad.close();		
+	}
+	
+	document.getElementById('btnCerrarCantidad').onclick = function() {
+		dlg_cantidad.close();		
+	}
+
+	// Cantidad
+	$('#ed_cantidad').keypress(function(event) {
+		if (((event.which != 46 || (event.which == 46 && $(this).val() == '')) ||
+				$(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+			event.preventDefault();
+		}
+		}).on('paste', function(event) {
+			event.preventDefault();
+	});
+	
+	$('#ed_cantidad_busqueda').keypress(function(event) {
+		if (((event.which != 46 || (event.which == 46 && $(this).val() == '')) ||
+				$(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+			event.preventDefault();
+		}
+		}).on('paste', function(event) {
+			event.preventDefault();
+	});
+	
 	// eventos
 	var input = document.getElementById("password");
 	input.addEventListener("keyup", function(event) {
+		// Number 13 is the "Enter" key on the keyboard
 		if (event.keyCode === 13) {
+			// Cancel the default action, if needed
 			event.preventDefault();
+			// Trigger the button element with a click
 			document.getElementById("btnLogin").click();
 		}
 	}); 	
@@ -765,6 +1006,7 @@ function init_app() {
 	// buscar texto en cliente
 	var input_1 = document.getElementById("search_client");
 	input_1.addEventListener("keyup", function(event) {
+		// Number 13 is the "Enter" key on the keyboard
 		if (event.keyCode === 13) {
 			event.preventDefault();
 			buscarClientes();									
@@ -774,6 +1016,7 @@ function init_app() {
 	// buscar artículos	
 	var input_2 = document.getElementById("buscar_articulo");
 	input_2.addEventListener("keyup", function(event) {
+		// Number 13 is the "Enter" key on the keyboard
 		if (event.keyCode === 13) {
 			event.preventDefault();
 			buscarArticulos();									
@@ -784,25 +1027,7 @@ function init_app() {
 	$('#login').show();
 	$('#main').hide();
 	document.getElementById("username").focus();				
-	
-}
-
-function handleFileSelect (e) {
-    var files = e.target.files;
-    if (files.length < 1) {
-        alert('select a file...');
-        return;
-    }
-    var file = files[0];
-    var reader = new FileReader();
-    reader.onload = onFileLoaded;
-    reader.readAsDataURL(file);
-}
-
-function onFileLoaded (e) {
-	foto_base64 = e.target.result;
-	var preview = document.getElementById("foto");
-	preview.setAttribute('src', foto_base64);	    
+			
 }
 
 function showPDFBase64(_tipo_comprobante, pdf_base64) {
@@ -820,5 +1045,6 @@ function showPDFBase64(_tipo_comprobante, pdf_base64) {
 	var pdf_content = document.getElementById('pdf_content');	
 	pdf_content.innerHTML = objbuilder; 
 
-	dlg_pdf.showModal();	
+	dlg_pdf.showModal();
+	
 }
