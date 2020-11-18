@@ -2463,7 +2463,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"codigo_cliente\":\"000001\",\r\n\t\"talonario\":503,\r\n\t\"tipo_comprobante\": \"CRE\",\r\n    \"numero_comprobante\": \"A0050400000002\",\r\n\t\"fecha\":\"18/11/2020\",\r\n\t\"codigo_vendedor\":\"1\",\r\n\t\"codigo_condicion\":2,\r\n\t\"codigo_transporte\":\"01\",\r\n\t\"codigo_deposito\":\"1\",\r\n\t\"numero_lista\":1,\r\n\t\"leyenda_1\":\"\",\r\n\t\"leyenda_2\":\"\",\r\n\t\"leyenda_3\":\"\",\r\n\t\"leyenda_4\":\"\",\r\n\t\"leyenda_5\":\"\",\r\n\t\"total\":121.0,\r\n\t\"comprobante_referencia\": \"\",\r\n\t\"detalle\":[\r\n\t\t{\r\n\t\t\t\"codigo_articulo\":\"001\",\r\n\t\t\t\"descripcion\":\"\",\r\n\t\t\t\"precio\":100.0,\r\n\t\t\t\"cantidad\":1.0,\r\n\t\t\t\"descuento\":0.0\r\n\t\t}\r\n\t]\r\n}",
+					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"codigo_cliente\":\"000001\",\r\n\t\"talonario\":504,\r\n\t\"tipo_comprobante\": \"CRE\",\r\n    \"numero_comprobante\": \"A0050400000002\",\r\n\t\"fecha\":\"18/11/2020\",\r\n\t\"codigo_vendedor\":\"1\",\r\n\t\"codigo_condicion\":2,\r\n\t\"codigo_transporte\":\"01\",\r\n\t\"codigo_deposito\":\"1\",\r\n\t\"numero_lista\":1,\r\n\t\"leyenda_1\":\"\",\r\n\t\"leyenda_2\":\"\",\r\n\t\"leyenda_3\":\"\",\r\n\t\"leyenda_4\":\"\",\r\n\t\"leyenda_5\":\"\",\r\n\t\"total\":121.0,\r\n\t\"comprobante_referencia\": \"\",\r\n\t\"detalle\":[\r\n\t\t{\r\n\t\t\t\"codigo_articulo\":\"001\",\r\n\t\t\t\"descripcion\":\"\",\r\n\t\t\t\"precio\":100.0,\r\n\t\t\t\"cantidad\":1.0,\r\n\t\t\t\"descuento\":0.0\r\n\t\t}\r\n\t]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -2533,7 +2533,7 @@
 	],
 	"variable": [
 		{
-			"id": "17f21193-caf9-4b5f-aac7-b5eb48018d2d",
+			"id": "07c57cf9-ca40-4a56-9868-1c295a6a2ec4",
 			"key": "nombre_base",
 			"value": "Desarrollo_PlusNT"
 		}
