@@ -1459,12 +1459,14 @@ Posibles respuestas servidor
 
 | Campos     | Explicación|
 | -------------- | ---------- |
-| codigo_cliente | Código de cliente. No debe existir en Tango |
+| codigo_perfil | Código de Perfil. __REQUERIDO__ |
+| codigo_cliente | Código de cliente. No debe existir en Tango. Si es vacío se crea código automáticamente con formato numérico. ej. 000001 |
 | cuit | Documento/CUIT de cliente. No debe existir en Tango |
 | codigo_provincia | Código de provincia. Consular el método login |
 
 ```json
 {
+	"codigo_perfil": 1,
 	"codigo_cliente": "000006",
 	"nombre_cliente": "PEREZ JUAN",
 	"domicilio": "Mitre 12345",
