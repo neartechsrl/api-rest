@@ -180,15 +180,42 @@ Respuesta Servidor
 			"codigo_zona": "03",
 			"desc_zona": "Zona Sur"
 		}
-	]		
+	],
+	"nombre_base": "Desarrollo_PlusNT",
+    "longitud_familia": "2",
+    "longitud_grupo": "3",
+    "longitud_individuo": "10"		
 }
+```
+
+#### GET /agrupaciones_articulos
+
+Recibe Agrupación de Artículos. (Tango Gestión - NO Restó )
+
+ejemplo: `GET /agrupaciones_articulos?nombre_base=Desarrollo_PlusNT`
+
+| Parámetros     | Explicación|
+| -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
+
+```json
+[
+    {
+        "codigo_agrupacion": "01",
+        "desc_agrupacion": "ELECTRODOMESTICOS"
+    },
+    {
+        "codigo_agrupacion": "01001",
+        "desc_agrupacion": "REPUESTOS Y ACCESORIOS"
+    }
+]
 ```
 
 #### GET /arbol_clasificador
 
 Recibe árbol clasificador completo (Tango Gestión - NO Restó )
 
-ejemplo: `GET /arbol_clasificador?codigo_perfil=1`
+ejemplo: `GET /arbol_clasificador?nombre_base=Desarrollo_PlusNT&codigo_perfil=1`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
@@ -228,7 +255,7 @@ ejemplo: `GET /arbol_clasificador?codigo_perfil=1`
 
 Recibe clasificador (Tango Gestión - NO Restó )
 
-ejemplo: `GET /clasificador?codigo_perfil=1&id_parent=7`
+ejemplo: `GET /clasificador?nombre_base=Desarrollo_PlusNT&codigo_perfil=1&id_parent=7`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
@@ -257,7 +284,7 @@ ejemplo: `GET /clasificador?codigo_perfil=1&id_parent=7`
 
 Recibe árbol rubros completo (Tango Restó)
 
-ejemplo: `GET /arbol_rubros?codigo_perfil=1`
+ejemplo: `GET /arbol_rubros?nombre_base=Desarrollo_PlusNT&codigo_perfil=1`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
@@ -301,7 +328,7 @@ ejemplo: `GET /arbol_rubros?codigo_perfil=1`
 
 Recibe rubros (Tango NO Restó )
 
-ejemplo: `GET /rubros?codigo_perfil=1&codigo_rubro_padre=17`
+ejemplo: `GET /rubros?nombre_base=Desarrollo_PlusNT&codigo_perfil=1&codigo_rubro_padre=17`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
@@ -324,7 +351,7 @@ ejemplo: `GET /rubros?codigo_perfil=1&codigo_rubro_padre=17`
 
 Recibe todos los artículos
 
-ejemplo: `GET /articulos?codigo_perfil=1&numero_lista=1&q=BARRA`
+ejemplo: `GET /articulos?nombre_base=Desarrollo_PlusNT&codigo_perfil=1&numero_lista=1&q=BARRA`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
@@ -376,14 +403,23 @@ Respuesta Servidor
 		"foto": "data:image/jpeg;base64,/9j/4AA.....",
 		"dum": 0,
 		"unidad_medida_stock_2": "",
-		"equivalencia_stock_2": 0
+		"equivalencia_stock_2": 0,
+		"stock": [
+            {
+                "codigo_articulo": "001",
+                "codigo_deposito": "V1",
+                "desc_deposito": "Deposito vendedor V1",
+                "stock": 4700,
+                "stock_ventas": 1000
+            }
+        ]		
 	},
 ]
 ```
 
 #### GET /articulo
 
-Ejemplo: `GET /articulo?codigo_perfil=1&numero_lista=1&codigo=BARRA01`
+Ejemplo: `GET /articulo?nombre_base=Desarrollo_PlusNT&codigo_perfil=1&numero_lista=1&codigo=BARRA01`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
@@ -414,7 +450,16 @@ Respuesta Servidor
 	"desc_lista": "Mayorista",
 	"incluye_iva": 0,
 	"incluye_ii": 0,
-	"precio": 70
+	"precio": 70,
+	"stock": [
+            {
+                "codigo_articulo": "001",
+                "codigo_deposito": "V1",
+                "desc_deposito": "Deposito vendedor V1",
+                "stock": 4700,
+                "stock_ventas": 1000
+            }
+    ]	
 }
 ```
 
@@ -422,7 +467,7 @@ Respuesta Servidor
 
 Información de stock de artículo
 
-Ejemplo: `GET /stock?codigo_perfil=1&codigo=BARRA01`
+Ejemplo: `GET /stock?nombre_base=Desarrollo_PlusNT&codigo_perfil=1&codigo=BARRA01`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
@@ -531,7 +576,7 @@ Respuesta Servidor
 
 Consulta de Clientes
 
-Ejemplo: `GET /clientes?codigo_perfil=1&q=LUCERO`
+Ejemplo: `GET /clientes?nombre_base=Desarrollo_PlusNT&codigo_perfil=1&q=LUCERO`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
@@ -580,7 +625,7 @@ Respuesta Servidor
 
 Consulta de cliente específico
 
-Ejemplo: `GET /cliente?codigo_perfil=1&codigo_cliente=000003`
+Ejemplo: `GET /cliente?nombre_base=Desarrollo_PlusNT&codigo_perfil=1&codigo_cliente=000003`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
@@ -624,7 +669,7 @@ Respuesta Servidor
 
 Consulta de comprobantes
 
-Ejemplo: `GET /consulta_comprobantes?codigo_perfil=1&fecha_desde=01/01/2019&fecha_hasta=30/09/2019&tipo_comprobante=PED`
+Ejemplo: `GET /consulta_comprobantes?nombre_base=Desarrollo_PlusNT&codigo_perfil=1&fecha_desde=01/01/2019&fecha_hasta=30/09/2019&tipo_comprobante=PED`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
@@ -677,7 +722,7 @@ Respuesta servidor
 
 Generar PDF de comprobante 
 
-Ejemplo: `GET /pdf_comprobante?codigo_perfil=1&tipo_comprobante=PED&talonario=6&numero_comprobante= 0000000000342`
+Ejemplo: `GET /pdf_comprobante?nombre_base=Desarrollo_PlusNT&codigo_perfil=1&tipo_comprobante=PED&talonario=6&numero_comprobante= 0000000000342`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
@@ -705,7 +750,7 @@ Respuesta servidor
 
 Consulta de pedidos pendientes de cliente específico
 
-Ejemplo: `GET /pedidos_pendientes?codigo_perfil=1&codigo_cliente=000003`
+Ejemplo: `GET /pedidos_pendientes?nombre_base=Desarrollo_PlusNT&codigo_perfil=1&codigo_cliente=000003`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
@@ -736,7 +781,7 @@ Respuesta Servidor
 
 Consulta de detalle de pedido pendiente
 
-Ejemplo: `GET /detalle_pedido_pendiente?codigo_perfil=1&talonario=6&numero_comprobante= 0000000000022&numero_lista=1`
+Ejemplo: `GET /detalle_pedido_pendiente?nombre_base=Desarrollo_PlusNT&codigo_perfil=1&talonario=6&numero_comprobante= 0000000000022&numero_lista=1`
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
@@ -813,7 +858,7 @@ Respuesta Servidor
 
 Consulta de listas de compras.
 
-Ejemplo: `GET /listas_compra?codigo_perfil=1`
+Ejemplo: `GET /listas_compra?nombre_base=Desarrollo_PlusNT&codigo_perfil=1`
 
 ```json
 [
@@ -836,7 +881,7 @@ Ejemplo: `GET /listas_compra?codigo_perfil=1`
 
 Consulta de condiciones de compra.
 
-Ejemplo: `GET /condiciones_compra?codigo_perfil=1`
+Ejemplo: `GET /condiciones_compra?nombre_base=Desarrollo_PlusNT&codigo_perfil=1`
 
 ```json
 [
@@ -865,7 +910,7 @@ Consulta de compradores
 | -------------- | ---------- |
 | nombre_base	 | Nombre base de datos. __REQUERIDO__ |
 
-Ejemplo: `GET /compradores?codigo_perfil=1`
+Ejemplo: `GET /compradores?nombre_base=Desarrollo_PlusNT&codigo_perfil=1`
 
 ```json
 [
@@ -897,7 +942,7 @@ Consulta de talonarios de compra
 | codigo_perfil	 | Código Perfil __REQUERIDO__| 
 | tipo | Tipo Talonario: O = Orden de Compra  __REQUERIDO__ |
 
-Ejemplo: `GET /talonarios_compra?codigo_perfil=1&tipo=O`
+Ejemplo: `GET /talonarios_compra?nombre_base=Desarrollo_PlusNT&codigo_perfil=1&tipo=O`
 
 ```json
 [
@@ -917,7 +962,7 @@ Consulta de provincias.
 | -------------- | ---------- |
 | nombre_base	 | Nombre base de datos. __REQUERIDO__ |
 
-Ejemplo: `GET /provincias_compra?codigo_perfil=1`
+Ejemplo: `GET /provincias_compra?nombre_base=Desarrollo_PlusNT&codigo_perfil=1`
 
 ```json
 [
@@ -1043,7 +1088,7 @@ Ejemplo: `GET /provincias_compra?codigo_perfil=1`
 | alpha-asc		| Ordenar por nombre ascendente |
 | alpha-desc 	| Ordenar por nombre descendente |
 
-Ejemplo: `GET /proveedores?codigo_perfil=1`
+Ejemplo: `GET /proveedores?nombre_base=Desarrollo_PlusNT&codigo_perfil=1`
 
 ```json
 [
@@ -1088,7 +1133,7 @@ Consulta proveedor específico
 | codigo_perfil	 | Código Perfil __REQUERIDO__| 
 | codigo_proveedor | Código Proveedor __REQUERIDO__| 
 
-Ejemplo: `GET /proveedor?codigo_perfil=1&codigo_proveedor=999999`
+Ejemplo: `GET /proveedor?nombre_base=Desarrollo_PlusNT&codigo_perfil=1&codigo_proveedor=999999`
 
 ```json
 {

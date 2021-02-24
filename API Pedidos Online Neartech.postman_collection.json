@@ -110,6 +110,49 @@
 			"response": []
 		},
 		{
+			"name": "Agrupaciones de Articulos",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/agrupaciones_articulos?nombre_base={{nombre_base}}",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"agrupaciones_articulos"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Categoria IVA",
 			"request": {
 				"auth": {
@@ -409,7 +452,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/articulos?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&numero_lista=1",
+					"raw": "http://192.168.1.11:3000/articulos?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&numero_lista=1&codigo_deposito=V1",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -434,7 +477,8 @@
 						},
 						{
 							"key": "numero_lista",
-							"value": "1"
+							"value": "1",
+							"description": "Requerido"
 						},
 						{
 							"key": "q",
@@ -500,6 +544,11 @@
 							"key": "sinonimo",
 							"value": "",
 							"disabled": true
+						},
+						{
+							"key": "codigo_deposito",
+							"value": "V1",
+							"description": "Código Depósito con Stock mayor cero"
 						}
 					]
 				}
