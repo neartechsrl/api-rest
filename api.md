@@ -1221,13 +1221,13 @@ Ejemplo: `GET /proveedor?nombre_base=Desarrollo_PlusNT&codigo_perfil=1&codigo_pr
 		},
 		{
 			"codigo_cuenta": 7,
-			"importe":500.0,
+			"importe":400.0,
 			"datos_tarjeta": [
 				{
 					"lote": "0000",
 					"cupon": 123456,
 					"cuotas": 3,
-					"importe": 500.0,
+					"importe": 400.0,
 					"nombre_cliente": "PEREZ MARIA",
 					"tipo_documento": "DNI",
 					"numero_documento": "123456",
@@ -1236,7 +1236,23 @@ Ejemplo: `GET /proveedor?nombre_base=Desarrollo_PlusNT&codigo_perfil=1&codigo_pr
 					"codigo_autorizacion": "6656565"
 				}
 			]
-		}
+		},
+		{
+			"codigo_cuenta": 3,
+			"importe":100.0,
+			"datos_cheque": [
+                {
+                    "numero_cheque": 102030,
+                    "codigo_banco": "044",
+                    "vencimiento": "01/08/2020",
+                    "codigo_postal": "5600",
+                    "sucursal_banco": 1,
+                    "nombre_cliente": "",
+                    "cuit": "",
+                    "importe":100.0
+                }
+             ]
+        }
 	]
 }
 ```
@@ -1476,13 +1492,13 @@ Posibles respuestas servidor
 		},
 		{
 			"codigo_cuenta": 7,
-			"importe":900.0,
+			"importe":800.0,
 			"datos_tarjeta": [
 				{
 					"lote": "0000",
 					"cupon": 123456,
 					"cuotas": 3,
-					"importe": 900.0,
+					"importe": 800.0,
 					"nombre_cliente": "PEREZ MARIA",
 					"tipo_documento": "DNI",
 					"numero_documento": "123456",
@@ -1491,7 +1507,23 @@ Posibles respuestas servidor
 					"codigo_autorizacion": "6656565"
 				}
 			]
-		}
+		},
+		{
+			"codigo_cuenta": 3,
+			"importe":100.0,
+			"datos_cheque": [
+                {
+                    "numero_cheque": 102030,
+                    "codigo_banco": "044",
+                    "vencimiento": "01/08/2020",
+                    "codigo_postal": "5600",
+                    "sucursal_banco": 1,
+                    "nombre_cliente": "",
+                    "cuit": "",
+                    "importe":100.0
+                }
+            ]
+        }
 	]
 }
 ```

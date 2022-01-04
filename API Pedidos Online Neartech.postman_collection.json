@@ -6,6 +6,348 @@
 	},
 	"item": [
 		{
+			"name": "Resto NT",
+			"item": [
+				{
+					"name": "Arbol Rubros Resto",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "SUPERVISOR",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://neartech.dyndns.org:3333/arbol_rubros?nombre_base=LA_DELICIA_BOULEVARD_2021&codigo_perfil=1",
+							"protocol": "http",
+							"host": [
+								"neartech",
+								"dyndns",
+								"org"
+							],
+							"port": "3333",
+							"path": [
+								"arbol_rubros"
+							],
+							"query": [
+								{
+									"key": "nombre_base",
+									"value": "LA_DELICIA_BOULEVARD_2021",
+									"description": "Requerido"
+								},
+								{
+									"key": "codigo_perfil",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rubros Resto",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "SUPERVISOR",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://neartech.dyndns.org:3333/rubros?nombre_base=LA_DELICIA_BOULEVARD_2021&codigo_perfil=1&codigo_rubro_padre=12",
+							"protocol": "http",
+							"host": [
+								"neartech",
+								"dyndns",
+								"org"
+							],
+							"port": "3333",
+							"path": [
+								"rubros"
+							],
+							"query": [
+								{
+									"key": "nombre_base",
+									"value": "LA_DELICIA_BOULEVARD_2021",
+									"description": "Requerido"
+								},
+								{
+									"key": "codigo_perfil",
+									"value": "1"
+								},
+								{
+									"key": "codigo_rubro_padre",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Artículos Resto",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "SUPERVISOR",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://neartech.dyndns.org:3333/articulos?nombre_base=LA_DELICIA_BOULEVARD_2021&codigo_perfil=1&numero_lista=1",
+							"protocol": "http",
+							"host": [
+								"neartech",
+								"dyndns",
+								"org"
+							],
+							"port": "3333",
+							"path": [
+								"articulos"
+							],
+							"query": [
+								{
+									"key": "nombre_base",
+									"value": "LA_DELICIA_BOULEVARD_2021",
+									"description": "Requerido"
+								},
+								{
+									"key": "codigo_perfil",
+									"value": "1",
+									"description": "Requerido"
+								},
+								{
+									"key": "numero_lista",
+									"value": "1",
+									"description": "Requerido"
+								},
+								{
+									"key": "q",
+									"value": "001",
+									"description": "Texto a buscar",
+									"disabled": true
+								},
+								{
+									"key": "sort_by",
+									"value": "alpha-asc",
+									"description": "Valores posibles: code-asc code-desc alpha-asc alpha-desc",
+									"disabled": true
+								},
+								{
+									"key": "code",
+									"value": "001",
+									"description": "Código artículo o codigo de barra",
+									"disabled": true
+								},
+								{
+									"key": "binary_img",
+									"value": "1",
+									"description": "0=NO 1=SI devuelve foto artículo jpeg base64",
+									"disabled": true
+								},
+								{
+									"key": "size_img",
+									"value": "128",
+									"description": "Tamaño foto en pixels",
+									"disabled": true
+								},
+								{
+									"key": "codigo_rubro",
+									"value": "79",
+									"description": "Codigo Rubro Resto",
+									"disabled": true
+								},
+								{
+									"key": "codigo_articulo",
+									"value": "",
+									"description": "Código de artículo",
+									"disabled": true
+								},
+								{
+									"key": "codigo_barra",
+									"value": "",
+									"description": "Código de barra",
+									"disabled": true
+								},
+								{
+									"key": "adicional",
+									"value": "",
+									"description": "Descripción adicional",
+									"disabled": true
+								},
+								{
+									"key": "sinonimo",
+									"value": "",
+									"description": "Sinónimo",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Datos de artículo Resto",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "SUPERVISOR",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://neartech.dyndns.org:3333/articulo?nombre_base=LA_DELICIA_BOULEVARD_2021&codigo_perfil=1&numero_lista=1&codigo=CHA01&binary_img=1",
+							"protocol": "http",
+							"host": [
+								"neartech",
+								"dyndns",
+								"org"
+							],
+							"port": "3333",
+							"path": [
+								"articulo"
+							],
+							"query": [
+								{
+									"key": "nombre_base",
+									"value": "LA_DELICIA_BOULEVARD_2021",
+									"description": "Requerido"
+								},
+								{
+									"key": "codigo_perfil",
+									"value": "1",
+									"description": "Requerido"
+								},
+								{
+									"key": "numero_lista",
+									"value": "1",
+									"description": "Requerido"
+								},
+								{
+									"key": "codigo",
+									"value": "CHA01"
+								},
+								{
+									"key": "binary_img",
+									"value": "1",
+									"description": "0=NO 1=SI devuelve foto artículo jpeg base64"
+								},
+								{
+									"key": "size_img",
+									"value": "128",
+									"description": "Tamaño foto en pixels",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Grabar Comanda Resto",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "SUPERVISOR",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json; charset=UTF-8",
+								"description": "Requerido",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"fecha\":\"24/12/2021\",\r\n\t\"leyenda_1\":\"\",\r\n\t\"leyenda_2\":\"\",\r\n\t\"leyenda_3\":\"\",\r\n\t\"leyenda_4\":\"\",\r\n\t\"leyenda_5\":\"\",\r\n\t\"notas\": \"\",\r\n\t\"total\": 350,\r\n\t\"id_pedido_origen\": 1,\r\n    \"id_plataforma\": 11,\r\n\t\"detalle\":[\r\n\t\t{\r\n\t\t\t\"codigo_articulo\":\"CHA01\",\r\n\t\t\t\"desc_articulo\":\"UNI ALFAJOR DE CHOCOLATE\",\r\n\t\t\t\"precio\": 100,\r\n\t\t\t\"cantidad\": 2,\r\n\t\t\t\"descuento\":0\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"codigo_articulo\":\"HVA00\",\r\n\t\t\t\"desc_articulo\":\"HELADO VASO 50 UNA BOCHA\",\r\n\t\t\t\"precio\": 150,\r\n\t\t\t\"cantidad\": 1,\r\n\t\t\t\"descuento\":0\r\n\t\t}\r\n\t],\r\n\t\"pagos\": [\r\n\t\t{\r\n\t\t\t\"id\": \"1234\",\r\n\t\t\t\"metodo\": \"EFECTIVO\",\r\n\t\t\t\"total\": 350,\r\n\t\t\t\"fecha\": \"\",\r\n\t\t\t\"codigo_autorizacion\": \"\",\r\n\t\t\t\"numero_transaccion\": \"\",\r\n\t\t\t\"cuotas\": 0,\r\n\t\t\t\"importe_cuota\": 0.0,\r\n\t\t\t\"codigo_tarjeta\": \"\",\r\n\t\t\t\"numero_cupon\": \"\"\t\r\n\t\t}\r\n\t],\r\n\t\"datos_cliente\": \r\n\t\t{\r\n\t\t\t\"nombre\": \"Miguel Sandro\",\r\n\t\t\t\"apellido\": \"Lucero\",\r\n\t\t\t\"calle\": \"Balloffet\",\r\n\t\t\t\"numero\": \"140\",\r\n\t\t\t\"piso\": \"1\",\r\n\t\t\t\"departamento\": \"4\",\r\n\t\t\t\"codigo_postal\": \"5600\",\t\t\t\r\n\t\t\t\"localidad\": \"San Rafael\",\t\r\n\t\t\t\"codigo_provincia\": \"04\",\t\t\t\t\t\r\n\t\t\t\"tipo_documento\": 96,\r\n\t\t\t\"cuit\": \"20888999\",\r\n\t\t\t\"codigo_categoria_iva\": \"CF\",\r\n\t\t\t\"e_mail\": \"mlucero@neartech.com.ar\",\t\t\t\r\n\t\t\t\"telefono_1\": \"4436103\",\r\n\t\t\t\"telefono_2\": \"\"\r\n\t\t},\r\n\t\"envio\":\r\n\t\t{\r\n\t\t\t\"costo\": 0.0,\r\n\t\t\t\"calle\": \"\",\r\n\t\t\t\"numero\": \"\",\r\n\t\t\t\"piso\": \"\",\r\n\t\t\t\"departamento\": \"\",\r\n\t\t\t\"localidad\": \"\",\r\n\t\t\t\"codigo_postal\": \"\",\r\n\t\t\t\"codigo_provincia\": \"\",\r\n\t\t\t\"telefono_1\": \"\",\r\n\t\t\t\"telefono_2\": \"\",\r\n\t\t\t\"entrega_lunes\": \"S\",\r\n\t\t\t\"entrega_martes\": \"S\",\r\n\t\t\t\"entrega_miercoles\": \"S\",\r\n\t\t\t\"entrega_jueves\": \"S\",\r\n\t\t\t\"entrega_viernes\": \"S\",\r\n\t\t\t\"entrega_sabado\": \"N\",\r\n\t\t\t\"entrega_domingo\": \"N\",\r\n\t\t\t\"entrega_hora\": \"13:00\"\r\n\t\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://neartech.dyndns.org:3333/comanda?nombre_base=LA_DELICIA_BOULEVARD_2021",
+							"protocol": "http",
+							"host": [
+								"neartech",
+								"dyndns",
+								"org"
+							],
+							"port": "3333",
+							"path": [
+								"comanda"
+							],
+							"query": [
+								{
+									"key": "nombre_base",
+									"value": "LA_DELICIA_BOULEVARD_2021"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Empresas",
 			"event": [
 				{
@@ -317,8 +659,7 @@
 					"query": [
 						{
 							"key": "nombre_base",
-							"value": "{{nombre_base}}",
-							"description": "Requerido"
+							"value": "{{nombre_base}}"
 						},
 						{
 							"key": "codigo_perfil",
@@ -326,19 +667,16 @@
 						},
 						{
 							"key": "q",
-							"value": "LUCERO",
-							"description": "Valores posibles: code-asc code-desc alpha-asc alpha-desc"
+							"value": "LUCERO"
 						},
 						{
 							"key": "sort_by",
 							"value": "alpha-asc",
-							"description": "0=NO 1=SI devuelve foto jpeg base64",
 							"disabled": true
 						},
 						{
 							"key": "binary_img",
 							"value": "0",
-							"description": "Tamaño foto en pixels",
 							"disabled": true
 						},
 						{
@@ -387,7 +725,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/cliente?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&codigo_cliente=000003",
+					"raw": "http://192.168.1.11:3000/cliente?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&@NT_PWDWEB=123456&cuit=10203030",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -402,29 +740,35 @@
 					"query": [
 						{
 							"key": "nombre_base",
-							"value": "{{nombre_base}}",
-							"description": "Requerido"
+							"value": "{{nombre_base}}"
 						},
 						{
 							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}",
-							"description": "Requerido"
+							"value": "{{codigo_perfil}}"
 						},
 						{
 							"key": "codigo_cliente",
 							"value": "000003",
-							"description": "0=NO 1=SI devuelve foto artículo jpeg base64"
+							"disabled": true
 						},
 						{
 							"key": "binary_img",
 							"value": "1",
-							"description": "Tamaño foto en pixels",
 							"disabled": true
 						},
 						{
 							"key": "size_img",
 							"value": "128",
 							"disabled": true
+						},
+						{
+							"key": "@NT_PWDWEB",
+							"value": "123456",
+							"description": "Campo adicional. Agregar @"
+						},
+						{
+							"key": "cuit",
+							"value": "10203030"
 						}
 					]
 				}
@@ -452,7 +796,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/articulos?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&numero_lista=1&codigo_deposito=V1",
+					"raw": "http://192.168.1.11:3000/articulos?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&numero_lista=1",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -467,77 +811,64 @@
 					"query": [
 						{
 							"key": "nombre_base",
-							"value": "{{nombre_base}}",
-							"description": "Requerido"
+							"value": "{{nombre_base}}"
 						},
 						{
 							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}",
-							"description": "Requerido"
+							"value": "{{codigo_perfil}}"
 						},
 						{
 							"key": "numero_lista",
-							"value": "1",
-							"description": "Requerido"
+							"value": "1"
 						},
 						{
 							"key": "q",
 							"value": "001",
-							"description": "Valores posibles: code-asc code-desc alpha-asc alpha-desc",
 							"disabled": true
 						},
 						{
 							"key": "sort_by",
 							"value": "alpha-asc",
-							"description": "Código artículo o codigo de barra",
 							"disabled": true
 						},
 						{
 							"key": "code",
 							"value": "001",
-							"description": "0=NO 1=SI devuelve foto artículo jpeg base64",
 							"disabled": true
 						},
 						{
 							"key": "binary_img",
 							"value": "1",
-							"description": "Tamaño foto en pixels",
 							"disabled": true
 						},
 						{
 							"key": "size_img",
 							"value": "128",
-							"description": "ID Clasificador",
 							"disabled": true
 						},
 						{
 							"key": "id_folder",
 							"value": "19",
-							"description": "Codigo Rubro Resto",
 							"disabled": true
 						},
 						{
 							"key": "codigo_rubro",
 							"value": "21",
-							"description": "Código de artículo",
 							"disabled": true
 						},
 						{
 							"key": "codigo_articulo",
 							"value": "",
-							"description": "Código de barra",
 							"disabled": true
 						},
 						{
 							"key": "codigo_barra",
 							"value": "",
-							"description": "Descripción adicional",
 							"disabled": true
 						},
 						{
 							"key": "adicional",
 							"value": "",
-							"description": "Sinónimo",
 							"disabled": true
 						},
 						{
@@ -548,7 +879,7 @@
 						{
 							"key": "codigo_deposito",
 							"value": "V1",
-							"description": "Código Depósito con Stock mayor cero"
+							"disabled": true
 						}
 					]
 				}
@@ -591,28 +922,23 @@
 					"query": [
 						{
 							"key": "nombre_base",
-							"value": "{{nombre_base}}",
-							"description": "Requerido"
+							"value": "{{nombre_base}}"
 						},
 						{
 							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}",
-							"description": "Requerido"
+							"value": "{{codigo_perfil}}"
 						},
 						{
 							"key": "numero_lista",
-							"value": "1",
-							"description": "Requerido"
+							"value": "1"
 						},
 						{
 							"key": "codigo",
-							"value": "001",
-							"description": "0=NO 1=SI devuelve foto artículo jpeg base64"
+							"value": "001"
 						},
 						{
 							"key": "binary_img",
 							"value": "1",
-							"description": "Tamaño foto en pixels",
 							"disabled": true
 						},
 						{
@@ -661,13 +987,11 @@
 					"query": [
 						{
 							"key": "nombre_base",
-							"value": "{{nombre_base}}",
-							"description": "Requerido"
+							"value": "{{nombre_base}}"
 						},
 						{
 							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}",
-							"description": "Requerido"
+							"value": "{{codigo_perfil}}"
 						},
 						{
 							"key": "codigo",
@@ -714,13 +1038,11 @@
 					"query": [
 						{
 							"key": "nombre_base",
-							"value": "{{nombre_base}}",
-							"description": "Requerido"
+							"value": "{{nombre_base}}"
 						},
 						{
 							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}",
-							"description": "Requerido"
+							"value": "{{codigo_perfil}}"
 						},
 						{
 							"key": "codigo",
@@ -767,28 +1089,23 @@
 					"query": [
 						{
 							"key": "nombre_base",
-							"value": "{{nombre_base}}",
-							"description": "Requerido"
+							"value": "{{nombre_base}}"
 						},
 						{
 							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}",
-							"description": "Requerido. Formato dd/mm/aaaa "
+							"value": "{{codigo_perfil}}"
 						},
 						{
 							"key": "fecha_desde",
-							"value": "01/01/2020",
-							"description": "Requerido. Formato dd/mm/aaaa "
+							"value": "01/01/2020"
 						},
 						{
 							"key": "fecha_hasta",
-							"value": "31/12/2020",
-							"description": "Requerido. Posibles valores PED COT FAC REM"
+							"value": "31/12/2020"
 						},
 						{
 							"key": "tipo_comprobante",
-							"value": "PED",
-							"description": "Código cliente, razón social o cuit cliente"
+							"value": "PED"
 						},
 						{
 							"key": "texto_cliente",
@@ -821,7 +1138,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://192.168.1.11:3000/pdf_comprobante?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&tipo_comprobante=PED&talonario=6&numero_comprobante= 0000000000031",
+					"raw": "http://192.168.1.11:3000/pdf_comprobante?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&tipo_comprobante=REC&talonario=4&numero_comprobante= 0000100001148",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -836,27 +1153,23 @@
 					"query": [
 						{
 							"key": "nombre_base",
-							"value": "{{nombre_base}}",
-							"description": "Requerido"
+							"value": "{{nombre_base}}"
 						},
 						{
 							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}",
-							"description": "Requerido. Posibles valores PED COT FAC REM"
+							"value": "{{codigo_perfil}}"
 						},
 						{
 							"key": "tipo_comprobante",
-							"value": "PED",
-							"description": "Requerido"
+							"value": "REC"
 						},
 						{
 							"key": "talonario",
-							"value": "6",
-							"description": "Requerido"
+							"value": "4"
 						},
 						{
 							"key": "numero_comprobante",
-							"value": " 0000000000031"
+							"value": " 0000100001148"
 						}
 					]
 				}
@@ -899,13 +1212,11 @@
 					"query": [
 						{
 							"key": "nombre_base",
-							"value": "{{nombre_base}}",
-							"description": "Requerido"
+							"value": "{{nombre_base}}"
 						},
 						{
 							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}",
-							"description": "Requerido"
+							"value": "{{codigo_perfil}}"
 						},
 						{
 							"key": "codigo_cliente",
@@ -952,23 +1263,19 @@
 					"query": [
 						{
 							"key": "nombre_base",
-							"value": "{{nombre_base}}",
-							"description": "Requerido"
+							"value": "{{nombre_base}}"
 						},
 						{
 							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}",
-							"description": "Requerido"
+							"value": "{{codigo_perfil}}"
 						},
 						{
 							"key": "talonario",
-							"value": "6",
-							"description": "Requerido"
+							"value": "6"
 						},
 						{
 							"key": "numero_comprobante",
-							"value": " 0000000000043",
-							"description": "Requerido"
+							"value": " 0000000000043"
 						},
 						{
 							"key": "numero_lista",
@@ -1015,8 +1322,7 @@
 					"query": [
 						{
 							"key": "nombre_base",
-							"value": "{{nombre_base}}",
-							"description": "Requerido"
+							"value": "{{nombre_base}}"
 						},
 						{
 							"key": "codigo_perfil",
@@ -1067,112 +1373,11 @@
 					"query": [
 						{
 							"key": "nombre_base",
-							"value": "{{nombre_base}}",
-							"description": "Requerido"
+							"value": "{{nombre_base}}"
 						},
 						{
 							"key": "codigo_perfil",
 							"value": "{{codigo_perfil}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Arbol Rubros Resto",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "SUPERVISOR",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://192.168.1.11:3000/arbol_rubros?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}",
-					"protocol": "http",
-					"host": [
-						"192",
-						"168",
-						"1",
-						"11"
-					],
-					"port": "3000",
-					"path": [
-						"arbol_rubros"
-					],
-					"query": [
-						{
-							"key": "nombre_base",
-							"value": "{{nombre_base}}",
-							"description": "Requerido"
-						},
-						{
-							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Rubros Resto",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "SUPERVISOR",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://192.168.1.11:3000/rubros?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&codigo_rubro_padre=17",
-					"protocol": "http",
-					"host": [
-						"192",
-						"168",
-						"1",
-						"11"
-					],
-					"port": "3000",
-					"path": [
-						"rubros"
-					],
-					"query": [
-						{
-							"key": "nombre_base",
-							"value": "{{nombre_base}}",
-							"description": "Requerido"
-						},
-						{
-							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}"
-						},
-						{
-							"key": "codigo_rubro_padre",
-							"value": "17"
 						}
 					]
 				}
@@ -1215,23 +1420,19 @@
 					"query": [
 						{
 							"key": "nombre_base",
-							"value": "{{nombre_base}}",
-							"description": "Requerido"
+							"value": "{{nombre_base}}"
 						},
 						{
 							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}",
-							"description": "Requerido. Posibles valores PED COT FAC REM"
+							"value": "{{codigo_perfil}}"
 						},
 						{
 							"key": "tipo_comprobante",
-							"value": "PED",
-							"description": "Requerido"
+							"value": "PED"
 						},
 						{
 							"key": "talonario",
-							"value": "6",
-							"description": "Requerido"
+							"value": "6"
 						},
 						{
 							"key": "numero_comprobante",
@@ -1315,13 +1516,11 @@
 					"query": [
 						{
 							"key": "nombre_base",
-							"value": "{{nombre_base}}",
-							"description": "Requerido"
+							"value": "{{nombre_base}}"
 						},
 						{
 							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}",
-							"description": "Requerido"
+							"value": "{{codigo_perfil}}"
 						},
 						{
 							"key": "codigo_cliente",
@@ -1380,8 +1579,7 @@
 					"query": [
 						{
 							"key": "nombre_base",
-							"value": "{{nombre_base}}",
-							"description": "Requerido"
+							"value": "{{nombre_base}}"
 						},
 						{
 							"key": "codigo_perfil",
@@ -1452,30 +1650,25 @@
 					"query": [
 						{
 							"key": "nombre_base",
-							"value": "{{nombre_base}}",
-							"description": "Requerido"
+							"value": "{{nombre_base}}"
 						},
 						{
 							"key": "codigo_perfil",
-							"value": "1",
-							"description": "Código Proveedor"
+							"value": "1"
 						},
 						{
 							"key": "codigo_proveedor",
 							"value": "999999",
-							"description": "CUIT",
 							"disabled": true
 						},
 						{
 							"key": "cuit",
 							"value": "",
-							"description": "Nombre Proveedor",
 							"disabled": true
 						},
 						{
 							"key": "nombre_proveedor",
 							"value": "",
-							"description": "Valores posibles: code-asc code-desc alpha-asc alpha-desc",
 							"disabled": true
 						},
 						{
@@ -1517,7 +1710,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"codigo_cliente\":\"000003\",\r\n\t\"talonario\":6,\r\n\t\"fecha\":\"02/07/2020\",\r\n\t\"codigo_vendedor\":\"1\",\r\n\t\"codigo_condicion\":2,\r\n\t\"codigo_transporte\":\"01\",\r\n\t\"codigo_deposito\":\"1\",\r\n\t\"numero_lista\":1,\r\n\t\"leyenda_1\":\"\",\r\n\t\"leyenda_2\":\"\",\r\n\t\"leyenda_3\":\"\",\r\n\t\"leyenda_4\":\"\",\r\n\t\"leyenda_5\":\"\",\r\n\t\"total\":84.7,\r\n\t\"detalle\":[\r\n\t\t{\r\n\t\t\t\"codigo_articulo\":\"001\",\r\n\t\t\t\"desc_articulo\":\"VEHI - GENERICO 001VV\",\r\n\t\t\t\"precio\":70,\r\n\t\t\t\"cantidad\":1,\r\n\t\t\t\"descuento\":0\r\n\t\t}\r\n\t]\r\n}",
+					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"codigo_cliente\":\"000003\",\r\n\t\"talonario\":6,\r\n\t\"fecha\":\"18/10/2021\",\r\n\t\"codigo_vendedor\":\"1\",\r\n\t\"codigo_condicion\":2,\r\n\t\"codigo_transporte\":\"01\",\r\n\t\"codigo_deposito\":\"1\",\r\n\t\"numero_lista\":1,\r\n\t\"leyenda_1\":\"\",\r\n\t\"leyenda_2\":\"\",\r\n\t\"leyenda_3\":\"\",\r\n\t\"leyenda_4\":\"\",\r\n\t\"leyenda_5\":\"\",\r\n\t\"total\":1500.0,\r\n    \"firma\": \"\",\r\n    \"id_impresora_ip\": 0,\r\n    \"talonario_factura\": 500,\r\n    \"mercado_pago\": 1,\r\n    \"back_urls\": {\r\n        \"failure\": \"http://neartech.com.ar/failure\",\r\n        \"pending\": \"http://neartech.com.ar/pending\",\r\n        \"success\": \"http://neartech.com.ar/success\"\r\n    },\r\n\t\"detalle\":[\r\n\t\t{\r\n\t\t\t\"codigo_articulo\":\"001\",\r\n\t\t\t\"desc_articulo\":\"VEHI - GENERICO 001VV\",\r\n\t\t\t\"precio\": 1239.67,\r\n\t\t\t\"cantidad\":1,\r\n\t\t\t\"descuento\":0\r\n\t\t}\r\n\t]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1576,7 +1769,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"codigo_cliente\":\"000000\",\r\n\t\"talonario\":500,\r\n\t\"tipo_comprobante\": \"FAC\",\r\n    \"numero_comprobante\": \"A0006600000032\",\r\n\t\"fecha\":\"29/10/2020\",\r\n\t\"codigo_vendedor\":\"1\",\r\n\t\"codigo_condicion\":1,\r\n\t\"codigo_transporte\":\"01\",\r\n\t\"codigo_deposito\":\"1\",\r\n\t\"numero_lista\":1,\r\n\t\"leyenda_1\":\"\",\r\n\t\"leyenda_2\":\"\",\r\n\t\"leyenda_3\":\"\",\r\n\t\"leyenda_4\":\"\",\r\n\t\"leyenda_5\":\"\",\r\n\t\"total\":1210.0,\r\n\t\"comprobante_referencia\": \"\",\r\n\t\"detalle\":[\r\n\t\t{\r\n\t\t\t\"codigo_articulo\":\"001\",\r\n\t\t\t\"descripcion\":\"DESCRIPCION LARGA PARA LINEA NUMERO CERO\",\r\n\t\t\t\"precio\":100.0,\r\n\t\t\t\"cantidad\":10.0,\r\n\t\t\t\"descuento\":0.0\r\n\t\t}\r\n\t],\r\n\t\"datos_cliente\": {\r\n\t\t\"nombre_cliente\": \"PEREZ JUAN\",\r\n\t\t\"domicilio\": \"Mitre 12345\",\r\n\t\t\"localidad\": \"SAN RAFAEL\",\r\n\t\t\"codigo_postal\": \"5600\",\r\n\t\t\"codigo_provincia\": \"07\",\r\n\t\t\"e_mail\": \"\",\r\n\t\t\"tipo_documento\": 96,\r\n\t\t\"cuit\": \"123456\",\r\n\t\t\"codigo_categoria_iva\": \"CF\",\r\n\t\t\"telefono\": \"\"\r\n\t},\r\n\t\"cuentas_fondo\": [\r\n\t\t{\r\n\t\t\t\"codigo_cuenta\": 1,\r\n\t\t\t\"importe\":210.0 \r\n\t\t},\r\n\t\t{\r\n\t\t\t\"codigo_cuenta\": 7,\r\n\t\t\t\"importe\":500.0,\r\n\t\t\t\"datos_tarjeta\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"lote\": \"0000\",\r\n\t\t\t\t\t\"cupon\": 100005,\r\n\t\t\t\t\t\"cuotas\": 3,\r\n\t\t\t\t\t\"importe\": 500.0,\r\n\t\t\t\t\t\"nombre_cliente\": \"PEREZ MARIA\",\r\n\t\t\t\t\t\"tipo_documento\": \"DNI\",\r\n\t\t\t\t\t\"numero_documento\": \"123456\",\r\n\t\t\t\t\t\"telefono\": \"\",\r\n\t\t\t\t\t\"vencimiento\": \"062021\",\r\n\t\t\t\t\t\"codigo_autorizacion\": \"6656565\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"codigo_cuenta\": 3,\r\n\t\t\t\"importe\":500.0,\r\n\t\t\t\"datos_cheque\": {\r\n\t\t\t\t\"numero_cheque\": 102030,\r\n\t\t\t\t\"codigo_banco\": \"044\",\r\n\t\t\t\t\"vencimiento\": \"01/08/2020\",\r\n\t\t\t\t\"codigo_postal\": \"5600\",\r\n\t\t\t\t\"sucursal_banco\": 1,\r\n\t\t\t\t\"nombre_cliente\": \"\",\r\n\t\t\t\t\"cuit\": \"\"\r\n\t\t\t}\r\n\t\t}\r\n\t]\r\n}",
+					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"codigo_cliente\":\"000000\",\r\n\t\"talonario\":500,\r\n\t\"tipo_comprobante\": \"FAC\",\r\n    \"numero_comprobante\": \"A0006600000132\",\r\n\t\"fecha\":\"29/10/2020\",\r\n\t\"codigo_vendedor\":\"1\",\r\n\t\"codigo_condicion\":1,\r\n\t\"codigo_transporte\":\"01\",\r\n\t\"codigo_deposito\":\"1\",\r\n\t\"numero_lista\":1,\r\n\t\"leyenda_1\":\"\",\r\n\t\"leyenda_2\":\"\",\r\n\t\"leyenda_3\":\"\",\r\n\t\"leyenda_4\":\"\",\r\n\t\"leyenda_5\":\"\",\r\n\t\"total\":1210.0,\r\n\t\"comprobante_referencia\": \"\",\r\n    \"codigo_asiento\": \" 1\",\r\n\t\"detalle\":[\r\n\t\t{\r\n\t\t\t\"codigo_articulo\":\"001\",\r\n\t\t\t\"descripcion\":\"DESCRIPCION LARGA PARA LINEA NUMERO CERO\",\r\n\t\t\t\"precio\":100.0,\r\n\t\t\t\"cantidad\":10.0,\r\n\t\t\t\"descuento\":0.0\r\n\t\t}\r\n\t],\r\n\t\"datos_cliente\": {\r\n\t\t\"nombre_cliente\": \"PEREZ JUAN\",\r\n\t\t\"domicilio\": \"Mitre 12345\",\r\n\t\t\"localidad\": \"SAN RAFAEL\",\r\n\t\t\"codigo_postal\": \"5600\",\r\n\t\t\"codigo_provincia\": \"07\",\r\n\t\t\"e_mail\": \"\",\r\n\t\t\"tipo_documento\": 96,\r\n\t\t\"cuit\": \"123456\",\r\n\t\t\"codigo_categoria_iva\": \"CF\",\r\n\t\t\"telefono\": \"\"\r\n\t},\r\n\t\"cuentas_fondo\": [\r\n\t\t{\r\n\t\t\t\"codigo_cuenta\": 1,\r\n\t\t\t\"importe\":210.0 \r\n\t\t},\r\n\t\t{\r\n\t\t\t\"codigo_cuenta\": 7,\r\n\t\t\t\"importe\":500.0,\r\n\t\t\t\"datos_tarjeta\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"lote\": \"0000\",\r\n\t\t\t\t\t\"cupon\": 1000105,\r\n\t\t\t\t\t\"cuotas\": 3,\r\n\t\t\t\t\t\"importe\": 500.0,\r\n\t\t\t\t\t\"nombre_cliente\": \"PEREZ MARIA\",\r\n\t\t\t\t\t\"tipo_documento\": \"DNI\",\r\n\t\t\t\t\t\"numero_documento\": \"123456\",\r\n\t\t\t\t\t\"telefono\": \"\",\r\n\t\t\t\t\t\"vencimiento\": \"062021\",\r\n\t\t\t\t\t\"codigo_autorizacion\": \"6656565\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"codigo_cuenta\": 3,\r\n\t\t\t\"importe\":500.0,\r\n\t\t\t\"datos_cheque\": {\r\n\t\t\t\t\"numero_cheque\": 102030,\r\n\t\t\t\t\"codigo_banco\": \"044\",\r\n\t\t\t\t\"vencimiento\": \"01/08/2020\",\r\n\t\t\t\t\"codigo_postal\": \"5600\",\r\n\t\t\t\t\"sucursal_banco\": 1,\r\n\t\t\t\t\"nombre_cliente\": \"\",\r\n\t\t\t\t\"cuit\": \"\"\r\n\t\t\t}\r\n\t\t}\r\n\t]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1604,694 +1797,6 @@
 					]
 				},
 				"description": "Grabar Pedido, Cotización, Remito, Factura o Nota de Crédito\n"
-			},
-			"response": []
-		},
-		{
-			"name": "Grabar Comanda Resto",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "SUPERVISOR",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json; charset=UTF-8",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"fecha\":\"29/04/2020\",\r\n\t\"leyenda_1\":\"\",\r\n\t\"leyenda_2\":\"\",\r\n\t\"leyenda_3\":\"\",\r\n\t\"leyenda_4\":\"\",\r\n\t\"leyenda_5\":\"\",\r\n\t\"notas\": \"\",\r\n\t\"total\": 970.0,\r\n\t\"id_pedido_origen\": 1,\r\n\t\"detalle\":[\r\n\t\t{\r\n\t\t\t\"codigo_articulo\":\"CHP01\",\r\n\t\t\t\"desc_articulo\":\"HUEVO PASCUA 110G\",\r\n\t\t\t\"precio\": 220.0,\r\n\t\t\t\"cantidad\": 2,\r\n\t\t\t\"descuento\":0\r\n\t\t},\r\n\t\t\t\t{\r\n\t\t\t\"codigo_articulo\":\"DEM05\",\r\n\t\t\t\"desc_articulo\":\"DOCE EMPANADA CAPRESE\",\r\n\t\t\t\"precio\": 530.0,\r\n\t\t\t\"cantidad\": 1,\r\n\t\t\t\"descuento\":0\r\n\t\t}\r\n\t],\r\n\t\"pagos\": [\r\n\t\t{\r\n\t\t\t\"id\": \"1234\",\r\n\t\t\t\"metodo\": \"EFECTIVO/TARJETA/MPA/PPA\",\r\n\t\t\t\"total\": 970.0,\r\n\t\t\t\"fecha\": \"\",\r\n\t\t\t\"codigo_autorizacion\": \"\",\r\n\t\t\t\"numero_transaccion\": \"\",\r\n\t\t\t\"cuotas\": 0,\r\n\t\t\t\"importe_cuota\": 0.0,\r\n\t\t\t\"codigo_tarjeta\": \"\",\r\n\t\t\t\"numero_cupon\": \"\"\t\r\n\t\t}\r\n\t],\r\n\t\"datos_cliente\": \r\n\t\t{\r\n\t\t\t\"nombre\": \"Miguel Sandro\",\r\n\t\t\t\"apellido\": \"Lucero\",\r\n\t\t\t\"calle\": \"Balloffet\",\r\n\t\t\t\"numero\": \"140\",\r\n\t\t\t\"piso\": \"1\",\r\n\t\t\t\"departamento\": \"4\",\r\n\t\t\t\"codigo_postal\": \"5600\",\t\t\t\r\n\t\t\t\"localidad\": \"San Rafael\",\t\r\n\t\t\t\"codigo_provincia\": \"04\",\t\t\t\t\t\r\n\t\t\t\"tipo_documento\": 96,\r\n\t\t\t\"cuit\": \"20888999\",\r\n\t\t\t\"codigo_categoria_iva\": \"CF\",\r\n\t\t\t\"e_mail\": \"mlucero@neartech.com.ar\",\t\t\t\r\n\t\t\t\"telefono_1\": \"4436103\",\r\n\t\t\t\"telefono_2\": \"\"\r\n\t\t},\r\n\t\"envio\":\r\n\t\t{\r\n\t\t\t\"costo\": 100.0,\r\n\t\t\t\"calle\": \"\",\r\n\t\t\t\"numero\": \"\",\r\n\t\t\t\"piso\": \"\",\r\n\t\t\t\"departamento\": \"\",\r\n\t\t\t\"localidad\": \"\",\r\n\t\t\t\"codigo_postal\": \"\",\r\n\t\t\t\"codigo_provincia\": \"\",\r\n\t\t\t\"telefono_1\": \"\",\r\n\t\t\t\"telefono_2\": \"\",\r\n\t\t\t\"entrega_lunes\": \"S\",\r\n\t\t\t\"entrega_martes\": \"S\",\r\n\t\t\t\"entrega_miercoles\": \"S\",\r\n\t\t\t\"entrega_jueves\": \"S\",\r\n\t\t\t\"entrega_viernes\": \"S\",\r\n\t\t\t\"entrega_sabado\": \"N\",\r\n\t\t\t\"entrega_domingo\": \"N\",\r\n\t\t\t\"entrega_hora\": \"13:00\"\r\n\t\t}\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://192.168.1.11:3000/comanda?nombre_base={{nombre_base}}",
-					"protocol": "http",
-					"host": [
-						"192",
-						"168",
-						"1",
-						"11"
-					],
-					"port": "3000",
-					"path": [
-						"comanda"
-					],
-					"query": [
-						{
-							"key": "nombre_base",
-							"value": "{{nombre_base}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Grabar Recibo",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "123456",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "MIGUEL",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [
-					{
-						"description": "Requerido",
-						"key": "Content-Type",
-						"type": "text",
-						"value": "application/json; charset=UTF-8"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"codigo_cliente\":\"000003\",\r\n\t\"talonario\":4,\r\n    \"numero_comprobante\":\"X0000100000001\",\r\n\t\"fecha\":\"16/07/2020\",\r\n\t\"codigo_vendedor\":\"1\",\r\n\t\"leyenda\":\"\",\r\n\t\"concepto\":\"\",\r\n\t\"total\":139.45,\r\n\t\"comprobantes\":[\r\n\t\t{\r\n\t\t\t\"tipo_comprobante\":\"FAC\",\r\n\t\t\t\"numero_comprobante\":\"B0000100000859\",\r\n\t\t\t\"vencimiento\":\"01/10/2019\",\r\n\t\t\t\"importe\":339.45\r\n\t\t}\r\n\t],\r\n\t\"cuentas_fondo\": [\r\n\t\t{\r\n\t\t\t\"codigo_cuenta\": 1,\r\n\t\t\t\"importe\":39.45 \r\n\t\t},\r\n\t\t{\r\n\t\t\t\"codigo_cuenta\": 7,\r\n\t\t\t\"importe\":100.0,\r\n\t\t\t\"datos_tarjeta\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"lote\": \"0000\",\r\n\t\t\t\t\t\"cupon\": 100002,\r\n\t\t\t\t\t\"cuotas\": 1,\r\n\t\t\t\t\t\"importe\": 100.0,\r\n\t\t\t\t\t\"nombre_cliente\": \"PEREZ MARIA\",\r\n\t\t\t\t\t\"tipo_documento\": \"DNI\",\r\n\t\t\t\t\t\"numero_documento\": \"123456\",\r\n\t\t\t\t\t\"telefono\": \"\",\r\n\t\t\t\t\t\"vencimiento\": \"062021\",\r\n\t\t\t\t\t\"codigo_autorizacion\": \"6656565\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t]\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://192.168.1.11:3000/recibo?nombre_base={{nombre_base}}",
-					"protocol": "http",
-					"host": [
-						"192",
-						"168",
-						"1",
-						"11"
-					],
-					"port": "3000",
-					"path": [
-						"recibo"
-					],
-					"query": [
-						{
-							"key": "nombre_base",
-							"value": "{{nombre_base}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Grabar Nuevo Cliente",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "123456",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "MIGUEL",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json; charset=UTF-8",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n    \"codigo_cliente\": \"\",\r\n\t\"nombre_cliente\": \"GARCIA ANABEL\",\r\n\t\"domicilio\": \"San Martin 10\",\r\n\t\"localidad\": \"SAN RAFAEL\",\r\n\t\"codigo_postal\": \"5600\",\r\n\t\"codigo_provincia\": \"05\",\r\n\t\"e_mail\": \"agarcia2020@gmail.com\",\r\n\t\"tipo_documento\": 96,\r\n\t\"cuit\": \"20333444\",\r\n\t\"codigo_categoria_iva\": \"CF\",\r\n\t\"telefono\": \"\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://192.168.1.11:3000/cliente?nombre_base={{nombre_base}}",
-					"protocol": "http",
-					"host": [
-						"192",
-						"168",
-						"1",
-						"11"
-					],
-					"port": "3000",
-					"path": [
-						"cliente"
-					],
-					"query": [
-						{
-							"key": "nombre_base",
-							"value": "{{nombre_base}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Grabar Orden Compra",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "123456",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "MIGUEL",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json; charset=UTF-8",
-						"description": "Requerido",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"codigo_proveedor\":\"000001\",\r\n\t\"talonario\":1,\r\n\t\"fecha\":\"03/08/2020\",\r\n\t\"codigo_comprador\":\"ALV\",\r\n\t\"codigo_condicion\":1,\r\n\t\"codigo_transporte\":\"01\",\r\n\t\"codigo_deposito\":\"1\",\r\n\t\"numero_lista\":0,\r\n\t\"leyenda_1\":\"\",\r\n\t\"leyenda_2\":\"\",\r\n\t\"leyenda_3\":\"\",\r\n\t\"leyenda_4\":\"\",\r\n\t\"leyenda_5\":\"\",\r\n\t\"total\":1815.0,\r\n\t\"detalle\":[\r\n\t\t{\r\n\t\t\t\"codigo_articulo\":\"001\",\r\n\t\t\t\"desc_articulo\":\"PRUEBA DESDE API 30 caract.\",\r\n\t\t\t\"desc_adicional\": \"adicional 20 caract.\",\r\n\t\t\t\"observaciones\": \"observación artículo múltiple línea\",\r\n\t\t\t\"titulo_articulo\": \"titulo opcional 50 caract.\",\r\n\t\t\t\"precio\":150,\r\n\t\t\t\"cantidad\":10,\r\n\t\t\t\"descuento\":0\r\n\t\t}\r\n\t]\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://192.168.1.11:3000/orden_compra?nombre_base={{nombre_base}}",
-					"protocol": "http",
-					"host": [
-						"192",
-						"168",
-						"1",
-						"11"
-					],
-					"port": "3000",
-					"path": [
-						"orden_compra"
-					],
-					"query": [
-						{
-							"key": "nombre_base",
-							"value": "{{nombre_base}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Lista de Compras",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var data = JSON.parse(responseBody);",
-							"postman.setGlobalVariable(\"codigo_perfil\",data.codigo_perfil);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "MIGUEL",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "123456",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://192.168.1.11:3000/listas_compra?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}",
-					"protocol": "http",
-					"host": [
-						"192",
-						"168",
-						"1",
-						"11"
-					],
-					"port": "3000",
-					"path": [
-						"listas_compra"
-					],
-					"query": [
-						{
-							"key": "nombre_base",
-							"value": "{{nombre_base}}",
-							"description": "Requerido"
-						},
-						{
-							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Condiciones de Compra",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var data = JSON.parse(responseBody);",
-							"postman.setGlobalVariable(\"codigo_perfil\",data.codigo_perfil);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "MIGUEL",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "123456",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://192.168.1.11:3000/condiciones_compra?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}",
-					"protocol": "http",
-					"host": [
-						"192",
-						"168",
-						"1",
-						"11"
-					],
-					"port": "3000",
-					"path": [
-						"condiciones_compra"
-					],
-					"query": [
-						{
-							"key": "nombre_base",
-							"value": "{{nombre_base}}",
-							"description": "Requerido"
-						},
-						{
-							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Compradores",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var data = JSON.parse(responseBody);",
-							"postman.setGlobalVariable(\"codigo_perfil\",data.codigo_perfil);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "MIGUEL",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "123456",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://192.168.1.11:3000/compradores?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}",
-					"protocol": "http",
-					"host": [
-						"192",
-						"168",
-						"1",
-						"11"
-					],
-					"port": "3000",
-					"path": [
-						"compradores"
-					],
-					"query": [
-						{
-							"key": "nombre_base",
-							"value": "{{nombre_base}}",
-							"description": "Requerido"
-						},
-						{
-							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Talonarios de Compra",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var data = JSON.parse(responseBody);",
-							"postman.setGlobalVariable(\"codigo_perfil\",data.codigo_perfil);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "MIGUEL",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "123456",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://192.168.1.11:3000/talonarios_compra?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&tipo=O",
-					"protocol": "http",
-					"host": [
-						"192",
-						"168",
-						"1",
-						"11"
-					],
-					"port": "3000",
-					"path": [
-						"talonarios_compra"
-					],
-					"query": [
-						{
-							"key": "nombre_base",
-							"value": "{{nombre_base}}",
-							"description": "Requerido"
-						},
-						{
-							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}",
-							"description": "Requerido"
-						},
-						{
-							"key": "tipo",
-							"value": "O"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Provincias Compra",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var data = JSON.parse(responseBody);",
-							"postman.setGlobalVariable(\"codigo_perfil\",data.codigo_perfil);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "MIGUEL",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "123456",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://192.168.1.11:3000/provincias_compra?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}",
-					"protocol": "http",
-					"host": [
-						"192",
-						"168",
-						"1",
-						"11"
-					],
-					"port": "3000",
-					"path": [
-						"provincias_compra"
-					],
-					"query": [
-						{
-							"key": "nombre_base",
-							"value": "{{nombre_base}}",
-							"description": "Requerido"
-						},
-						{
-							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Proveedores",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var data = JSON.parse(responseBody);",
-							"postman.setGlobalVariable(\"codigo_perfil\",data.codigo_perfil);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "MIGUEL",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "123456",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://192.168.1.11:3000/proveedores?nombre_base={{nombre_base}}&codigo_perfil=1",
-					"protocol": "http",
-					"host": [
-						"192",
-						"168",
-						"1",
-						"11"
-					],
-					"port": "3000",
-					"path": [
-						"proveedores"
-					],
-					"query": [
-						{
-							"key": "nombre_base",
-							"value": "{{nombre_base}}",
-							"description": "Requerido"
-						},
-						{
-							"key": "codigo_perfil",
-							"value": "1",
-							"description": "Código Proveedor"
-						},
-						{
-							"key": "codigo_proveedor",
-							"value": "",
-							"description": "CUIT",
-							"disabled": true
-						},
-						{
-							"key": "cuit",
-							"value": "",
-							"description": "Nombre Proveedor",
-							"disabled": true
-						},
-						{
-							"key": "nombre_proveedor",
-							"value": "",
-							"description": "Valores posibles: code-asc, code-desc, alpha-asc y alpha-desc",
-							"disabled": true
-						},
-						{
-							"key": "sort_by",
-							"value": "code-asc",
-							"disabled": true
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Proveedor",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var data = JSON.parse(responseBody);",
-							"postman.setGlobalVariable(\"codigo_perfil\",data.codigo_perfil);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "MIGUEL",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "123456",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://192.168.1.11:3000/proveedor?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&codigo_proveedor=301100",
-					"protocol": "http",
-					"host": [
-						"192",
-						"168",
-						"1",
-						"11"
-					],
-					"port": "3000",
-					"path": [
-						"proveedor"
-					],
-					"query": [
-						{
-							"key": "nombre_base",
-							"value": "{{nombre_base}}"
-						},
-						{
-							"key": "codigo_perfil",
-							"value": "{{codigo_perfil}}"
-						},
-						{
-							"key": "codigo_proveedor",
-							"value": "301100"
-						}
-					]
-				}
 			},
 			"response": []
 		},
@@ -2355,6 +1860,65 @@
 			"response": []
 		},
 		{
+			"name": "Grabar Recibo",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"description": "Requerido",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json; charset=UTF-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"codigo_cliente\":\"000003\",\r\n\t\"talonario\":4,\r\n    \"numero_comprobante\":\"X0000100000001\",\r\n\t\"fecha\":\"16/07/2020\",\r\n\t\"codigo_vendedor\":\"1\",\r\n\t\"leyenda\":\"\",\r\n\t\"concepto\":\"\",\r\n    \"leyenda_1\":\"\",\r\n    \"leyenda_2\":\"\",\r\n    \"leyenda_3\":\"\",\r\n    \"leyenda_4\":\"\",\r\n    \"leyenda_5\":\"\",\r\n    \"firma\":\"\",\r\n\t\"total\":139.45,\r\n\t\"comprobantes\":[\r\n\t\t{\r\n\t\t\t\"tipo_comprobante\":\"FAC\",\r\n\t\t\t\"numero_comprobante\":\"B0000100000859\",\r\n\t\t\t\"vencimiento\":\"01/10/2019\",\r\n\t\t\t\"importe\":339.45\r\n\t\t}\r\n\t],\r\n\t\"cuentas_fondo\": [\r\n\t\t{\r\n\t\t\t\"codigo_cuenta\": 1,\r\n\t\t\t\"importe\":39.45 \r\n\t\t},\r\n\t\t{\r\n\t\t\t\"codigo_cuenta\": 7,\r\n\t\t\t\"importe\":100.0,\r\n\t\t\t\"datos_tarjeta\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"lote\": \"0000\",\r\n\t\t\t\t\t\"cupon\": 100002,\r\n\t\t\t\t\t\"cuotas\": 1,\r\n\t\t\t\t\t\"importe\": 100.0,\r\n\t\t\t\t\t\"nombre_cliente\": \"PEREZ MARIA\",\r\n\t\t\t\t\t\"tipo_documento\": \"DNI\",\r\n\t\t\t\t\t\"numero_documento\": \"123456\",\r\n\t\t\t\t\t\"telefono\": \"\",\r\n\t\t\t\t\t\"vencimiento\": \"062021\",\r\n\t\t\t\t\t\"codigo_autorizacion\": \"6656565\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.1.11:3000/recibo?nombre_base={{nombre_base}}",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"recibo"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Grabar Recibo Manual",
 			"request": {
 				"auth": {
@@ -2383,7 +1947,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"codigo_cliente\":\"000001\",\r\n\t\"talonario\":103,\r\n    \"numero_comprobante\":\"X0001000000042\",\r\n\t\"fecha\":\"18/11/2020\",\r\n\t\"codigo_vendedor\":\"1\",\r\n\t\"leyenda\":\"\",\r\n\t\"concepto\":\"\",\r\n\t\"total\":100.00,\r\n\t\"comprobantes\":[\r\n\t\t{\r\n\t\t\t\"tipo_comprobante\":\"FAC\",\r\n\t\t\t\"numero_comprobante\":\"A0050100000001\",\r\n\t\t\t\"vencimiento\":\"17/12/2020\",\r\n\t\t\t\"importe\":100.00\r\n\t\t}\r\n\t],\r\n\t\"cuentas_fondo\": [\r\n\t\t{\r\n\t\t\t\"codigo_cuenta\": 1,\r\n\t\t\t\"importe\":100.00\r\n\t\t}\r\n\t]\r\n}",
+					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"codigo_cliente\":\"000001\",\r\n\t\"talonario\":103,\r\n    \"numero_comprobante\":\"X0001000000152\",\r\n\t\"fecha\":\"18/11/2020\",\r\n\t\"codigo_vendedor\":\"1\",\r\n\t\"leyenda\":\"\",\r\n\t\"concepto\":\"\",\r\n\t\"total\":100.00,\r\n\t\"comprobantes\":[\r\n\t\t{\r\n\t\t\t\"tipo_comprobante\":\"FAC\",\r\n\t\t\t\"numero_comprobante\":\"A0050100000001\",\r\n\t\t\t\"vencimiento\":\"17/12/2020\",\r\n\t\t\t\"importe\":100.00\r\n\t\t}\r\n\t],\r\n\t\"cuentas_fondo\": [\r\n\t\t{\r\n\t\t\t\"codigo_cuenta\": 1,\r\n\t\t\t\"importe\":50.00\r\n\t\t},\r\n        {\r\n\t\t\t\"codigo_cuenta\": 7,\r\n\t\t\t\"importe\":100.0,\r\n\t\t\t\"datos_tarjeta\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"lote\": \"0000\",\r\n\t\t\t\t\t\"cupon\": 100002,\r\n\t\t\t\t\t\"cuotas\": 1,\r\n\t\t\t\t\t\"importe\": 100.0,\r\n\t\t\t\t\t\"nombre_cliente\": \"PEREZ MARIA\",\r\n\t\t\t\t\t\"tipo_documento\": \"DNI\",\r\n\t\t\t\t\t\"numero_documento\": \"123456\",\r\n\t\t\t\t\t\"telefono\": \"\",\r\n\t\t\t\t\t\"vencimiento\": \"062021\",\r\n\t\t\t\t\t\"codigo_autorizacion\": \"6656565\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t},\r\n        {\r\n\t\t\t\"codigo_cuenta\": 3,\r\n\t\t\t\"importe\":150.0,\r\n\t\t\t\"datos_cheque\": [\r\n                {\r\n                    \"numero_cheque\": 102030,\r\n                    \"codigo_banco\": \"044\",\r\n                    \"vencimiento\": \"01/08/2020\",\r\n                    \"codigo_postal\": \"5600\",\r\n                    \"sucursal_banco\": 1,\r\n                    \"nombre_cliente\": \"\",\r\n                    \"cuit\": \"\",\r\n                    \"importe\":100.0\r\n                },\r\n                {\r\n                    \"numero_cheque\": 10203040,\r\n                    \"codigo_banco\": \"044\",\r\n                    \"vencimiento\": \"01/08/2020\",\r\n                    \"codigo_postal\": \"5600\",\r\n                    \"sucursal_banco\": 1,\r\n                    \"nombre_cliente\": \"\",\r\n                    \"cuit\": \"\",\r\n                    \"importe\":50.0\r\n                }\r\n            ]\r\n\t\t}\r\n\t]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -2520,6 +2084,954 @@
 					"port": "3000",
 					"path": [
 						"comprobante"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Grabar Nuevo Cliente",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=UTF-8",
+						"description": "Requerido",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n    \"codigo_cliente\": \"\",\r\n\t\"nombre_cliente\": \"GARCIA JUAN FRANCISCO\",\r\n\t\"domicilio\": \"San Martin 1111\",\r\n\t\"localidad\": \"SAN RAFAEL\",\r\n\t\"codigo_postal\": \"5600\",\r\n\t\"codigo_provincia\": \"05\",\r\n    \"codigo_zona\": \"01\",\r\n\t\"e_mail\": \"garciajf@gmail.com\",\r\n\t\"tipo_documento\": 96,\r\n\t\"cuit\": \"40333444\",\r\n\t\"codigo_categoria_iva\": \"CF\",\r\n\t\"telefono\": \"\",\r\n    \"campos_adicionales\": [\r\n        {\r\n            \"nombre_campo\": \"NT_PWDWEB\",\r\n            \"valor_campo\": \"102030\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.1.11:3000/cliente?nombre_base={{nombre_base}}",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"cliente"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Grabar Orden Compra",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=UTF-8",
+						"description": "Requerido",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"codigo_proveedor\":\"000001\",\r\n\t\"talonario\":1,\r\n\t\"fecha\":\"03/08/2020\",\r\n\t\"codigo_comprador\":\"ALV\",\r\n\t\"codigo_condicion\":1,\r\n\t\"codigo_transporte\":\"01\",\r\n\t\"codigo_deposito\":\"1\",\r\n\t\"numero_lista\":0,\r\n\t\"leyenda_1\":\"\",\r\n\t\"leyenda_2\":\"\",\r\n\t\"leyenda_3\":\"\",\r\n\t\"leyenda_4\":\"\",\r\n\t\"leyenda_5\":\"\",\r\n\t\"total\":1815.0,\r\n\t\"detalle\":[\r\n\t\t{\r\n\t\t\t\"codigo_articulo\":\"001\",\r\n\t\t\t\"desc_articulo\":\"PRUEBA DESDE API 30 caract.\",\r\n\t\t\t\"desc_adicional\": \"adicional 20 caract.\",\r\n\t\t\t\"observaciones\": \"observación artículo múltiple línea\",\r\n\t\t\t\"titulo_articulo\": \"titulo opcional 50 caract.\",\r\n\t\t\t\"precio\":150,\r\n\t\t\t\"cantidad\":10,\r\n\t\t\t\"descuento\":0\r\n\t\t}\r\n\t]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.1.11:3000/orden_compra?nombre_base={{nombre_base}}",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"orden_compra"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista de Compras",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"codigo_perfil\",data.codigo_perfil);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/listas_compra?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"listas_compra"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						},
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Condiciones de Compra",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"codigo_perfil\",data.codigo_perfil);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/condiciones_compra?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"condiciones_compra"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						},
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Compradores",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"codigo_perfil\",data.codigo_perfil);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/compradores?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"compradores"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						},
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Talonarios de Compra",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"codigo_perfil\",data.codigo_perfil);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/talonarios_compra?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&tipo=O",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"talonarios_compra"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						},
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}"
+						},
+						{
+							"key": "tipo",
+							"value": "O"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Provincias Compra",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"codigo_perfil\",data.codigo_perfil);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/provincias_compra?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"provincias_compra"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						},
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Proveedores",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"codigo_perfil\",data.codigo_perfil);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/proveedores?nombre_base={{nombre_base}}&codigo_perfil=1",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"proveedores"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						},
+						{
+							"key": "codigo_perfil",
+							"value": "1"
+						},
+						{
+							"key": "codigo_proveedor",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "cuit",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "nombre_proveedor",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "sort_by",
+							"value": "code-asc",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Proveedor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"codigo_perfil\",data.codigo_perfil);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/proveedor?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&codigo_proveedor=301100",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"proveedor"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						},
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}"
+						},
+						{
+							"key": "codigo_proveedor",
+							"value": "301100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modelo Asiento",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/modelo_asiento?nombre_base={{nombre_base}}",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"modelo_asiento"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cotizaciones pendientes cliente específico",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/cotizaciones_pendientes?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&codigo_cliente=000003",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"cotizaciones_pendientes"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						},
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}"
+						},
+						{
+							"key": "codigo_cliente",
+							"value": "000003"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Detalle cotizacion pendiente",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/detalle_cotizacion_pendiente?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&talonario=7&numero_comprobante=A0000100000036&numero_lista=1",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"detalle_cotizacion_pendiente"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						},
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}"
+						},
+						{
+							"key": "talonario",
+							"value": "7"
+						},
+						{
+							"key": "numero_comprobante",
+							"value": "A0000100000036"
+						},
+						{
+							"key": "numero_lista",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PDF por Email",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.11:3000/pdf_email?nombre_base={{nombre_base}}&codigo_perfil={{codigo_perfil}}&tipo_comprobante=PED&talonario=6&numero_comprobante= 0000000000334",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"pdf_email"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						},
+						{
+							"key": "codigo_perfil",
+							"value": "{{codigo_perfil}}"
+						},
+						{
+							"key": "tipo_comprobante",
+							"value": "PED"
+						},
+						{
+							"key": "talonario",
+							"value": "6"
+						},
+						{
+							"key": "numero_comprobante",
+							"value": " 0000000000334"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar Cliente Existente",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=UTF-8",
+						"description": "Requerido",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n    \"codigo_cliente\": \"020039\",\r\n\t\"nombre_cliente\": \"GARCIA JUAN FRANCISCO GINES\",\r\n\t\"domicilio\": \"San Martin 1111\",\r\n\t\"localidad\": \"SAN RAFAEL\",\r\n\t\"codigo_postal\": \"5600\",\r\n\t\"codigo_provincia\": \"05\",\r\n    \"codigo_zona\": \"01\",\r\n\t\"e_mail\": \"garciajf2021@gmail.com\",\r\n\t\"tipo_documento\": 96,\r\n\t\"cuit\": \"40333444\",\r\n\t\"codigo_categoria_iva\": \"CF\",\r\n\t\"telefono\": \"\",\r\n    \"campos_adicionales\": [\r\n        {\r\n            \"nombre_campo\": \"NT_PWDWEB\",\r\n            \"valor_campo\": \"888888\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.1.11:3000/cliente?nombre_base={{nombre_base}}",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"cliente"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar PWD Cliente",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=UTF-8",
+						"description": "Requerido",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n    \"codigo_cliente\": \"020039\",\r\n    \"campos_adicionales\": [\r\n        {\r\n            \"nombre_campo\": \"NT_PWDWEB\",\r\n            \"valor_campo\": \"1020304050\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.1.11:3000/cliente?nombre_base={{nombre_base}}",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"cliente"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reset PWD Cliente",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "MIGUEL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=UTF-8",
+						"description": "Requerido",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"codigo_perfil\":1,\r\n    \"cuit\": \"20363497\",\r\n    \"e_mail\": \"mlucero@neartech.com.ar\",\r\n    \"campos_adicionales\": [\r\n        {\r\n            \"nombre_campo\": \"NT_PWDWEB\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.1.11:3000/reset_pwd?nombre_base={{nombre_base}}",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"reset_pwd"
 					],
 					"query": [
 						{
