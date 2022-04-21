@@ -1,5 +1,5 @@
-Pedidos Móviles Preventa - REST API
------------------------------------
+Métodos GET y POST
+------------------
 
 ## Métodos GET
 
