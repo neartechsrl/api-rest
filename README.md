@@ -1,5 +1,5 @@
-Pedidos Móviles - API REST
-==========================
+API REST Neartech
+=================
 
 Se trata de una API de estilo REST que utiliza JSON para la serialización y Basic Auth para la autenticación.
 
