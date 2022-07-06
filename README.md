@@ -15,13 +15,33 @@ Errores de Cliente
 
 Estos son los posibles tipos de errores de cliente en las llamadas a la API
 
-* Enviar JSON inválido resultará en una respuesta `400 Bad Request`.
+* Enviar JSON inválido resultará en una respuesta `400 Bad Request` y alguna de las siguientes dos formas de informar el error.
 
 ```
 HTTP/1.1 400 Bad Request
 Content-Length: 34
 
-{"error": "URI invalid"}
+{
+	"error": "URI inválida o el método /zona no genera ningún registro"
+}
+
+```
+
+```
+HTTP/1.1 400 Bad Request
+Content-Length: 34
+
+{
+    "errores": [
+        {
+            "codigo_error": 3000,
+            "desc_error": "Comprobante Invalido",
+            "detalle_error": "Perfil/Usuario inválido"
+        }
+    ],
+    "uri": "/recibo"
+}
+
 ```
 
 * Enviar campos invalidos resultará en una respuesta `422 Unprocessable Entity`.
