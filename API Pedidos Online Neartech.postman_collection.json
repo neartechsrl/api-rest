@@ -4397,6 +4397,63 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Grabar Artículos Nuevos",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SUPERVISOR",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=UTF-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"codigo_articulo\":\"GO002\",\r\n        \"desc_articulo\":\"ARTICULO GO002\",\r\n        \"desc_adicional\":\"GO002\",\r\n        \"sinonimo\":\"\",\r\n        \"codigo_barra\":\"\",\r\n        \"usa_partida\":0,\r\n        \"usa_escala\":\"N\",\r\n        \"escala_1\":\"\",\r\n        \"escala_2\":\"\",\r\n        \"tipo_articulo\":\"A\",\r\n        \"perfil\":\"A\",\r\n        \"observaciones\": \"Artículo cargado desde postman a GO\",\r\n        \"unidad_medida\": {\r\n            \"unidad_stock\":\"UNI\",\r\n            \"lleva_dum\":0,\r\n            \"unidad_stock_2\":\"\",\r\n            \"equivalencia_stock_2\":0.0,\r\n            \"unidad_ventas\":\"UNI\",\r\n            \"equivalencia_ventas\":1.0,\r\n            \"unidad_compras\":\"UNI\",\r\n            \"equivalencia_compras\":1.0\r\n        },\r\n        \"stock\": {\r\n            \"lleva_stock\": 1,        \r\n            \"stock_minimo\":0.0,\r\n            \"stock_maximo\":0.0,\r\n            \"punto_pedido\":0.0,\r\n            \"descarga_negativo_stock\":0,\r\n            \"descarga_negativo_ventas\":0\r\n        },\r\n        \"ventas\": {\r\n            \"porcentaje_utilidad\":0.0,\r\n            \"porcentaje_comision\":0.0,\r\n            \"porcentaje_bonificacion\":0.0\r\n        },\r\n        \"precios\": [\r\n            {\r\n                \"numero_lista\":1,\r\n                \"precio\":10000.0\r\n            }\r\n        ],\r\n        \"impuestos_ventas\": {\r\n            \"codigo_iva\":1,\r\n            \"codigo_percepcion_iva\":11,\r\n            \"codigo_ii\":21,\r\n            \"importe_ii\":0.0,\r\n            \"codigo_percepcion_ii\":41\r\n        },\r\n        \"impuestos_compras\": {\r\n            \"codigo_iva\":2,\r\n            \"codigo_percepcion_iva\":0,\r\n            \"codigo_ii\":40,\r\n            \"importe_ii\":0.0,\r\n            \"codigo_percepcion_ii\":0\r\n        }\r\n    }\r\n]"
+				},
+				"url": {
+					"raw": "http://192.168.1.11:3000/articulos?nombre_base={{nombre_base}}&codigo_perfil=1",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"11"
+					],
+					"port": "3000",
+					"path": [
+						"articulos"
+					],
+					"query": [
+						{
+							"key": "nombre_base",
+							"value": "{{nombre_base}}"
+						},
+						{
+							"key": "codigo_perfil",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"auth": {

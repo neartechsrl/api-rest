@@ -368,6 +368,8 @@ Respuesta Servidor
 
 #### POST /articulo
 
+Grabar artículo individual
+
 | Parámetros     | Explicación|
 | -------------- | ---------- |
 | nombre_base	 | Nombre base de datos. __REQUERIDO__ |
@@ -431,4 +433,138 @@ Respuesta Servidor
         "codigo_percepcion_ii":0
     }
 }
+```
+
+#### POST /articulos
+
+Grabar array de artículos nuevos.
+
+| Parámetros     | Explicación|
+| -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
+| codigo_perfil	 | Código Pefil. __REQUERIDO__ |
+
+| Controles       | Explicación|
+| ----------------| ---------- |
+| codigo_articulo | Tamaño máximo 15 caracteres. Si existe no se graba |
+| sinonimo	 	  | Tamaño máximo 15 caracteres. Si existe no se graba |
+| codigo_barra	  | Tamaño máximo 40 caracteres. Si existe no se graba |
+
+```json
+[
+	{
+		"codigo_articulo":"GO002",
+		"desc_articulo":"ARTICULO GO002",
+		"desc_adicional":"GO001",
+		"sinonimo":"",
+		"codigo_barra":"",
+		"usa_partida":0,
+		"usa_escala":"N",
+		"escala_1":"",
+		"escala_2":"",
+		"tipo_articulo":"A",
+		"perfil":"A",
+		"observaciones": "Artículo cargado desde postman a GO",
+		"unidad_medida": {
+			"unidad_stock":"UNI",
+			"lleva_dum":0,
+			"unidad_stock_2":"",
+			"equivalencia_stock_2":0.0,
+			"unidad_ventas":"UNI",
+			"equivalencia_ventas":1.0,
+			"unidad_compras":"UNI",
+			"equivalencia_compras":1.0
+		},
+		"stock": {
+			"lleva_stock": 1,        
+			"stock_minimo":0.0,
+			"stock_maximo":0.0,
+			"punto_pedido":0.0,
+			"descarga_negativo_stock":0,
+			"descarga_negativo_ventas":0
+		},
+		"ventas": {
+			"porcentaje_utilidad":0.0,
+			"porcentaje_comision":0.0,
+			"porcentaje_bonificacion":0.0
+		},
+		"precios": [
+			{
+				"numero_lista":1,
+				"precio":10000.0
+			}
+		],
+		"impuestos_ventas": {
+			"codigo_iva":1,
+			"codigo_percepcion_iva":11,
+			"codigo_ii":21,
+			"importe_ii":0.0,
+			"codigo_percepcion_ii":41
+		},
+		"impuestos_compras": {
+			"codigo_iva":2,
+			"codigo_percepcion_iva":0,
+			"codigo_ii":40,
+			"importe_ii":0.0,
+			"codigo_percepcion_ii":0
+		}
+	},
+	{
+		"codigo_articulo":"GO003",
+		"desc_articulo":"ARTICULO GO003",
+		"desc_adicional":"GO003",
+		"sinonimo":"",
+		"codigo_barra":"",
+		"usa_partida":0,
+		"usa_escala":"N",
+		"escala_1":"",
+		"escala_2":"",
+		"tipo_articulo":"A",
+		"perfil":"A",
+		"observaciones": "",
+		"unidad_medida": {
+			"unidad_stock":"UNI",
+			"lleva_dum":0,
+			"unidad_stock_2":"",
+			"equivalencia_stock_2":0.0,
+			"unidad_ventas":"UNI",
+			"equivalencia_ventas":1.0,
+			"unidad_compras":"UNI",
+			"equivalencia_compras":1.0
+		},
+		"stock": {
+			"lleva_stock": 1,        
+			"stock_minimo":0.0,
+			"stock_maximo":0.0,
+			"punto_pedido":0.0,
+			"descarga_negativo_stock":0,
+			"descarga_negativo_ventas":0
+		},
+		"ventas": {
+			"porcentaje_utilidad":0.0,
+			"porcentaje_comision":0.0,
+			"porcentaje_bonificacion":0.0
+		},
+		"precios": [
+			{
+				"numero_lista":1,
+				"precio":10000.0
+			}
+		],
+		"impuestos_ventas": {
+			"codigo_iva":1,
+			"codigo_percepcion_iva":11,
+			"codigo_ii":21,
+			"importe_ii":0.0,
+			"codigo_percepcion_ii":41
+		},
+		"impuestos_compras": {
+			"codigo_iva":2,
+			"codigo_percepcion_iva":0,
+			"codigo_ii":40,
+			"importe_ii":0.0,
+			"codigo_percepcion_ii":0
+		}
+	}
+]
 ```
