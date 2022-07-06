@@ -7,7 +7,7 @@ Sólo JSON
 ---------
 
 Todos los datos se envían y reciben como JSON. En nuestro formato usamos __snake\_case__ para describir las claves de atributos. 
-Esto significa que hay que enviar `Content-Type: application/json; charset=utf-8`. 
+Esto significa que hay que enviar en el encabezado `Content-Type: application/json; charset=utf-8`. 
 Recibirá un código de respuesta `415 Unsupported Media Type` si omite el encabezado `Content-Type`.
 
 Errores de Cliente
@@ -36,6 +36,13 @@ Content-Length: 47
 }
 ```
 
+Posibles respuestas servidor
+
+`HTTP/1.1 415 Unsupported media type`
+`HTTP/1.1 400 Bad Request`
+`HTTP/1.1 200 OK`
+`HTTP/1.1 201 Created`
+
 Paginación
 ----------
 
@@ -59,7 +66,11 @@ Comandos HTTP
 Recursos API
 ------------
 
-* [API](https://github.com/neartechsrl/pedidos-rest/blob/master/api.md)
+* [General](https://github.com/neartechsrl/pedidos-rest/blob/master/general.md)
+* [Ventas](https://github.com/neartechsrl/pedidos-rest/blob/master/ventas.md)
+* [Stock](https://github.com/neartechsrl/pedidos-rest/blob/master/stock.md)
+* [Compras](https://github.com/neartechsrl/pedidos-rest/blob/master/compras.md)
+* [Restô](https://github.com/neartechsrl/pedidos-rest/blob/master/resto.md)
 
 Ayúdenos a hacerlo mejor
 ------------------------
