@@ -11,7 +11,7 @@ Módulo Compras
 
 Consulta de listas de compras.
 
-Ejemplo: `GET /listas_compra?nombre_base=Desarrollo_PlusNT&codigo_perfil=1`
+Ejemplo: `GET /listas_compra?nombre_base=Desarrollo_PlusNT`
 
 ```json
 [
@@ -34,7 +34,7 @@ Ejemplo: `GET /listas_compra?nombre_base=Desarrollo_PlusNT&codigo_perfil=1`
 
 Consulta de condiciones de compra.
 
-Ejemplo: `GET /condiciones_compra?nombre_base=Desarrollo_PlusNT&codigo_perfil=1`
+Ejemplo: `GET /condiciones_compra?nombre_base=Desarrollo_PlusNT`
 
 ```json
 [
@@ -63,7 +63,7 @@ Consulta de compradores
 | -------------- | ---------- |
 | nombre_base	 | Nombre base de datos. __REQUERIDO__ |
 
-Ejemplo: `GET /compradores?nombre_base=Desarrollo_PlusNT&codigo_perfil=1`
+Ejemplo: `GET /compradores?nombre_base=Desarrollo_PlusNT`
 
 ```json
 [
@@ -92,10 +92,9 @@ Consulta de talonarios de compra
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
-| codigo_perfil	 | Código Perfil __REQUERIDO__| 
 | tipo | Tipo Talonario: O = Orden de Compra  __REQUERIDO__ |
 
-Ejemplo: `GET /talonarios_compra?nombre_base=Desarrollo_PlusNT&codigo_perfil=1&tipo=O`
+Ejemplo: `GET /talonarios_compra?nombre_base=Desarrollo_PlusNT&tipo=O`
 
 ```json
 [
@@ -115,7 +114,7 @@ Consulta de provincias.
 | -------------- | ---------- |
 | nombre_base	 | Nombre base de datos. __REQUERIDO__ |
 
-Ejemplo: `GET /provincias_compra?nombre_base=Desarrollo_PlusNT&codigo_perfil=1`
+Ejemplo: `GET /provincias_compra?nombre_base=Desarrollo_PlusNT`
 
 ```json
 [
@@ -227,7 +226,6 @@ Ejemplo: `GET /provincias_compra?nombre_base=Desarrollo_PlusNT&codigo_perfil=1`
 | Parámetros     | Explicación|
 | -------------- | ---------- |
 | nombre_base	 | Nombre base de datos. __REQUERIDO__ |
-| codigo_perfil	 | Código Perfil __REQUERIDO__| 
 | codigo_proveedor | Código Proveedor |
 | cuit | CUIT Proveedor |
 | nombre_proveedor | Nombre Proveedor |
@@ -241,7 +239,7 @@ Ejemplo: `GET /provincias_compra?nombre_base=Desarrollo_PlusNT&codigo_perfil=1`
 | alpha-asc		| Ordenar por nombre ascendente |
 | alpha-desc 	| Ordenar por nombre descendente |
 
-Ejemplo: `GET /proveedores?nombre_base=Desarrollo_PlusNT&codigo_perfil=1`
+Ejemplo: `GET /proveedores?nombre_base=Desarrollo_PlusNT`
 
 ```json
 [
@@ -283,10 +281,9 @@ Consulta proveedor específico
 | Parámetros     | Explicación|
 | -------------- | ---------- |
 | nombre_base	 | Nombre base de datos. __REQUERIDO__ |
-| codigo_perfil	 | Código Perfil __REQUERIDO__| 
 | codigo_proveedor | Código Proveedor __REQUERIDO__| 
 
-Ejemplo: `GET /proveedor?nombre_base=Desarrollo_PlusNT&codigo_perfil=1&codigo_proveedor=999999`
+Ejemplo: `GET /proveedor?nombre_base=Desarrollo_PlusNT&codigo_proveedor=999999`
 
 ```json
 {
@@ -317,7 +314,6 @@ Grabar orden de compra
 
 ```json
 {
-	"codigo_perfil":1,
 	"codigo_proveedor":"000001",
 	"talonario":1,
 	"fecha":"03/08/2020",
@@ -357,7 +353,6 @@ Grabar remito de compra
 
 ```json
 {
-	"codigo_perfil":1,
 	"codigo_proveedor":"000001",
 	"talonario":2,
     "numero_comprobante": "X0000100000007",
@@ -378,6 +373,164 @@ Grabar remito de compra
             "talonario_oc": 1,
             "numero_oc": " 0000100000017",
             "renglon_oc": 1
+		}
+	]
+}
+```
+
+#### POST /factura_compra 
+
+Grabar factura de compra de artículos o conceptos.
+
+| Parámetros     | Explicación|
+| -------------- | ---------- |
+| nombre_base	 | Nombre base de datos. __REQUERIDO__ |
+
+Ejemplo de factura de conceptos
+
+```json
+{
+	"codigo_proveedor": "000001",
+    "tipo_comprobante": "FAC",
+    "numero_comprobante": "A0005500118350",
+    "fecha": "31/10/2024",
+    "fecha_contable": "31/10/2024",
+    "fecha_vencimiento": "10/11/2024",
+	"numero_lista": 0,
+    "codigo_concepto": "",
+    "codigo_deposito": "1",
+    "codigo_comprador": "",
+    "codigo_condicion": 4,
+    "neto": 48140.0,
+    "exento": 0.0,
+    "bonificacion": 0.0,
+    "flete": 0.0,
+    "interes": 0.0,
+    "anticipo": 0.0,
+    "total": 59693.60,
+    "moneda_corriente": 1,
+    "cotizacion": 1.0,
+    "informe_iva": "S",
+    "leyenda": "",
+    "porc_bonificacion": 0.0,
+    "ivas": [
+        {
+            "porcentaje": 21.0,
+            "importe": 10109.40
+        }
+    ],
+    "impuestos": [
+        {
+            "codigo": "51",
+            "valor": 1444.20
+        }
+    ],
+    "motivo": "",
+    "rg_3685_tipo_operacion_compras": "0",
+    "rg_3685_comprobante_compras": "001",
+    "cod_asiento_modelo_cp": "01",
+    "codigo_cuenta": 0.0,
+    "codigo_gasto": "",
+	"leyenda_1":"",
+	"leyenda_2":"",
+	"leyenda_3":"",
+	"leyenda_4":"",
+	"leyenda_5":"",
+    "observaciones": "",
+    "cae": "",
+    "vencimiento_cae": "",
+	"conceptos":[
+		{
+			"codigo_concepto":"BAN",
+			"importe": 48140.0
+		}	
+    ]
+}
+```
+
+Ejemplo de factura de artículos
+
+```json
+{
+	"codigo_proveedor": "000001",
+    "tipo_comprobante": "FAC",
+    "numero_comprobante": "A0000500118350",
+    "fecha": "31/10/2024",
+    "fecha_contable": "31/10/2024",
+    "fecha_vencimiento": "10/11/2024",
+	"numero_lista": 0,
+    "codigo_concepto": "",
+    "codigo_deposito": "1",
+    "codigo_comprador": "",
+    "codigo_condicion": 4,
+    "neto": 48140.0,
+    "exento": 0.0,
+    "bonificacion": 0.0,
+    "flete": 0.0,
+    "interes": 0.0,
+    "anticipo": 0.0,
+    "total": 59693.60,
+    "moneda_corriente": 1,
+    "cotizacion": 1.0,
+    "informe_iva": "S",
+    "leyenda": "",
+    "porc_bonificacion": 0.0,
+    "ivas": [
+        {
+            "porcentaje": 21.0,
+            "importe": 10109.40
+        }
+    ],
+    "impuestos": [
+        {
+            "codigo": "51",
+            "valor": 1444.20
+        }
+    ],
+    "motivo": "",
+    "rg_3685_tipo_operacion_compras": "0",
+    "rg_3685_comprobante_compras": "001",
+    "cod_asiento_modelo_cp": "01",
+    "codigo_cuenta": 0.0,
+    "codigo_gasto": "",
+	"leyenda_1":"",
+	"leyenda_2":"",
+	"leyenda_3":"",
+	"leyenda_4":"",
+	"leyenda_5":"",
+    "observaciones": "",
+    "numero_oc": "",
+    "numero_remito": "",
+    "cae": "",
+    "vencimiento_cae": "",
+	"detalle":[
+		{
+			"codigo_articulo":"TZIVCA02PS",
+			"cantidad": 1.0,
+            "precio": 636200.0,			
+			"descuento": 30.0,
+            "unidad_medida": ""
+		},
+  		{
+			"codigo_articulo":"CSNEXO",
+			"cantidad": 1.0,
+            "precio": 0.0,			
+			"descuento": 0.0,
+            "unidad_medida": ""
+		},
+        {
+			"codigo_articulo":"TZAABMMUPS",
+			"cantidad": 1.0,
+            "precio": 0.0,			
+			"descuento": 0.0,
+            "unidad_medida": ""
+		},
+        {
+			"codigo_articulo":"BCSTOCK",
+			"cantidad": -6.0,
+            "precio": 66200.0,			
+			"descuento": 0.0,
+            "unidad_medida": ""
 		}
 	]
 }
