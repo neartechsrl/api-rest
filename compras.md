@@ -380,7 +380,7 @@ Grabar remito de compra
 
 #### POST /factura_compra 
 
-Grabar factura de compra de artículos o conceptos.
+Grabar factura, nota de débito o nota de crédito de compra de artículos o conceptos.
 
 | Parámetros     | Explicación|
 | -------------- | ---------- |
@@ -401,18 +401,28 @@ Ejemplo de factura de conceptos
     "codigo_deposito": "1",
     "codigo_comprador": "",
     "codigo_condicion": 4,
+    "codigo_clasificador": "",
     "neto": 48140.0,
     "exento": 0.0,
     "bonificacion": 0.0,
-    "flete": 0.0,
-    "interes": 0.0,
-    "anticipo": 0.0,
     "total": 59693.60,
     "moneda_corriente": 1,
     "cotizacion": 1.0,
     "informe_iva": "S",
     "leyenda": "",
     "porc_bonificacion": 0.0,
+    "motivo": "",
+    "rg_3685_tipo_operacion_compras": "0",
+    "rg_3685_comprobante_compras": "001",
+    "cod_asiento_modelo_cp": "01",
+	"leyenda_1":"",
+	"leyenda_2":"",
+	"leyenda_3":"",
+	"leyenda_4":"",
+	"leyenda_5":"",
+    "observaciones": "",
+    "cae": "",
+    "vencimiento_cae": "",
     "ivas": [
         {
             "porcentaje": 21.0,
@@ -425,20 +435,6 @@ Ejemplo de factura de conceptos
             "valor": 1444.20
         }
     ],
-    "motivo": "",
-    "rg_3685_tipo_operacion_compras": "0",
-    "rg_3685_comprobante_compras": "001",
-    "cod_asiento_modelo_cp": "01",
-    "codigo_cuenta": 0.0,
-    "codigo_gasto": "",
-	"leyenda_1":"",
-	"leyenda_2":"",
-	"leyenda_3":"",
-	"leyenda_4":"",
-	"leyenda_5":"",
-    "observaciones": "",
-    "cae": "",
-    "vencimiento_cae": "",
 	"conceptos":[
 		{
 			"codigo_concepto":"BAN",
@@ -463,18 +459,29 @@ Ejemplo de factura de artículos
     "codigo_deposito": "1",
     "codigo_comprador": "",
     "codigo_condicion": 4,
+    "codigo_clasificador": "",
     "neto": 48140.0,
     "exento": 0.0,
     "bonificacion": 0.0,
-    "flete": 0.0,
-    "interes": 0.0,
-    "anticipo": 0.0,
     "total": 59693.60,
     "moneda_corriente": 1,
     "cotizacion": 1.0,
     "informe_iva": "S",
     "leyenda": "",
     "porc_bonificacion": 0.0,
+    "rg_3685_tipo_operacion_compras": "0",
+    "rg_3685_comprobante_compras": "001",
+    "cod_asiento_modelo_cp": "01",
+	"leyenda_1":"",
+	"leyenda_2":"",
+	"leyenda_3":"",
+	"leyenda_4":"",
+	"leyenda_5":"",
+    "observaciones": "",
+    "numero_oc": "",
+    "numero_remito": "",
+    "cae": "",
+    "vencimiento_cae": "",
     "ivas": [
         {
             "porcentaje": 21.0,
@@ -487,50 +494,30 @@ Ejemplo de factura de artículos
             "valor": 1444.20
         }
     ],
-    "motivo": "",
-    "rg_3685_tipo_operacion_compras": "0",
-    "rg_3685_comprobante_compras": "001",
-    "cod_asiento_modelo_cp": "01",
-    "codigo_cuenta": 0.0,
-    "codigo_gasto": "",
-	"leyenda_1":"",
-	"leyenda_2":"",
-	"leyenda_3":"",
-	"leyenda_4":"",
-	"leyenda_5":"",
-    "observaciones": "",
-    "numero_oc": "",
-    "numero_remito": "",
-    "cae": "",
-    "vencimiento_cae": "",
 	"detalle":[
 		{
 			"codigo_articulo":"TZIVCA02PS",
 			"cantidad": 1.0,
             "precio": 636200.0,			
-			"descuento": 30.0,
-            "unidad_medida": ""
+			"descuento": 30.0
 		},
   		{
 			"codigo_articulo":"CSNEXO",
 			"cantidad": 1.0,
             "precio": 0.0,			
-			"descuento": 0.0,
-            "unidad_medida": ""
+			"descuento": 0.0
 		},
         {
 			"codigo_articulo":"TZAABMMUPS",
 			"cantidad": 1.0,
             "precio": 0.0,			
-			"descuento": 0.0,
-            "unidad_medida": ""
+			"descuento": 0.0
 		},
         {
 			"codigo_articulo":"BCSTOCK",
 			"cantidad": -6.0,
             "precio": 66200.0,			
-			"descuento": 0.0,
-            "unidad_medida": ""
+			"descuento": 0.0
 		}
 	]
 }
