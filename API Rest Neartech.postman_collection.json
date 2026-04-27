@@ -4737,6 +4737,38 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "Grabar Orden de Pago",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"codigo_proveedor\": \"AXOFT\",\r\n\t\"talonario\": 12,\r\n    \"numero_comprobante\": \"\",\r\n\t\"fecha\": \"23/04/2026\",\r\n\t\"leyenda\": \"\",\r\n\t\"notas\": \"\",\r\n    \"codigo_clasificador\": \"C1\",\r\n    \"moneda_corriente\": 1,\r\n\t\"cotizacion\": 1.0,\r\n    \"informe_iva\": \"S\",\r\n    \"cuenta_principal\": 0,\r\n\t\"total\": 181500.0,\r\n\t\"comprobantes\":[\r\n\t\t{\r\n\t\t\t\"tipo_comprobante\": \"FAC\",\r\n\t\t\t\"numero_comprobante\": \"A0000100000079\",\r\n\t\t\t\"vencimiento\": \"22/07/2026\",\r\n\t\t\t\"importe\": 181500.0\r\n\t\t}\r\n\t],\r\n    \"retenciones\": [\r\n\t\t{\r\n\t\t\t\"tipo\": \"G\",\r\n\t\t\t\"codigo\": \"01\",\r\n\t\t\t\"importe\": 3000.00,\r\n\t\t\t\"base_calculo\": 150000.00\r\n\t\t}\r\n\t],\r\n    \"cuentas_fondo\": [\r\n\t\t{\r\n\t\t\t\"codigo_cuenta\": 1,\r\n\t\t\t\"importe\": 178500.00\r\n\t\t}\r\n\t]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/orden_pago?nombre_base={{nombre_base}}",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "orden_pago"
+              ],
+              "query": [
+                {
+                  "key": "nombre_base",
+                  "value": "{{nombre_base}}"
+                }
+              ]
+            }
+          },
+          "response": []
         }
       ]
     },
@@ -15741,7 +15773,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n\t\"codigo_perfil\": 1,\r\n\t\"codigo_cliente\": \"000003\",\r\n\t\"talonario\": 206,\r\n\t\"tipo_comprobante\": \"FAC\",\r\n    \"numero_comprobante\": \"\",\r\n\t\"fecha\": \"17/03/2025\",\r\n\t\"codigo_vendedor\": \"1\",\r\n\t\"codigo_condicion\": 2,\r\n\t\"codigo_transporte\": \"01\",\r\n\t\"codigo_deposito\": \"1\",\r\n\t\"numero_lista\": 2,\r\n\t\"leyenda_1\": \"\",\r\n\t\"leyenda_2\": \"\",\r\n\t\"leyenda_3\": \"\",\r\n\t\"leyenda_4\": \"\",\r\n\t\"leyenda_5\": \"\",\r\n\t\"total\": 0.0,\r\n\t\"comprobante_referencia\": \"\",\r\n    \"firma\": \"\",\r\n\t\"detalle\":[\r\n        {\r\n            \"codigo_articulo\": \"001\",\r\n            \"descripcion\": \"\",\r\n            \"cantidad\": 1.0,\r\n            \"precio\": 100.0,\r\n            \"descuento\": 0.0,\r\n            \"talonario_pedido\": 0,\r\n            \"numero_pedido\": \"\",\r\n            \"renglon_pedido\": 0\r\n        },\r\n        {\r\n            \"codigo_articulo\": \"005\",\r\n            \"descripcion\": \"\",\r\n            \"cantidad\": 1.0,\r\n            \"precio\": 100.0,\r\n            \"descuento\": 0.0,\r\n            \"talonario_pedido\": 0,\r\n            \"numero_pedido\": \"\",\r\n            \"renglon_pedido\": 0\r\n        }\r\n\t]\r\n}",
+              "raw": "{\r\n\t\"codigo_perfil\": 1,\r\n\t\"codigo_cliente\": \"000001\",\r\n\t\"talonario\": 501,\r\n\t\"tipo_comprobante\": \"FAC\",\r\n    \"numero_comprobante\": \"A0050100000001\",\r\n\t\"fecha\": \"09/04/2026\",\r\n\t\"codigo_vendedor\": \"1\",\r\n\t\"codigo_condicion\": 2,\r\n\t\"codigo_transporte\": \"01\",\r\n\t\"codigo_deposito\": \"1\",\r\n\t\"numero_lista\": 2,\r\n\t\"leyenda_1\": \"\",\r\n\t\"leyenda_2\": \"\",\r\n\t\"leyenda_3\": \"\",\r\n\t\"leyenda_4\": \"\",\r\n\t\"leyenda_5\": \"\",\r\n\t\"total\": 199.99,\r\n\t\"comprobante_referencia\": \"\",\r\n    \"firma\": \"\",\r\n\t\"detalle\":[\r\n        {\r\n            \"codigo_articulo\": \"001\",\r\n            \"descripcion\": \"\",\r\n            \"cantidad\": 1.0,\r\n            \"precio\": 100.0,\r\n            \"descuento\": 0.0,\r\n            \"talonario_pedido\": 0,\r\n            \"numero_pedido\": \"\",\r\n            \"renglon_pedido\": 0\r\n        },\r\n        {\r\n            \"codigo_articulo\": \"005\",\r\n            \"descripcion\": \"\",\r\n            \"cantidad\": 1.0,\r\n            \"precio\": 100.0,\r\n            \"descuento\": 0.0,\r\n            \"talonario_pedido\": 0,\r\n            \"numero_pedido\": \"\",\r\n            \"renglon_pedido\": 0\r\n        }\r\n\t]\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -17325,13 +17357,13 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{url}}/articulo/010?nombre_base={{nombre_base}}&numero_lista=1",
+              "raw": "{{url}}/articulo/:id?nombre_base={{nombre_base}}",
               "host": [
                 "{{url}}"
               ],
               "path": [
                 "articulo",
-                "010"
+                ":id"
               ],
               "query": [
                 {
@@ -17340,7 +17372,8 @@
                 },
                 {
                   "key": "numero_lista",
-                  "value": "1"
+                  "value": "1",
+                  "disabled": true
                 },
                 {
                   "key": "binary_img",
@@ -17353,6 +17386,13 @@
                   "value": "128",
                   "type": "text",
                   "disabled": true
+                }
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "034",
+                  "description": "Código Artículo"
                 }
               ]
             }
@@ -17600,6 +17640,70 @@
                 {
                   "key": "codigo_perfil",
                   "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Grabar Movimiento Stock - Ingreso con Serie",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"codigo_perfil\":1,\r\n\t\"tipo_comprobante\":\"ENT\",\r\n    \"numero_comprobante\": \"\",\r\n\t\"fecha\":\"17/04/2026\",\r\n\t\"leyenda_1\":\"\",\r\n\t\"leyenda_2\":\"\",\r\n\t\"leyenda_3\":\"\",\r\n\t\"leyenda_4\":\"\",\r\n\t\"leyenda_5\":\"\",\r\n    \"observaciones\": \"\",\r\n    \"id_impresora_ip\": 0,\r\n\t\"detalle\":[\r\n        {\r\n\t\t\t\"codigo_articulo\":\"034\",\r\n\t\t\t\"desc_articulo\":\"\",\r\n\t\t\t\"cantidad\": 2.0,\r\n            \"codigo_deposito\": \"1\",\r\n            \"tipo_movimiento\": \"E\",\r\n            \"series\": [\r\n                {\r\n                    \"numero_serie\": \"03409\",\r\n                    \"numero_partida\": \"\",\r\n                    \"comentario\": \"\"\r\n                },\r\n                {\r\n                    \"numero_serie\": \"03410\",\r\n                    \"numero_partida\": \"\",\r\n                    \"comentario\": \"\"\r\n                }\r\n            ]\r\n\t\t}        \r\n\t]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/movimiento_stock?nombre_base={{nombre_base}}",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "movimiento_stock"
+              ],
+              "query": [
+                {
+                  "key": "nombre_base",
+                  "value": "{{nombre_base}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Grabar Movimiento Stock - Egreso con Serie",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"codigo_perfil\": 1,\r\n\t\"tipo_comprobante\": \"SAL\",\r\n    \"numero_comprobante\": \"\",\r\n\t\"fecha\": \"16/04/2026\",\r\n\t\"leyenda_1\": \"\",\r\n\t\"leyenda_2\": \"\",\r\n\t\"leyenda_3\": \"\",\r\n\t\"leyenda_4\": \"\",\r\n\t\"leyenda_5\": \"\",\r\n    \"observaciones\": \"\",\r\n    \"id_impresora_ip\": 0,\r\n\t\"detalle\":[\r\n        {\r\n\t\t\t\"codigo_articulo\": \"034\",\r\n\t\t\t\"desc_articulo\": \"\",\r\n\t\t\t\"cantidad\": 1,\r\n            \"codigo_deposito\": \"1\",\r\n            \"tipo_movimiento\": \"S\",\r\n            \"series\": [\r\n                {\r\n                    \"numero_serie\": \"03402\"\r\n                }\r\n            ]\r\n\t\t}        \r\n\t]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/movimiento_stock?nombre_base={{nombre_base}}",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "movimiento_stock"
+              ],
+              "query": [
+                {
+                  "key": "nombre_base",
+                  "value": "{{nombre_base}}"
                 }
               ]
             }
@@ -19003,6 +19107,451 @@
           ]
         },
         {
+          "name": "Informes",
+          "item": [
+            {
+              "name": "Informe Weekly Transfer",
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "password",
+                      "value": "astor",
+                      "type": "string"
+                    },
+                    {
+                      "key": "username",
+                      "value": "SUPERVISOR",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/hotel/informe/weekly_transfer?nombre_base={{nombre_base_gorest}}&fecha_desde=01/03/2026&fecha_hasta=31/03/2026",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "hotel",
+                    "informe",
+                    "weekly_transfer"
+                  ],
+                  "query": [
+                    {
+                      "key": "nombre_base",
+                      "value": "{{nombre_base_gorest}}"
+                    },
+                    {
+                      "key": "fecha_desde",
+                      "value": "01/03/2026"
+                    },
+                    {
+                      "key": "fecha_hasta",
+                      "value": "31/03/2026"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Informe Ocupación",
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "password",
+                      "value": "astor",
+                      "type": "string"
+                    },
+                    {
+                      "key": "username",
+                      "value": "SUPERVISOR",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"fecha_desde\": \"06/04/2026\",\r\n    \"fecha_hasta\": \"12/04/2026\",\r\n    \"estado\": \"IN\", // IN OUT\r\n    \"informe\": 1, // 0=General 1=Actual 2=Vencida\r\n    \"clientes\": [\r\n        {\r\n            \"codigo_cliente\": \"892717\"\r\n        }\r\n    ],\r\n    \"unidades_habitacionales\": [\r\n        {\r\n           \"cod_articu\": \"\"\r\n        }\r\n    ]\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/hotel/informe/ocupacion?nombre_base={{nombre_base_gorest}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "hotel",
+                    "informe",
+                    "ocupacion"
+                  ],
+                  "query": [
+                    {
+                      "key": "nombre_base",
+                      "value": "{{nombre_base_gorest}}"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Informe Reservas",
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "password",
+                      "value": "astor",
+                      "type": "string"
+                    },
+                    {
+                      "key": "username",
+                      "value": "SUPERVISOR",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"fecha_desde\": \"06/04/2026\",\r\n    \"fecha_hasta\": \"12/04/2026\",\r\n    \"estado\": \"REN\", // REN REC RIN\r\n    \"informe\": 1, // 0=General 1=Vencida\r\n    \"clientes\": [\r\n        {\r\n            \"codigo_cliente\": \"\"\r\n        }\r\n    ],\r\n    \"unidades_habitacionales\": [\r\n        {\r\n           \"cod_articu\": \"\"\r\n        }\r\n    ]\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/hotel/informe/reserva?nombre_base={{nombre_base_gorest}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "hotel",
+                    "informe",
+                    "reserva"
+                  ],
+                  "query": [
+                    {
+                      "key": "nombre_base",
+                      "value": "{{nombre_base_gorest}}"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Informe Resumen U.H.",
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "password",
+                      "value": "astor",
+                      "type": "string"
+                    },
+                    {
+                      "key": "username",
+                      "value": "SUPERVISOR",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"fecha_desde\": \"01/03/2026 00:00\",\r\n    \"fecha_hasta\": \"10/03/2026 23:59\",\r\n    \"opcion\": 0, // 0=Disponibilidad 1=Ocupación 2=Reservas 3=Ocupación y Reservas 4=Tareas\r\n    \"opcion_agrupar\": 0 // 0=Rubro 1=Tipo U.H.\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/hotel/informe/resumen_unidad_habitacional?nombre_base={{nombre_base_gorest}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "hotel",
+                    "informe",
+                    "resumen_unidad_habitacional"
+                  ],
+                  "query": [
+                    {
+                      "key": "nombre_base",
+                      "value": "{{nombre_base_gorest}}"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Informe Rooming List",
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "password",
+                      "value": "astor",
+                      "type": "string"
+                    },
+                    {
+                      "key": "username",
+                      "value": "SUPERVISOR",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"fecha_desde\": \"01/03/2026 00:00\",\r\n    \"fecha_hasta\": \"15/03/2026 23:59\",\r\n    \"reservas_confirmadas\": 0,\r\n    \"egresos\": 1\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/hotel/informe/rooming_list?nombre_base={{nombre_base_gorest}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "hotel",
+                    "informe",
+                    "rooming_list"
+                  ],
+                  "query": [
+                    {
+                      "key": "nombre_base",
+                      "value": "{{nombre_base_gorest}}"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Informe Novedades",
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "password",
+                      "value": "astor",
+                      "type": "string"
+                    },
+                    {
+                      "key": "username",
+                      "value": "SUPERVISOR",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"fecha_desde\": \"06/04/2026\",\r\n    \"fecha_hasta\": \"12/04/2026\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/hotel/informe/novedades?nombre_base={{nombre_base_gorest}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "hotel",
+                    "informe",
+                    "novedades"
+                  ],
+                  "query": [
+                    {
+                      "key": "nombre_base",
+                      "value": "{{nombre_base_gorest}}"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Informe Porcentaje Reserva Ocupacion",
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "password",
+                      "value": "astor",
+                      "type": "string"
+                    },
+                    {
+                      "key": "username",
+                      "value": "SUPERVISOR",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"fecha_desde\": \"01/04/2026\",\r\n    \"fecha_hasta\": \"13/04/2026\",\r\n    \"opcion\": 0, // 0=Reserva y Ocupacion 1=Reserva 2=Ocupacion\r\n    \"control_checkout\": 0 // 0=NO 1=SI\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/hotel/informe/porcentaje_reserva?nombre_base={{nombre_base_gorest}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "hotel",
+                    "informe",
+                    "porcentaje_reserva"
+                  ],
+                  "query": [
+                    {
+                      "key": "nombre_base",
+                      "value": "{{nombre_base_gorest}}"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Informe Consumos",
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "password",
+                      "value": "astor",
+                      "type": "string"
+                    },
+                    {
+                      "key": "username",
+                      "value": "SUPERVISOR",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"fecha_desde\": \"01/01/2019\",\r\n    \"fecha_hasta\": \"12/04/2026 23:59\",    \r\n    \"articulos\": [\r\n        {\r\n            \"cod_articu\": \"\"\r\n        }\r\n    ],\r\n    \"unidades_habitacionales\": [\r\n        {\r\n           \"cod_articu\": \"104010\"\r\n        }\r\n    ]\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/hotel/informe/consumos?nombre_base={{nombre_base_gorest}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "hotel",
+                    "informe",
+                    "consumos"
+                  ],
+                  "query": [
+                    {
+                      "key": "nombre_base",
+                      "value": "{{nombre_base_gorest}}"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Informe Tareas",
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "password",
+                      "value": "astor",
+                      "type": "string"
+                    },
+                    {
+                      "key": "username",
+                      "value": "SUPERVISOR",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"fecha_desde\": \"01/04/2026 00:00\",\r\n    \"fecha_hasta\": \"30/04/2026 23:59\",    \r\n    \"codigo_evento\": \"\",\r\n    \"unidades_habitacionales\": [\r\n        {\r\n           \"cod_articu\": \"\"\r\n        }\r\n    ]\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/hotel/informe/tareas?nombre_base={{nombre_base_gorest}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "hotel",
+                    "informe",
+                    "tareas"
+                  ],
+                  "query": [
+                    {
+                      "key": "nombre_base",
+                      "value": "{{nombre_base_gorest}}"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
           "name": "Eventos",
           "request": {
             "auth": {
@@ -19831,320 +20380,6 @@
           "response": []
         },
         {
-          "name": "Informe Rooming List",
-          "request": {
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "password",
-                  "value": "astor",
-                  "type": "string"
-                },
-                {
-                  "key": "username",
-                  "value": "SUPERVISOR",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"fecha_desde\": \"01/03/2026 00:00\",\r\n    \"fecha_hasta\": \"15/03/2026 23:59\",\r\n    \"reservas_confirmadas\": 0,\r\n    \"egresos\": 1\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{url}}/hotel/rooming_list?nombre_base={{nombre_base_gorest}}",
-              "host": [
-                "{{url}}"
-              ],
-              "path": [
-                "hotel",
-                "rooming_list"
-              ],
-              "query": [
-                {
-                  "key": "nombre_base",
-                  "value": "{{nombre_base_gorest}}"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Ocupación Actual",
-          "request": {
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "password",
-                  "value": "astor",
-                  "type": "string"
-                },
-                {
-                  "key": "username",
-                  "value": "SUPERVISOR",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{url}}/hotel/ocupacion/actual?nombre_base={{nombre_base_gorest}}",
-              "host": [
-                "{{url}}"
-              ],
-              "path": [
-                "hotel",
-                "ocupacion",
-                "actual"
-              ],
-              "query": [
-                {
-                  "key": "nombre_base",
-                  "value": "{{nombre_base_gorest}}"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Ocupación Vencida",
-          "request": {
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "password",
-                  "value": "astor",
-                  "type": "string"
-                },
-                {
-                  "key": "username",
-                  "value": "SUPERVISOR",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{url}}/hotel/ocupacion/vencida?nombre_base={{nombre_base_gorest}}",
-              "host": [
-                "{{url}}"
-              ],
-              "path": [
-                "hotel",
-                "ocupacion",
-                "vencida"
-              ],
-              "query": [
-                {
-                  "key": "nombre_base",
-                  "value": "{{nombre_base_gorest}}"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Informe Resumen U.H.",
-          "request": {
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "password",
-                  "value": "astor",
-                  "type": "string"
-                },
-                {
-                  "key": "username",
-                  "value": "SUPERVISOR",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"fecha_desde\": \"01/03/2026 00:00\",\r\n    \"fecha_hasta\": \"10/03/2026 23:59\",\r\n    \"opcion\": 0, // 0=Disponibilidad 1=Ocupación 2=Reservas 3=Ocupación y Reservas 4=Tareas\r\n    \"opcion_agrupar\": 0 // 0=Rubro 1=Tipo U.H.\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{url}}/hotel/resumen_unidad_habitacional?nombre_base={{nombre_base_gorest}}",
-              "host": [
-                "{{url}}"
-              ],
-              "path": [
-                "hotel",
-                "resumen_unidad_habitacional"
-              ],
-              "query": [
-                {
-                  "key": "nombre_base",
-                  "value": "{{nombre_base_gorest}}"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Weekly Transfer",
-          "request": {
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "password",
-                  "value": "astor",
-                  "type": "string"
-                },
-                {
-                  "key": "username",
-                  "value": "SUPERVISOR",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{url}}/hotel/weekly_transfer?nombre_base={{nombre_base_gorest}}&fecha_desde=01/03/2026&fecha_hasta=31/03/2026",
-              "host": [
-                "{{url}}"
-              ],
-              "path": [
-                "hotel",
-                "weekly_transfer"
-              ],
-              "query": [
-                {
-                  "key": "nombre_base",
-                  "value": "{{nombre_base_gorest}}"
-                },
-                {
-                  "key": "fecha_desde",
-                  "value": "01/03/2026"
-                },
-                {
-                  "key": "fecha_hasta",
-                  "value": "31/03/2026"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Informe Reservas",
-          "request": {
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "password",
-                  "value": "astor",
-                  "type": "string"
-                },
-                {
-                  "key": "username",
-                  "value": "SUPERVISOR",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{url}}/hotel/reserva?nombre_base={{nombre_base_gorest}}&fecha_desde=01/03/2026&fecha_hasta=31/03/2026&estado=REC",
-              "host": [
-                "{{url}}"
-              ],
-              "path": [
-                "hotel",
-                "reserva"
-              ],
-              "query": [
-                {
-                  "key": "nombre_base",
-                  "value": "{{nombre_base_gorest}}"
-                },
-                {
-                  "key": "fecha_desde",
-                  "value": "01/03/2026"
-                },
-                {
-                  "key": "fecha_hasta",
-                  "value": "31/03/2026"
-                },
-                {
-                  "key": "estado",
-                  "value": "REC"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Informe Reservas Vencidas",
-          "request": {
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "password",
-                  "value": "astor",
-                  "type": "string"
-                },
-                {
-                  "key": "username",
-                  "value": "SUPERVISOR",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{url}}/hotel/reserva/vencida?nombre_base={{nombre_base_gorest}}",
-              "host": [
-                "{{url}}"
-              ],
-              "path": [
-                "hotel",
-                "reserva",
-                "vencida"
-              ],
-              "query": [
-                {
-                  "key": "nombre_base",
-                  "value": "{{nombre_base_gorest}}"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
           "name": "Grabar Recibo a Cuenta",
           "request": {
             "auth": {
@@ -20930,7 +21165,7 @@
               "variable": [
                 {
                   "key": "id",
-                  "value": "4"
+                  "value": "5200"
                 }
               ]
             }
