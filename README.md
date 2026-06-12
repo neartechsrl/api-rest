@@ -1,14 +1,7 @@
 API REST Neartech
 =================
 
-Se trata de una API de estilo REST que utiliza JSON para la serialización y Basic Auth para la autenticación.
-
-Sólo JSON
----------
-
-Todos los datos se envían y reciben como JSON. En nuestro formato usamos __snake\_case__ para describir las claves de atributos. 
-Esto significa que hay que enviar en el encabezado `Content-Type: application/json; charset=utf-8`. 
-Recibirá un código de respuesta `415 Unsupported Media Type` si omite el encabezado `Content-Type`.
+Con nuestra API usted podrá integrar cualquier sistema con Axoft Tango o nuestros propios sistemas.
 
 Errores de Cliente
 ------------------
@@ -97,9 +90,4 @@ Ayúdenos a hacerlo mejor
 
 Por favor, díganos cómo podemos mejorar la API. Para hablar con nosotros sobre la API, no dude en escribirnos a <mailto:info@neartech.com.ar>.
 
-Visite nuestrá página: [Neartech SRL](http://www.neartech.com.ar)
-
-![alt text](http://neartech.com.ar/wp-content/uploads/2018/10/Neartech-Consulting-Group.png "Neartech SRL")
-
-
-
+Visite nuestrá página: [Neartech SRL](https://www.neartech.com.ar)
